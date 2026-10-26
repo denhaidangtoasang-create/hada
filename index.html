@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HaDa Picks</title>
+<meta name="description" content="Kindness, smart hacks & funny twists. Stuff you see in HaDa videos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+  /* Layout: one phone-width column — hero badge, socials, disclosure note, then a stack of rounded pick buttons */
+  :root {
+    --paper: #f6f8fc;
+    --card: #ffffff;
+    --ink: #17213a;
+    --muted: #5b6684;
+    --line: #dde3ef;
+    --cape: #e2384d;
+    --sky: #2f6fe4;
+    --note: #fff6dc;
+    --note-ink: #6b5410;
+    --display: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+    --body: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0f1424; --card: #182038; --ink: #eef1f8; --muted: #a2abc4;
+      --line: #2a3452; --cape: #ff5d6f; --sky: #6f9dff; --note: #2a2516; --note-ink: #f0d98a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0f1424; --card: #182038; --ink: #eef1f8; --muted: #a2abc4;
+    --line: #2a3452; --cape: #ff5d6f; --sky: #6f9dff; --note: #2a2516; --note-ink: #f0d98a;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 560px;
+    margin: 0 auto;
+    padding-block: 40px 48px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: grid;
+    gap: 22px;
+  }
+
+  header { display: grid; justify-items: center; gap: 10px; text-align: center; }
+  .badge {
+    width: 96px; height: 96px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--cape); color: #fff;
+    font-family: var(--display); font-weight: 800; font-size: 40px; letter-spacing: -0.02em;
+    box-shadow: 0 0 0 5px var(--card), 0 0 0 7px var(--line);
+    transform: rotate(-6deg);
+  }
+  h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 800; font-size: 2.4rem; line-height: 1; }
+  .bio { margin: 0; max-width: 34ch; color: var(--muted); text-wrap: balance; }
+
+  .socials { display: flex; justify-content: center; gap: 12px; }
+  .socials a {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--card); color: var(--ink);
+    border: 1px solid var(--line);
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .socials a:hover { transform: translateY(-2px); border-color: var(--sky); }
+  .socials svg { width: 20px; height: 20px; fill: currentColor; }
+
+  .disclosure {
+    margin: 0;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: var(--note);
+    color: var(--note-ink);
+    font-size: .86rem;
+    text-align: center;
+  }
+
+  .picks { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .pick {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 18px;
+    border-radius: 999px;
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  .pick:hover { transform: translateY(-2px); border-color: var(--cape); box-shadow: 0 6px 18px -10px var(--cape); }
+  .pick .emoji {
+    flex: none; width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 20px;
+    background: var(--paper);
+  }
+  .pick .label { flex: 1; min-width: 0; line-height: 1.3; }
+  .pick .go { flex: none; color: var(--muted); font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+
+  a:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+  footer { text-align: center; color: var(--muted); font-size: .8rem; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <div class="badge" aria-hidden="true">HD</div>
+    <h1>HaDa</h1>
+    <p class="bio">Kindness, smart hacks &amp; funny twists 🦸 Stuff you see in HaDa videos 👇</p>
+  </header>
+
+  <nav class="socials" aria-label="HaDa on social media">
+    <a href="https://www.facebook.com/profile.php?id=61582662811171" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9H17l.5-4h-4V9c0-.6.4-1 1-1z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@hadahero" target="_blank" rel="noopener" aria-label="TikTok">
+      <svg viewBox="0 0 24 24"><path d="M16.5 3c.4 2.3 1.9 3.9 4.2 4.1v3.4c-1.6 0-3-.5-4.2-1.3v6.2c0 3.6-2.8 6.1-6.1 6.1A6 6 0 0 1 4.3 15.4c0-3.6 3.1-6.4 6.9-5.9v3.5c-1.6-.4-3.3.6-3.3 2.4 0 1.4 1.1 2.5 2.5 2.5 1.6 0 2.6-1.1 2.6-2.9V3h3.5z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@HADAHeroOfficial" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15V9l5.8 3-5.8 3z"/></svg>
+    </a>
+  </nav>
+
+  <p class="disclosure">As an Amazon Associate, HaDa earns from qualifying purchases. Links below are affiliate links.</p>
+
+  <ul class="picks">
+    <li><a class="pick" href="https://www.amazon.com/dp/B00WSWGVZQ?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">🧽</span><span class="label">The spin mop from the cleaner video</span><span class="go">Amazon</span></a></li>
+    <li><a class="pick" href="https://www.amazon.com/dp/B07CMMDVYT?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">🧹</span><span class="label">Stand-up broom &amp; dustpan (no bending!)</span><span class="go">Amazon</span></a></li>
+    <li><a class="pick" href="https://www.amazon.com/dp/B09KTG4XVT?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">🪲</span><span class="label">Bug vacuum – catch it, don't squash it</span><span class="go">Amazon</span></a></li>
+    <li><a class="pick" href="https://www.amazon.com/dp/B003E6Z85E?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">🕷️</span><span class="label">Spider catcher – catch &amp; release</span><span class="go">Amazon</span></a></li>
+    <li><a class="pick" href="https://www.amazon.com/dp/B07L598SJ2?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">🪳</span><span class="label">Remote-control cockroach (prank toy)</span><span class="go">Amazon</span></a></li>
+    <li><a class="pick" href="https://www.amazon.com/dp/B085HMLYCB?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">⚡</span><span class="label">Rechargeable fly swatter racket</span><span class="go">Amazon</span></a></li>
+    <li><a class="pick" href="https://www.amazon.com/dp/B000OOWZUK?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">⏰</span><span class="label">Super-loud alarm + bed shaker</span><span class="go">Amazon</span></a></li>
+    <li><a class="pick" href="https://www.amazon.com/dp/B09WMG2GPM?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">📱</span><span class="label">Crossbody phone strap (anti-snatch)</span><span class="go">Amazon</span></a></li>
+    <li><a class="pick" href="https://www.amazon.com/dp/B00OBES33W?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">🍺</span><span class="label">Magnetic bottle opener for the fridge</span><span class="go">Amazon</span></a></li>
+    <li><a class="pick" href="https://www.amazon.com/dp/B08C538NLS?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">😈</span><span class="label">3D bug wall decals – prank your coworker</span><span class="go">Amazon</span></a></li>
+  </ul>
+
+  <footer>HaDa Picks · new picks every week</footer>
+</main>
+</body>
+</html>
