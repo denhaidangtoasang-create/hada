@@ -2,155 +2,432 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HaDa Picks</title>
-<meta name="description" content="Kindness, smart hacks & funny twists. Stuff you see in HaDa videos.">
+<meta name="description" content="Kindness, smart hacks & funny twists. Gear from HaDa videos and books we recommend, with search and filters.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap">
 <style>
-  /* Layout: one phone-width column — hero badge, socials, disclosure note, then a stack of rounded pick buttons */
+  /* Layout: sticky store header with search, slim hero, left filter rail + product grid (rail becomes a toggled panel on phones) */
   :root {
-    --paper: #f6f8fc;
+    --paper: #f4f6fb;
     --card: #ffffff;
-    --ink: #17213a;
-    --muted: #5b6684;
+    --ink: #16203a;
+    --muted: #5a6585;
     --line: #dde3ef;
     --cape: #e2384d;
     --sky: #2f6fe4;
     --note: #fff6dc;
     --note-ink: #6b5410;
+    --shadow: 0 10px 28px -16px rgba(22,32,58,.35);
     --display: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
     --body: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --c-home: #dbe8ff; --c-bugs: #ffe1e5; --c-kitchen: #ffefc9; --c-safety: #d9f3e6; --c-books: #e6defa;
+    color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: #0f1424; --card: #182038; --ink: #eef1f8; --muted: #a2abc4;
-      --line: #2a3452; --cape: #ff5d6f; --sky: #6f9dff; --note: #2a2516; --note-ink: #f0d98a;
+      --paper: #0f1424; --card: #182038; --ink: #eef1f8; --muted: #a2abc4; --line: #2a3452;
+      --cape: #ff5d6f; --sky: #7aa6ff; --note: #2a2516; --note-ink: #f0d98a; --shadow: 0 10px 28px -16px rgba(0,0,0,.8);
+      --c-home: #1f2f55; --c-bugs: #4a2330; --c-kitchen: #4a3a1c; --c-safety: #1b4033; --c-books: #34285c;
       color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
-    --paper: #0f1424; --card: #182038; --ink: #eef1f8; --muted: #a2abc4;
-    --line: #2a3452; --cape: #ff5d6f; --sky: #6f9dff; --note: #2a2516; --note-ink: #f0d98a;
+    --paper: #0f1424; --card: #182038; --ink: #eef1f8; --muted: #a2abc4; --line: #2a3452;
+    --cape: #ff5d6f; --sky: #7aa6ff; --note: #2a2516; --note-ink: #f0d98a; --shadow: 0 10px 28px -16px rgba(0,0,0,.8);
+    --c-home: #1f2f55; --c-bugs: #4a2330; --c-kitchen: #4a3a1c; --c-safety: #1b4033; --c-books: #34285c;
     color-scheme: dark;
   }
-
   * { box-sizing: border-box; }
-  body { margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  .wrap {
-    max-width: 560px;
-    margin: 0 auto;
-    padding-block: 40px 48px;
-    padding-left: max(16px, env(safe-area-inset-left, 0px));
-    padding-right: max(16px, env(safe-area-inset-right, 0px));
-    display: grid;
-    gap: 22px;
-  }
+  [hidden] { display: none !important; }
+  img { max-width: 100%; }
+  html { scroll-padding-top: 90px; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.5 var(--body); }
+  a { color: inherit; }
+  button, input, select { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
 
-  header { display: grid; justify-items: center; gap: 10px; text-align: center; }
-  .badge {
-    width: 96px; height: 96px; border-radius: 50%;
-    display: grid; place-items: center;
-    background: var(--cape); color: #fff;
-    font-family: var(--display); font-weight: 800; font-size: 40px; letter-spacing: -0.02em;
-    box-shadow: 0 0 0 5px var(--card), 0 0 0 7px var(--line);
-    transform: rotate(-6deg);
-  }
-  h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 800; font-size: 2.4rem; line-height: 1; }
-  .bio { margin: 0; max-width: 34ch; color: var(--muted); text-wrap: balance; }
+  .disclosure { background: var(--note); color: var(--note-ink); text-align: center; font-size: .82rem; padding: 8px 16px; }
 
-  .socials { display: flex; justify-content: center; gap: 12px; }
-  .socials a {
-    width: 44px; height: 44px; border-radius: 50%;
-    display: grid; place-items: center;
-    background: var(--card); color: var(--ink);
-    border: 1px solid var(--line);
-    transition: transform .15s ease, border-color .15s ease;
-  }
-  .socials a:hover { transform: translateY(-2px); border-color: var(--sky); }
+  .top { position: sticky; top: 0; z-index: 20; background: var(--card); border-bottom: 1px solid var(--line); }
+  .top-in { max-width: 1180px; margin: 0 auto; padding: 12px 16px; display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .badge { width: 40px; height: 40px; border-radius: 50%; background: var(--cape); color: #fff; display: grid; place-items: center; font: 800 17px var(--display); transform: rotate(-6deg); }
+  .brand b { font: 800 1.45rem/1 var(--display); }
+  .searchbox { position: relative; }
+  .searchbox input { width: 100%; height: 46px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--paper); padding: 0 44px 0 18px; }
+  .searchbox input:focus { border-color: var(--sky); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--sky) 28%, transparent); }
+  .searchbox .clear { position: absolute; right: 8px; top: 7px; width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; font-size: 18px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); font-weight: 700; cursor: pointer; text-decoration: none; white-space: nowrap; }
+  .btn:hover { border-color: var(--sky); }
+  .btn.primary { background: var(--cape); border-color: var(--cape); color: #fff; }
+  .btn.primary:hover { filter: brightness(1.05); }
+  .btn.small { height: 36px; padding: 0 12px; font-size: .88rem; }
+  .count { background: var(--cape); color: #fff; border-radius: 999px; font-size: .75rem; padding: 1px 8px; }
+
+  .nav { max-width: 1180px; margin: 0 auto; padding: 0 16px 10px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: thin; }
+  .chip { flex: none; border: 1.5px solid var(--line); background: var(--card); border-radius: 999px; padding: 6px 14px; font-weight: 700; font-size: .9rem; cursor: pointer; }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .hero { max-width: 1180px; margin: 22px auto 0; padding: 0 16px; }
+  .hero-in { border-radius: 22px; padding: 26px 28px; background: linear-gradient(120deg, var(--cape), #7b3fe4 120%); color: #fff; display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; align-items: center; }
+  .hero h1 { margin: 0 0 4px; font: 800 clamp(1.7rem, 4vw, 2.5rem)/1.05 var(--display); text-wrap: balance; }
+  .hero p { margin: 0; max-width: 52ch; opacity: .95; }
+  .socials { display: flex; gap: 10px; }
+  .socials a { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.18); color: #fff; }
+  .socials a:hover { background: rgba(255,255,255,.3); }
   .socials svg { width: 20px; height: 20px; fill: currentColor; }
 
-  .disclosure {
-    margin: 0;
-    padding: 12px 16px;
-    border-radius: 14px;
-    background: var(--note);
-    color: var(--note-ink);
-    font-size: .86rem;
-    text-align: center;
-  }
+  .shop { max-width: 1180px; margin: 22px auto 0; padding: 0 16px 36px; display: grid; grid-template-columns: 260px 1fr; gap: 22px; align-items: start; }
+  .rail { position: sticky; top: 130px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px; display: grid; gap: 16px; max-height: calc(100vh - 150px); overflow: auto; }
+  .rail h2 { margin: 0 0 8px; font: 800 .78rem var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .rail label.opt { display: flex; align-items: center; gap: 10px; padding: 5px 0; cursor: pointer; font-weight: 600; }
+  .rail label.opt input { width: 18px; height: 18px; accent-color: var(--cape); }
+  .rail label.opt .n { margin-left: auto; color: var(--muted); font-size: .82rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .rail select { width: 100%; height: 42px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--paper); padding: 0 10px; }
+  .tips { font-size: .84rem; color: var(--muted); margin: 0; }
+  .tips code { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 0 5px; }
+  .filter-toggle { display: none; }
 
-  .picks { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-  .pick {
-    display: flex; align-items: center; gap: 14px;
-    padding: 14px 18px;
-    border-radius: 999px;
-    background: var(--card);
-    border: 1.5px solid var(--line);
-    color: var(--ink);
-    text-decoration: none;
-    font-weight: 700;
-    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-  }
-  .pick:hover { transform: translateY(-2px); border-color: var(--cape); box-shadow: 0 6px 18px -10px var(--cape); }
-  .pick .emoji {
-    flex: none; width: 40px; height: 40px; border-radius: 50%;
-    display: grid; place-items: center; font-size: 20px;
-    background: var(--paper);
-  }
-  .pick .label { flex: 1; min-width: 0; line-height: 1.3; }
-  .pick .go { flex: none; color: var(--muted); font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .bar .result { font-weight: 700; }
+  .bar .result span { color: var(--muted); font-weight: 600; }
+  .active { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .active button { border: 0; background: var(--ink); color: var(--paper); border-radius: 999px; padding: 4px 12px; font-size: .84rem; font-weight: 700; cursor: pointer; }
 
-  a:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
-  footer { text-align: center; color: var(--muted); font-size: .8rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--cape); }
+  .art { position: relative; aspect-ratio: 4 / 3; display: grid; place-items: center; font-size: 64px; }
+  .art[data-cat="home"] { background: var(--c-home); } .art[data-cat="bugs"] { background: var(--c-bugs); }
+  .art[data-cat="kitchen"] { background: var(--c-kitchen); } .art[data-cat="safety"] { background: var(--c-safety); }
+  .art[data-cat="books"] { background: var(--c-books); }
+  .tagline { position: absolute; left: 10px; top: 10px; background: var(--card); color: var(--ink); border-radius: 999px; font-size: .72rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; padding: 3px 10px; }
+  .heart { position: absolute; right: 10px; top: 8px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: var(--card); cursor: pointer; font-size: 18px; color: var(--muted); }
+  .heart[aria-pressed="true"] { color: var(--cape); }
+  .body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .cat { font-size: .76rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .body h3 { margin: 0; font: 800 1.12rem/1.2 var(--display); text-wrap: balance; }
+  .by { margin: 0; color: var(--muted); font-size: .9rem; }
+  .blurb { margin: 0; font-size: .92rem; color: var(--muted); flex: 1; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tags button { border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 1px 9px; font-size: .76rem; font-weight: 700; color: var(--muted); cursor: pointer; }
+  .tags button:hover { border-color: var(--sky); color: var(--ink); }
+  .actions { display: flex; gap: 8px; margin-top: 4px; }
+  .actions .btn { flex: 1; justify-content: center; }
 
+  .empty { text-align: center; padding: 48px 16px; background: var(--card); border: 1px dashed var(--line); border-radius: 18px; }
+  .empty h3 { margin: 0 0 6px; font: 800 1.3rem var(--display); }
+
+  .overlay { position: fixed; inset: 0; z-index: 50; background: rgba(10,14,28,.6); display: grid; place-items: center; padding: 16px; }
+  .modal { background: var(--card); border-radius: 22px; max-width: 640px; width: 100%; max-height: 92vh; overflow: auto; display: grid; grid-template-columns: 1fr 1.3fr; }
+  .modal .art { aspect-ratio: auto; min-height: 220px; font-size: 90px; }
+  .modal .info { padding: 22px; display: grid; gap: 10px; align-content: start; position: relative; }
+  .modal h3 { margin: 0; font: 800 1.4rem/1.15 var(--display); }
+  .modal .x { position: absolute; right: 10px; top: 8px; width: 36px; height: 36px; border: 0; background: transparent; font-size: 22px; cursor: pointer; color: var(--muted); }
+  .modal ul { margin: 0; padding-left: 18px; color: var(--muted); }
+  .fine { font-size: .8rem; color: var(--muted); margin: 0; }
+
+  footer { border-top: 1px solid var(--line); background: var(--card); }
+  .foot { max-width: 1180px; margin: 0 auto; padding: 22px 16px 28px; display: grid; gap: 6px; color: var(--muted); font-size: .88rem; }
+  .foot b { color: var(--ink); }
+
+  @media (max-width: 860px) {
+    .top-in { grid-template-columns: 1fr auto; }
+    .searchbox { grid-column: 1 / -1; order: 3; }
+    .shop { grid-template-columns: 1fr; }
+    .rail { position: static; max-height: none; display: none; }
+    .rail.open { display: grid; }
+    .filter-toggle { display: inline-flex; }
+    .modal { grid-template-columns: 1fr; }
+    .modal .art { min-height: 150px; font-size: 70px; }
+    html { scroll-padding-top: 150px; }
+  }
+  @media (max-width: 460px) { .grid { grid-template-columns: 1fr 1fr; gap: 10px; } .art { font-size: 44px; } .actions { flex-direction: column; } .body { padding: 10px 12px 12px; } .body h3 { font-size: 1rem; } .blurb { display: none; } }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
-
 </head>
 <body>
-<main class="wrap">
-  <header>
-    <div class="badge" aria-hidden="true">HD</div>
-    <h1>HaDa</h1>
-    <p class="bio">Kindness, smart hacks &amp; funny twists 🦸 Stuff you see in HaDa videos 👇</p>
-  </header>
 
-  <nav class="socials" aria-label="HaDa on social media">
-    <a href="https://www.facebook.com/profile.php?id=61582662811171" target="_blank" rel="noopener" aria-label="Facebook">
-      <svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9H17l.5-4h-4V9c0-.6.4-1 1-1z"/></svg>
-    </a>
-    <a href="https://www.tiktok.com/@hadahero" target="_blank" rel="noopener" aria-label="TikTok">
-      <svg viewBox="0 0 24 24"><path d="M16.5 3c.4 2.3 1.9 3.9 4.2 4.1v3.4c-1.6 0-3-.5-4.2-1.3v6.2c0 3.6-2.8 6.1-6.1 6.1A6 6 0 0 1 4.3 15.4c0-3.6 3.1-6.4 6.9-5.9v3.5c-1.6-.4-3.3.6-3.3 2.4 0 1.4 1.1 2.5 2.5 2.5 1.6 0 2.6-1.1 2.6-2.9V3h3.5z"/></svg>
-    </a>
-    <a href="https://www.youtube.com/@HADAHeroOfficial" target="_blank" rel="noopener" aria-label="YouTube">
-      <svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15V9l5.8 3-5.8 3z"/></svg>
-    </a>
-  </nav>
+<div class="disclosure">As an Amazon Associate, HaDa earns from qualifying purchases. Every link on this page is an affiliate link. Prices are not shown here; check Amazon for current price and availability.</div>
 
-  <p class="disclosure">As an Amazon Associate, HaDa earns from qualifying purchases. Links below are affiliate links.</p>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#top" aria-label="HaDa Picks home"><span class="badge" aria-hidden="true">HD</span><b>HaDa Picks</b></a>
+    <div class="searchbox">
+      <input id="q" type="search" autocomplete="off" placeholder="Search products, books, authors, topics…" aria-label="Search HaDa Picks">
+      <button class="clear" id="clearq" type="button" aria-label="Clear search" hidden>×</button>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn filter-toggle" id="ftoggle" type="button" aria-expanded="false" aria-controls="rail">Filters</button>
+      <button class="btn" id="savedbtn" type="button" aria-pressed="false">♥ Saved <span class="count" id="savedcount">0</span></button>
+    </div>
+  </div>
+  <nav class="nav" aria-label="Categories" id="catnav"></nav>
+</header>
 
-  <ul class="picks">
-    <li><a class="pick" href="https://www.amazon.com/dp/B00WSWGVZQ?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">🧽</span><span class="label">The spin mop from the cleaner video</span><span class="go">Amazon</span></a></li>
-    <li><a class="pick" href="https://www.amazon.com/dp/B07CMMDVYT?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">🧹</span><span class="label">Stand-up broom &amp; dustpan (no bending!)</span><span class="go">Amazon</span></a></li>
-    <li><a class="pick" href="https://www.amazon.com/dp/B09KTG4XVT?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">🪲</span><span class="label">Bug vacuum – catch it, don't squash it</span><span class="go">Amazon</span></a></li>
-    <li><a class="pick" href="https://www.amazon.com/dp/B003E6Z85E?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">🕷️</span><span class="label">Spider catcher – catch &amp; release</span><span class="go">Amazon</span></a></li>
-    <li><a class="pick" href="https://www.amazon.com/dp/B07L598SJ2?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">🪳</span><span class="label">Remote-control cockroach (prank toy)</span><span class="go">Amazon</span></a></li>
-    <li><a class="pick" href="https://www.amazon.com/dp/B085HMLYCB?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">⚡</span><span class="label">Rechargeable fly swatter racket</span><span class="go">Amazon</span></a></li>
-    <li><a class="pick" href="https://www.amazon.com/dp/B000OOWZUK?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">⏰</span><span class="label">Super-loud alarm + bed shaker</span><span class="go">Amazon</span></a></li>
-    <li><a class="pick" href="https://www.amazon.com/dp/B09WMG2GPM?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">📱</span><span class="label">Crossbody phone strap (anti-snatch)</span><span class="go">Amazon</span></a></li>
-    <li><a class="pick" href="https://www.amazon.com/dp/B00OBES33W?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">🍺</span><span class="label">Magnetic bottle opener for the fridge</span><span class="go">Amazon</span></a></li>
-    <li><a class="pick" href="https://www.amazon.com/dp/B08C538NLS?tag=696969690c33-20" target="_blank" rel="sponsored noopener"><span class="emoji">😈</span><span class="label">3D bug wall decals – prank your coworker</span><span class="go">Amazon</span></a></li>
-  </ul>
+<section class="hero" id="top">
+  <div class="hero-in">
+    <div>
+      <h1>Stuff you spotted in HaDa videos, plus books we love</h1>
+      <p>Kindness, smart hacks and funny twists. Search by keyword, filter by category or theme, and open any pick on Amazon.</p>
+    </div>
+    <nav class="socials" aria-label="HaDa on social media">
+      <a href="https://www.facebook.com/profile.php?id=61582662811171" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9H17l.5-4h-4V9c0-.6.4-1 1-1z"/></svg></a>
+      <a href="https://www.tiktok.com/@hadahero" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.5 3c.4 2.3 1.9 3.9 4.2 4.1v3.4c-1.6 0-3-.5-4.2-1.3v6.2c0 3.6-2.8 6.1-6.1 6.1A6 6 0 0 1 4.3 15.4c0-3.6 3.1-6.4 6.9-5.9v3.5c-1.6-.4-3.3.6-3.3 2.4 0 1.4 1.1 2.5 2.5 2.5 1.6 0 2.6-1.1 2.6-2.9V3h3.5z"/></svg></a>
+      <a href="https://www.youtube.com/@HADAHeroOfficial" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15V9l5.8 3-5.8 3z"/></svg></a>
+    </nav>
+  </div>
+</section>
 
-  <footer>HaDa Picks · new picks every week</footer>
+<main class="shop">
+  <aside class="rail" id="rail" aria-label="Filters">
+    <div>
+      <h2>Format</h2>
+      <div id="f-format"></div>
+    </div>
+    <div>
+      <h2>Category</h2>
+      <div id="f-cat"></div>
+    </div>
+    <div>
+      <h2>Theme</h2>
+      <div id="f-theme"></div>
+    </div>
+    <div>
+      <h2>Sort by</h2>
+      <select id="sort" aria-label="Sort by">
+        <option value="featured">Featured</option>
+        <option value="top">Most purchased</option>
+        <option value="new">Newest first</option>
+        <option value="az">Name A to Z</option>
+        <option value="za">Name Z to A</option>
+      </select>
+    </div>
+    <p class="tips"><b>Search tips.</b> Use quotes for an exact phrase: <code>"spin mop"</code>. Put a minus before a word to leave it out: <code>bug -prank</code>. Try an author, a topic like <code>habits</code>, or a theme like <code>kindness</code>.</p>
+    <button class="btn" id="reset" type="button">Reset all filters</button>
+  </aside>
+
+  <section aria-live="polite">
+    <div class="bar">
+      <div class="result" id="result"></div>
+    </div>
+    <div class="active" id="active"></div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>
+      <h3>No picks match that search</h3>
+      <p>Try fewer words, remove a filter, or clear the search.</p>
+      <button class="btn primary" id="reset2" type="button">Show all picks</button>
+    </div>
+  </section>
 </main>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" id="modal">
+    <div class="art" id="m-art"></div>
+    <div class="info">
+      <button class="x" id="m-close" type="button" aria-label="Close">×</button>
+      <div class="cat" id="m-cat"></div>
+      <h3 id="m-title"></h3>
+      <p class="by" id="m-by"></p>
+      <p id="m-desc" style="margin:0"></p>
+      <ul id="m-points"></ul>
+      <p class="fine" id="m-note"></p>
+      <div class="actions"><a class="btn primary" id="m-buy" target="_blank" rel="sponsored noopener">View on Amazon</a><button class="btn" id="m-save" type="button" aria-pressed="false">♥ Save</button></div>
+      <p class="fine">Affiliate link. HaDa earns a small commission from qualifying purchases at no extra cost to you.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot">
+    <div><b>HaDa Picks</b> · new picks every week</div>
+    <div>As an Amazon Associate I earn from qualifying purchases. Product details are our own summaries; check the Amazon page for current price, availability and full details.</div>
+    <div>Books are English editions. Prank and electric items are for adults; keep them away from children.</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var TAG = "?tag=696969690c33-20";
+  var CATS = { home: "Home & Cleaning", bugs: "Bugs & Pranks", kitchen: "Kitchen", safety: "Safety & Travel", books: "Books" };
+  var THEMES = { kindness: "Kindness", hacks: "Smart hacks", funny: "Funny twists", reads: "Reads" };
+  var P = [
+    { id:"AF-004", asin:"B00WSWGVZQ", cat:"home", fmt:"gear", theme:"kindness", emoji:"🧽", name:"Spin mop and bucket (O-Cedar EasyWring)", blurb:"The foot-pedal spin mop from the cleaner videos. Wring it out without touching the mop head.", points:["Microfiber mop head","Foot-pedal wringer on the bucket","Seen in the cleaner and wet-floor videos"], tags:["mop","floor","cleaning"], added:"2026-10-26" },
+    { id:"AF-003", asin:"B07CMMDVYT", cat:"home", fmt:"gear", theme:"kindness", emoji:"🧹", name:"Stand-up broom and dustpan set", blurb:"A long-handle broom and dustpan that stand up by themselves, so no bending down.", points:["Upright dustpan with long handle","Good for hard floors and tight corners","Seen in the sweeping videos"], tags:["broom","dustpan","cleaning"], added:"2026-10-26" },
+    { id:"AF-015", asin:"B00O47ILVA", cat:"home", fmt:"gear", theme:"kindness", emoji:"🦾", name:"Reacher grabber with suction tips", blurb:"For the top shelf or the dropped item you can't reach. No climbing, no stretching.", points:["Long reach with trigger grip","Suction-cup tips for light items","Not a medical device"], tags:["reacher","grabber","shelf"], added:"2026-10-28" },
+    { id:"AF-006", asin:"B07BLZ3812", cat:"home", fmt:"gear", theme:"hacks", emoji:"🔧", name:"Self-fusing silicone repair tape", blurb:"Wrap it around a leaking pipe for a quick temporary fix while you wait for a plumber.", points:["Sticks to itself, not to the pipe","Quick temporary fix only","Seen in the pipe-repair hack"], tags:["repair","plumbing","tape"], added:"2026-10-25" },
+    { id:"AF-005", asin:"B000OOWZUK", cat:"home", fmt:"gear", theme:"funny", emoji:"⏰", name:"Extra-loud alarm clock with bed shaker", blurb:"For heavy sleepers: a very loud alarm plus a shaker that goes under the mattress.", points:["Loud alarm with vibrating bed shaker","Seen in the wake-up-call videos"], tags:["alarm","sleep","morning"], added:"2026-10-26" },
+    { id:"AF-001", asin:"B09KTG4XVT", cat:"bugs", fmt:"gear", theme:"funny", emoji:"🪲", name:"Handheld bug vacuum catcher", blurb:"Catch the bug, don't squash it. Then let it go outside.", points:["Handheld, battery powered","Catch and release","Seen in the flying-bug video"], tags:["bug","insect","catch and release"], added:"2026-10-26" },
+    { id:"AF-010", asin:"B003E6Z85E", cat:"bugs", fmt:"gear", theme:"kindness", emoji:"🕷️", name:"Spider catcher, catch and release", blurb:"Move a spider outside without touching it. A kinder way to share the house.", points:["Reach without getting close","Catch and release outside"], tags:["spider","catch and release","kind"], added:"2026-10-26" },
+    { id:"AF-009", asin:"B07L598SJ2", cat:"bugs", fmt:"gear", theme:"funny", emoji:"🪳", name:"Remote-control cockroach (prank toy)", blurb:"A toy cockroach you steer with a remote. For harmless pranks on grown-ups who can take a joke.", points:["Remote-control toy","Prank responsibly"], tags:["prank","toy","roach"], added:"2026-10-26" },
+    { id:"AF-011", asin:"B085HMLYCB", cat:"bugs", fmt:"gear", theme:"funny", emoji:"⚡", name:"Rechargeable electric fly swatter racket", blurb:"USB-rechargeable zapper racket for flies and mosquitoes.", points:["USB rechargeable","Keep away from children and pets"], tags:["fly","mosquito","swatter"], added:"2026-10-26" },
+    { id:"AF-012", asin:"B08C538NLS", cat:"bugs", fmt:"gear", theme:"funny", emoji:"😈", name:"3D bug wall decals (prank)", blurb:"Stick-on bugs that look like they're crawling up the wall. Great for pranking a coworker.", points:["Peel-and-stick decals","Seen in the office-prank videos"], tags:["prank","decals","wall"], added:"2026-10-26" },
+    { id:"AF-002", asin:"B00OBES33W", cat:"kitchen", fmt:"gear", theme:"hacks", emoji:"🍺", name:"Magnetic bottle opener for the fridge", blurb:"Sticks to the fridge door and catches the caps, so the opener is always where you left it.", points:["Magnet mount","Cap catcher included"], tags:["bottle opener","fridge","magnet"], added:"2026-10-25" },
+    { id:"AF-008", asin:"B07WDPWF7D", cat:"kitchen", fmt:"gear", theme:"funny", emoji:"🥞", name:"Nonstick pancake pan", blurb:"A flat nonstick pan for pancakes, crepes and the late-night snack someone is about to steal.", points:["Nonstick surface","Seen in the pancake-thief sketch"], tags:["pancake","pan","cooking"], added:"2026-10-25" },
+    { id:"AF-007", asin:"B09WMG2GPM", cat:"safety", fmt:"gear", theme:"hacks", emoji:"📱", name:"Crossbody phone strap (anti-snatch)", blurb:"Wear the phone across your body so a quick grab can't take it.", points:["Adjustable crossbody strap","Seen in the phone-snatch videos"], tags:["phone","strap","safety"], added:"2026-10-26" },
+    { id:"AF-013", asin:"B00186URTY", cat:"safety", fmt:"gear", theme:"hacks", emoji:"🔒", name:"Portable travel door lock (Addalock)", blurb:"A small second lock for hotel and rental doors. It adds a layer; it is not a guarantee.", points:["Fits in a pocket","Good for solo travel"], tags:["travel","door","hotel"], added:"2026-10-27" },
+    { id:"AF-014", asin:"B07PB9Z1ZZ", cat:"safety", fmt:"gear", theme:"funny", emoji:"💡", name:"Motion-sensor night lights (eufy Lumi, 3-pack)", blurb:"Stick-on lights that switch on when you walk by. No more midnight ghosts in the kitchen.", points:["Motion activated","Battery powered, stick anywhere"], tags:["night light","motion","kitchen"], added:"2026-10-27" },
+
+    { id:"BK-001", asin:"0735211299", cat:"books", fmt:"book", theme:"reads", emoji:"📘", name:"Atomic Habits", author:"James Clear", blurb:"How tiny daily changes add up. A practical guide to building good habits and dropping bad ones.", points:["Small habits compound over time","Make the habit easy and obvious","Best for: anyone starting a routine"], tags:["habits","self-improvement","routine"], added:"2026-10-28" },
+    { id:"BK-002", asin:"0857197681", cat:"books", fmt:"book", theme:"reads", emoji:"💰", name:"The Psychology of Money", author:"Morgan Housel", blurb:"Short stories about how people think about money, and why behavior matters more than being clever.", points:["Behavior beats intelligence with money","Leave room for mistakes","Best for: anyone who wants calmer money habits"], tags:["money","finance","mindset"], added:"2026-10-28" },
+    { id:"BK-003", asin:"0374533555", cat:"books", fmt:"book", theme:"reads", emoji:"🧠", name:"Thinking, Fast and Slow", author:"Daniel Kahneman", blurb:"A tour of how quick instinct and slow reasoning shape our judgments and mistakes.", points:["Two modes of thinking","Why we misjudge","Dense but rewarding"], tags:["psychology","thinking","decisions"], added:"2026-10-30" },
+    { id:"BK-004", asin:"0061142662", cat:"books", fmt:"book", theme:"reads", emoji:"🌿", name:"Tao Te Ching", author:"Lao Tzu (Stephen Mitchell translation)", blurb:"81 short chapters on calm, humility and gentle leadership. Easy to read one chapter at a time.", points:["Short chapters","Quiet strength and humility","Many translations exist; this is the Mitchell version"], tags:["philosophy","wisdom","calm"], added:"2026-10-31" },
+    { id:"BK-005", asin:"1250067057", cat:"books", fmt:"book", theme:"reads", emoji:"🎖️", name:"Extreme Ownership", author:"Jocko Willink & Leif Babin", blurb:"Navy SEAL stories turned into leadership lessons: look at your own part first.", points:["Take responsibility first","Keep plans simple, prioritize","Best for: team leads and new managers"], tags:["leadership","teamwork","responsibility"], added:"2026-11-01" },
+    { id:"BK-006", asin:"0761169253", cat:"books", fmt:"book", theme:"reads", emoji:"🎨", name:"Steal Like an Artist", author:"Austin Kleon", blurb:"A short, friendly book on learning from others to find your own creative voice.", points:["Learn how people think, not just how they look","Mix many sources","Best for: anyone starting a creative project"], tags:["creativity","art","ideas"], added:"2026-11-02" }
+  ];
+
+  /* Catalog rule: orders = qualifying Amazon orders reported for the item (update from the Associates report).
+     An item leaves the page when Amazon no longer lists it, or when it has had no orders for 3 months after being added.
+     Until real order counts exist, every item is 0 and "Featured" order (video engagement) decides the ranking. */
+  P.forEach(function (p) { p.orders = p.orders || 0; });
+  var state = { q:"", cats:{}, themes:{}, fmts:{}, sort:"featured", savedOnly:false };
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem("hada-saved") || "{}") || {}; } catch (e) { saved = {}; }
+  function persist() { try { localStorage.setItem("hada-saved", JSON.stringify(saved)); } catch (e) {} }
+
+  var $ = function (id) { return document.getElementById(id); };
+  function url(p) { return "https://www.amazon.com/dp/" + p.asin + TAG; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]; }); }
+
+  function parseQuery(q) {
+    var inc = [], exc = [], m, re = /(-?)"([^"]+)"|(-?)(\S+)/g;
+    while ((m = re.exec(q.toLowerCase()))) {
+      var neg = (m[1] || m[3]) === "-", term = (m[2] || m[4] || "").trim();
+      if (!term) continue;
+      (neg ? exc : inc).push(term);
+    }
+    return { inc: inc, exc: exc };
+  }
+  function haystack(p) {
+    return [p.name, p.author || "", p.blurb, p.tags.join(" "), CATS[p.cat], THEMES[p.theme], p.fmt === "book" ? "book books reading" : "gear product", p.points.join(" ")].join(" ").toLowerCase();
+  }
+  function anyOn(o) { return Object.keys(o).some(function (k) { return o[k]; }); }
+
+  function filtered() {
+    var pq = parseQuery(state.q);
+    var list = P.filter(function (p) {
+      if (anyOn(state.cats) && !state.cats[p.cat]) return false;
+      if (anyOn(state.themes) && !state.themes[p.theme]) return false;
+      if (anyOn(state.fmts) && !state.fmts[p.fmt]) return false;
+      if (state.savedOnly && !saved[p.id]) return false;
+      var h = haystack(p);
+      for (var i = 0; i < pq.inc.length; i++) if (h.indexOf(pq.inc[i]) < 0) return false;
+      for (var j = 0; j < pq.exc.length; j++) if (h.indexOf(pq.exc[j]) >= 0) return false;
+      return true;
+    });
+    if (state.sort === "top") list.sort(function (a, b) { return b.orders - a.orders; });
+    if (state.sort === "new") list.sort(function (a, b) { return a.added < b.added ? 1 : a.added > b.added ? -1 : 0; });
+    if (state.sort === "az") list.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    if (state.sort === "za") list.sort(function (a, b) { return b.name.localeCompare(a.name); });
+    return list;
+  }
+
+  function counts(key, val) { return P.filter(function (p) { return p[key] === val; }).length; }
+
+  function buildRail() {
+    function group(el, key, map, bucket) {
+      $(el).innerHTML = Object.keys(map).map(function (k) {
+        return '<label class="opt"><input type="checkbox" data-bucket="' + bucket + '" value="' + k + '"> ' + esc(map[k]) + '<span class="n">' + counts(key, k) + '</span></label>';
+      }).join("");
+    }
+    group("f-format", "fmt", { gear: "Gear from videos", book: "Books" }, "fmts");
+    group("f-cat", "cat", CATS, "cats");
+    group("f-theme", "theme", THEMES, "themes");
+    $("catnav").innerHTML = '<button class="chip" type="button" data-nav="" aria-pressed="true">All picks</button>' + Object.keys(CATS).map(function (k) {
+      return '<button class="chip" type="button" data-nav="' + k + '" aria-pressed="false">' + esc(CATS[k]) + '</button>';
+    }).join("");
+  }
+
+  function syncControls() {
+    document.querySelectorAll('#rail input[type=checkbox]').forEach(function (c) { c.checked = !!state[c.dataset.bucket][c.value]; });
+    var only = Object.keys(state.cats).filter(function (k) { return state.cats[k]; });
+    document.querySelectorAll("#catnav .chip").forEach(function (b) {
+      var on = b.dataset.nav === "" ? only.length === 0 : (only.length === 1 && only[0] === b.dataset.nav);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    $("q").value = state.q; $("clearq").hidden = !state.q; $("sort").value = state.sort;
+    $("savedbtn").setAttribute("aria-pressed", state.savedOnly ? "true" : "false");
+    $("savedcount").textContent = Object.keys(saved).filter(function (k) { return saved[k]; }).length;
+  }
+
+  function card(p) {
+    var h = '<article class="card"><div class="art" data-cat="' + p.cat + '"><span aria-hidden="true">' + p.emoji + '</span><span class="tagline">' + esc(THEMES[p.theme]) + '</span>' +
+      '<button class="heart" type="button" data-save="' + p.id + '" aria-pressed="' + (saved[p.id] ? "true" : "false") + '" aria-label="Save ' + esc(p.name) + '">' + (saved[p.id] ? "♥" : "♡") + '</button></div>' +
+      '<div class="body"><div class="cat">' + esc(CATS[p.cat]) + '</div><h3>' + esc(p.name) + '</h3>' + (p.author ? '<p class="by">by ' + esc(p.author) + '</p>' : '') +
+      '<p class="blurb">' + esc(p.blurb) + '</p><div class="tags">' + p.tags.slice(0, 3).map(function (t) { return '<button type="button" data-tag="' + esc(t) + '">#' + esc(t) + '</button>'; }).join("") + '</div>' +
+      '<div class="actions"><a class="btn primary small" href="' + url(p) + '" target="_blank" rel="sponsored noopener">View on Amazon</a><button class="btn small" type="button" data-view="' + p.id + '">Quick view</button></div></div></article>';
+    return h;
+  }
+
+  function render() {
+    var list = filtered();
+    $("grid").innerHTML = list.map(card).join("");
+    $("empty").hidden = list.length > 0;
+    $("result").innerHTML = list.length + ' of ' + P.length + ' picks <span>' + (state.q ? '· matching "' + esc(state.q) + '"' : '') + '</span>';
+    var act = [];
+    ["cats", "themes", "fmts"].forEach(function (b) {
+      Object.keys(state[b]).forEach(function (k) {
+        if (state[b][k]) act.push({ b: b, k: k, label: (b === "cats" ? CATS[k] : b === "themes" ? THEMES[k] : (k === "book" ? "Books" : "Gear from videos")) });
+      });
+    });
+    if (state.savedOnly) act.push({ b: "saved", k: "1", label: "Saved only" });
+    $("active").innerHTML = act.map(function (a) { return '<button type="button" data-rm="' + a.b + ':' + a.k + '">' + esc(a.label) + ' ×</button>'; }).join("");
+    syncControls();
+  }
+
+  function resetAll() { state.q = ""; state.cats = {}; state.themes = {}; state.fmts = {}; state.sort = "featured"; state.savedOnly = false; render(); }
+
+  function toggleSave(id) { saved[id] = !saved[id]; if (!saved[id]) delete saved[id]; persist(); render(); if (!$("overlay").hidden) paintSave(id); }
+  function paintSave(id) { var s = !!saved[id]; $("m-save").setAttribute("aria-pressed", s ? "true" : "false"); $("m-save").textContent = s ? "♥ Saved" : "♥ Save"; }
+
+  var openId = null, lastFocus = null;
+  function openView(id) {
+    var p = P.filter(function (x) { return x.id === id; })[0]; if (!p) return;
+    openId = id; lastFocus = document.activeElement;
+    $("m-art").setAttribute("data-cat", p.cat); $("m-art").textContent = p.emoji;
+    $("m-cat").textContent = CATS[p.cat] + " · " + THEMES[p.theme];
+    $("m-title").textContent = p.name; $("m-by").textContent = p.author ? "by " + p.author : ""; $("m-by").hidden = !p.author;
+    $("m-desc").textContent = p.blurb;
+    $("m-points").innerHTML = p.points.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("");
+    $("m-note").textContent = p.fmt === "book" ? "English edition. Our short summary, not a review." : "Our short summary. Check the Amazon page for full details and current price.";
+    $("m-buy").href = url(p); paintSave(id);
+    $("overlay").hidden = false; $("m-close").focus();
+  }
+  function closeView() { $("overlay").hidden = true; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+
+  buildRail(); render();
+
+  $("q").addEventListener("input", function (e) { state.q = e.target.value; render(); $("q").focus(); });
+  $("clearq").addEventListener("click", function () { state.q = ""; render(); $("q").focus(); });
+  $("sort").addEventListener("change", function (e) { state.sort = e.target.value; render(); });
+  $("reset").addEventListener("click", resetAll); $("reset2").addEventListener("click", resetAll);
+  $("savedbtn").addEventListener("click", function () { state.savedOnly = !state.savedOnly; render(); });
+  $("ftoggle").addEventListener("click", function () { var o = $("rail").classList.toggle("open"); $("ftoggle").setAttribute("aria-expanded", o ? "true" : "false"); });
+  $("rail").addEventListener("change", function (e) { var c = e.target; if (c.dataset && c.dataset.bucket) { state[c.dataset.bucket][c.value] = c.checked; render(); } });
+  $("catnav").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-nav]"); if (!b) return;
+    state.cats = {}; if (b.dataset.nav) state.cats[b.dataset.nav] = true; render();
+  });
+  $("active").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-rm]"); if (!b) return;
+    var parts = b.dataset.rm.split(":");
+    if (parts[0] === "saved") state.savedOnly = false; else delete state[parts[0]][parts[1]];
+    render();
+  });
+  $("grid").addEventListener("click", function (e) {
+    var t = e.target.closest("[data-tag]"); if (t) { state.q = t.dataset.tag.indexOf(" ") > 0 ? '"' + t.dataset.tag + '"' : t.dataset.tag; render(); window.scrollTo({ top: 0 }); return; }
+    var s = e.target.closest("[data-save]"); if (s) { toggleSave(s.dataset.save); return; }
+    var v = e.target.closest("[data-view]"); if (v) openView(v.dataset.view);
+  });
+  $("m-save").addEventListener("click", function () { if (openId) toggleSave(openId); });
+  $("m-close").addEventListener("click", closeView);
+  $("overlay").addEventListener("click", function (e) { if (e.target === $("overlay")) closeView(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !$("overlay").hidden) closeView(); });
+})();
+</script>
+
 </body>
 </html>
