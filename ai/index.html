@@ -601,16 +601,16 @@ async function boot(){
  const add=(g,m,x,y,z,p,sh)=>{const o=new THREE.Mesh(g,m);o.position.set(x,y,z);o.castShadow=sh!==false;o.receiveShadow=true;(p||scene).add(o);return o};
  /* ánh sáng */
  scene.add(new THREE.HemisphereLight('#7fb9ff','#1a1230',.9));
- const key=new THREE.DirectionalLight('#ffe1b8',1.6);key.position.set(6,11,5);key.castShadow=!small;key.shadow.mapSize.set(1024,1024);key.shadow.camera.left=-9;key.shadow.camera.right=9;key.shadow.camera.top=9;key.shadow.camera.bottom=-9;key.shadow.bias=-.0008;scene.add(key);
+ const key=new THREE.DirectionalLight('#ffe1b8',1.6);key.position.set(6,11,5);key.castShadow=!small;key.shadow.mapSize.set(1024,1024);key.shadow.camera.left=-9;key.shadow.camera.right=9;key.shadow.camera.top=9;key.shadow.camera.bottom=-9;key.shadow.bias=-.0005;key.shadow.normalBias=.03;key.shadow.radius=3;scene.add(key);
  const fill=new THREE.PointLight('#5ee7ff',14,18,2);fill.position.set(-5,4,-4);scene.add(fill);
  const fill2=new THREE.PointLight('#9b7bff',10,18,2);fill2.position.set(5,3,4);scene.add(fill2);
  /* sàn kính + lưới cyan */
  const gc=document.createElement('canvas');gc.width=gc.height=512;const g=gc.getContext('2d');g.fillStyle='#0a0f1c';g.fillRect(0,0,512,512);g.strokeStyle='rgba(94,231,255,.22)';g.lineWidth=2;for(let i=0;i<=512;i+=64){g.beginPath();g.moveTo(i,0);g.lineTo(i,512);g.stroke();g.beginPath();g.moveTo(0,i);g.lineTo(512,i);g.stroke()}
  const gt=new THREE.CanvasTexture(gc);gt.colorSpace=THREE.SRGBColorSpace;gt.wrapS=gt.wrapT=THREE.RepeatWrapping;gt.repeat.set(3,2.4);
  const FW=12.4,FD=9.2;
- add(new RoundedBoxGeometry(FW,.5,FD,3,.18),M('#0d1424',{roughness:.35,metalness:.2}),0,-.25,0).receiveShadow=true;
- const floor=add(new THREE.PlaneGeometry(FW-.5,FD-.5),M('#0b1020',{map:gt,roughness:.25,metalness:.3}),0,.01,0,null,false);floor.rotation.x=-Math.PI/2;
- const rim=add(new THREE.BoxGeometry(FW+.06,.06,FD+.06),neon('#5ee7ff',.9),0,-.02,0,null,false);rim.material.transparent=true;rim.material.opacity=.55;
+ add(new RoundedBoxGeometry(FW,.5,FD,3,.18),M('#0d1424',{roughness:.35,metalness:.2}),0,-.26,0).receiveShadow=false;
+ const floor=add(new THREE.PlaneGeometry(FW-.5,FD-.5),M('#0b1020',{map:gt,roughness:.25,metalness:.3,polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-1}),0,.03,0,null,false);floor.rotation.x=-Math.PI/2;floor.receiveShadow=true;
+ const rim=add(new THREE.BoxGeometry(FW+.06,.04,FD+.06),neon('#5ee7ff',.9),0,-.09,0,null,false);rim.material.transparent=true;rim.material.opacity=.55;rim.receiveShadow=false;
  /* lõi AI phía sau: trụ phát sáng + vòng xoay */
  const core=new THREE.Group();core.position.set(0,0,-FD/2+.9);scene.add(core);
  add(new THREE.CylinderGeometry(.55,.7,.25,32),M('#141b2e',{metalness:.5,roughness:.3}),0,.12,0,core);
@@ -624,7 +624,7 @@ async function boot(){
  const roleEls=[...document.querySelectorAll('.role')];
  ROLES.forEach((r,i)=>{
   const col=i%3,row=Math.floor(i/3);const x=(col-1)*3.7,z=(row-1)*2.7+.5;
-  const gp=new THREE.Group();gp.position.set(x,0,z);scene.add(gp);
+  const gp=new THREE.Group();gp.position.set(x,.03,z);scene.add(gp);
   add(deskGeo,deskM,0,.74,0,gp);
   [[-.9,-.4],[.9,-.4],[-.9,.4],[.9,.4]].forEach(([lx,lz])=>add(new THREE.BoxGeometry(.07,.72,.07),legM,lx,.36,lz,gp));
   add(new THREE.BoxGeometry(.95,.56,.05),monF,0,1.2,-.28,gp);add(new THREE.BoxGeometry(.08,.22,.08),monF,0,.9,-.28,gp);add(new THREE.BoxGeometry(.4,.03,.2),monF,0,.8,-.26,gp);
@@ -654,7 +654,7 @@ async function boot(){
  /* bàn Đăng (chủ văn phòng) và Chánh văn phòng – như HADA Office */
  const STAFF=[{n:'Đăng · chủ văn phòng',c:'#f0a73a',x:-5.3,z:3.3,hair:'#1c1712',glasses:true},{n:'Chánh văn phòng · điều phối',c:'#9b7bff',x:5.3,z:3.3,hair:'#3a2a1a',glasses:false}];
  const staffTags=[];
- STAFF.forEach(st=>{const gp=new THREE.Group();gp.position.set(st.x,0,st.z);gp.rotation.y=st.x<0?.55:-.55;scene.add(gp);
+ STAFF.forEach(st=>{const gp=new THREE.Group();gp.position.set(st.x,.03,st.z);gp.rotation.y=st.x<0?.55:-.55;scene.add(gp);
   add(new RoundedBoxGeometry(2.2,.1,1,2,.05),M('#2a2238',{roughness:.4,metalness:.2}),0,.74,0,gp);
   [[-1,-.42],[1,-.42],[-1,.42],[1,.42]].forEach(([lx,lz])=>add(new THREE.BoxGeometry(.08,.72,.08),M('#5a4a2a',{metalness:.6,roughness:.35}),lx,.36,lz,gp));
   add(new THREE.BoxGeometry(1.1,.62,.05),monF,0,1.24,-.3,gp);const sc=add(new THREE.PlaneGeometry(.98,.52),new THREE.MeshBasicMaterial({color:new THREE.Color(st.c).multiplyScalar(1.3),toneMapped:false}),0,1.24,-.27,gp,false);
