@@ -48,8 +48,9 @@ main,nav,footer{position:relative;z-index:2}
 .progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--grad);z-index:60}
 
 nav{position:fixed;top:14px;left:0;right:0;z-index:50}
-nav .bar{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px;padding:0 10px 0 20px;border:1px solid var(--line);border-radius:18px;background:rgba(14,12,22,.6);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);transition:background .3s,border-color .3s}
+nav .bar{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px;padding:0 10px 0 10px;border:1px solid var(--line);border-radius:18px;background:rgba(14,12,22,.6);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);transition:background .3s,border-color .3s}
 nav.scrolled .bar{background:rgba(10,9,16,.82);border-color:var(--line2)}
+.homebtn{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex:none;border:1px solid var(--line2);background:var(--glass2);color:var(--ink);transition:background .2s,color .2s,transform .2s}.homebtn:hover{background:var(--ink);color:#0a0810;transform:translateY(-1px)}.brandrow{display:flex;align-items:center;gap:10px}
 .logo{font-weight:900;font-size:21px;letter-spacing:.04em;display:flex;align-items:center;gap:9px}
 .logo b{width:28px;height:28px;border-radius:9px;background:var(--grad);display:grid;place-items:center;font-size:14px;color:#0a0810;box-shadow:0 0 24px #ff4d6d66}
 .menu{display:flex;gap:4px;list-style:none;margin:0;padding:0}
@@ -215,7 +216,7 @@ footer a:hover{color:var(--ink)}
 <div class="cursor" id="cur" aria-hidden="true"></div>
 
 <nav id="nav"><div class="wrap"><div class="bar">
- <a class="logo" href="#top"><b>H</b>HADA</a>
+ <div class="brandrow"><a class="homebtn" href="#top" aria-label="Trang chủ" title="Trang chủ"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></a><a class="logo" href="#top"><b>H</b>HADA</a></div>
  <ul class="menu" id="menu">
   <li><a href="#ve-hada">Về HADA</a></li>
   <li><a href="#kenh">Kênh</a></li>
