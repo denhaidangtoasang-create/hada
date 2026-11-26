@@ -384,7 +384,7 @@
 
 <footer>
   <div class="foot">
-    <div><b>HaDa Picks</b> · new picks every week</div>
+    <div><b>HaDa Picks</b> · new picks every week · part of <a href="/">hadavn.com</a></div>
     <div>As an Amazon Associate I earn from qualifying purchases. Product details are our own summaries; check the Amazon page for current price, availability and full details.</div>
     <div>Books are English editions. Prank and electric items are for adults; keep them away from children.</div>
   </div>
@@ -570,5 +570,20 @@
 })();
 </script>
 
+<script>
+/* futuristic layer: cursor glow, card spotlight + tilt (delegated, survives re-render), particle field */
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches,FINE=matchMedia('(hover:hover) and (pointer:fine)').matches,grid=document.getElementById('grid'),last=null;
+grid.addEventListener('pointermove',function(e){var c=e.target.closest('.card');if(last&&last!==c){last.style.transform=''}last=c;if(!c)return;var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');if(FINE&&!RM)c.style.transform='perspective(900px) rotateY('+((x-.5)*8)+'deg) rotateX('+((.5-y)*8)+'deg) translateY(-4px)'});
+grid.addEventListener('pointerleave',function(){if(last)last.style.transform='';last=null});
+var cur=document.getElementById('cur');if(FINE&&!RM){var cx=innerWidth/2,cy=innerHeight/3,tx=cx,ty=cy;addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY},{passive:true});(function l(){cx+=(tx-cx)*.12;cy+=(ty-cy)*.12;cur.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(l)})()}else cur.style.display='none';
+if(RM)return;var cv=document.getElementById('fx'),x=cv.getContext('2d'),W,H,P=[],dpr=Math.min(2,devicePixelRatio||1);
+function size(){W=cv.width=innerWidth*dpr;H=cv.height=innerHeight*dpr;cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';var n=Math.round(Math.min(70,innerWidth*innerHeight/20000));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25*dpr,vy:(Math.random()-.5)*.25*dpr,r:(Math.random()*1.3+.4)*dpr})}
+size();addEventListener('resize',size);var L=120*dpr;
+(function draw(){requestAnimationFrame(draw);if(document.hidden)return;x.clearRect(0,0,W,H);x.fillStyle='rgba(255,255,255,.5)';
+P.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill()});
+x.lineWidth=dpr*.6;for(var i=0;i<P.length;i++)for(var j=i+1;j<P.length;j++){var a=P[i],b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<L){x.strokeStyle='rgba(255,200,140,'+((1-d/L)*.15)+')';x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}})();
+})();
+</script>
 </body>
 </html>
