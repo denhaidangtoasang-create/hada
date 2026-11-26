@@ -1,71 +1,179 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Sách Mỗi Ngày – Tủ sách</title>
 <meta name="description" content="Tủ sách đã giới thiệu trên kênh Sách Mỗi Ngày – mua nhanh, giá tốt trên Shopee.">
+<meta name="theme-color" content="#07060b">
 <meta property="og:title" content="Sách Mỗi Ngày – Tủ sách"><meta property="og:description" content="Mỗi ngày một cuốn sách hay. Mua nhanh trên Shopee.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#faf6ef;--card:#fff;--ink:#2b2118;--muted:#7a6a58;--accent:#ee4d2d;--line:#eadfcf}
-@media (prefers-color-scheme:dark){:root{--bg:#1b1713;--card:#26201a;--ink:#f3ebe0;--muted:#b3a490;--line:#3a3128}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
-header{text-align:center;padding:28px 16px 8px}header h1{margin:0;font-size:28px}header p{margin:6px 0 0;color:var(--muted)}
-.note{max-width:720px;margin:12px auto;padding:10px 14px;border:1px dashed var(--line);border-radius:10px;font-size:13px;color:var(--muted);text-align:center}
-.social{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 16px}.social a{padding:7px 14px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:14px;background:var(--card)}
-main{max-width:960px;margin:0 auto;padding:8px 16px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
-.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .15s}
-.card:hover{transform:translateY(-3px)}.card img{width:100%;aspect-ratio:1;object-fit:cover;background:#eee}
-.hot{position:absolute;top:8px;left:8px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:3px 8px;border-radius:999px}
-.info{padding:10px 12px 12px;display:flex;flex-direction:column;gap:6px;flex:1}.info h3{font-size:14px;line-height:1.35;margin:0}
-.why{margin:0;font-size:12.5px;color:var(--muted);flex:1}.price{margin:0;color:var(--muted);font-size:13px}
-.btn{background:var(--accent);color:#fff;text-align:center;border-radius:8px;padding:8px;font-weight:600;font-size:14px}
-.more{grid-column:1/-1;text-align:center;margin-top:6px}.more a{display:inline-block;padding:11px 20px;border-radius:10px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600}
-footer{text-align:center;color:var(--muted);font-size:12px;padding:0 16px 30px}
+:root{--bg:#07060b;--bg2:#0e0c16;--glass:rgba(255,255,255,.045);--glass2:rgba(255,255,255,.08);--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.16);--ink:#f5f2ff;--muted:#a49fb8;--dim:#6d6882;--a1:#ffb547;--a2:#ff4d6d;--a3:#8b5cf6;--a4:#22d3ee;--shopee:#ee4d2d;--grad:linear-gradient(100deg,var(--a1),var(--a2) 40%,var(--a3) 75%,var(--a4));--mono:"JetBrains Mono",ui-monospace,monospace;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro",-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.grad{background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 8s linear infinite}
+@keyframes flow{to{background-position:200% 0}}
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none}
+.aurora{position:fixed;inset:-20%;z-index:0;pointer-events:none;filter:blur(90px);opacity:.5}
+.aurora i{position:absolute;border-radius:50%;animation:drift 26s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:46vw;height:46vw;left:4%;top:0;background:#ee4d2d55}
+.aurora i:nth-child(2){width:40vw;height:40vw;right:4%;top:20%;background:#ffb54744;animation-duration:32s}
+.aurora i:nth-child(3){width:36vw;height:36vw;left:36%;top:52%;background:#8b5cf644;animation-duration:24s}
+@keyframes drift{to{transform:translate(6vw,-5vh) scale(1.15)}}
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%);opacity:.5}
+.cursor{position:fixed;left:0;top:0;width:480px;height:480px;margin:-240px 0 0 -240px;border-radius:50%;background:radial-gradient(circle,rgba(238,77,45,.13),rgba(139,92,246,.07) 40%,transparent 70%);pointer-events:none;z-index:1}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--grad);z-index:60}
+nav,main,header,footer,.tools{position:relative;z-index:2}
+nav{position:sticky;top:12px;z-index:50;margin-top:12px}
+nav .bar{display:flex;align-items:center;justify-content:space-between;gap:10px;height:56px;padding:0 8px 0 18px;border:1px solid var(--line);border-radius:18px;background:rgba(14,12,22,.7);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%)}
+.logo{font-weight:900;font-size:19px;display:flex;align-items:center;gap:9px}.logo b{width:28px;height:28px;border-radius:9px;background:var(--grad);display:grid;place-items:center;font-size:14px;color:#0a0810}
+.navl{display:flex;gap:4px}.navl a{padding:8px 13px;border-radius:11px;font-size:14px;color:var(--muted)}.navl a:hover{color:var(--ink);background:var(--glass2)}
+@media (max-width:640px){.navl a.hm{display:none}}
+.hero{padding:70px 0 40px;text-align:center}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--line2);border-radius:999px;background:var(--glass);font-size:13px;color:var(--muted)}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--shopee);box-shadow:0 0 12px var(--shopee)}
+h1{font-size:clamp(40px,8vw,88px);line-height:1.02;letter-spacing:-.035em;font-weight:900;margin:20px 0 16px}
+.lead{color:var(--muted);font-size:clamp(16px,1.8vw,19px);max-width:620px;margin:0 auto 26px}
+.soc{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.soc a{padding:9px 15px;border-radius:12px;border:1px solid var(--line2);background:var(--glass);font-weight:700;font-size:14px;transition:.2s}.soc a:hover{transform:translateY(-2px);border-color:var(--ink)}
+.kpis{display:flex;justify-content:center;gap:34px;margin-top:34px;color:var(--dim);font-size:13px;flex-wrap:wrap}.kpis b{display:block;color:var(--ink);font-size:26px;font-weight:900}
+.tools{position:sticky;top:80px;z-index:40;display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:10px;border:1px solid var(--line);border-radius:18px;background:rgba(14,12,22,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);margin-bottom:22px}
+.search{flex:1;min-width:200px;position:relative}
+.search input{width:100%;height:44px;border-radius:12px;border:1px solid var(--line2);background:rgba(255,255,255,.04);color:var(--ink);font:inherit;padding:0 14px 0 40px}
+.search input:focus{outline:none;border-color:var(--a2);box-shadow:0 0 0 3px #ff4d6d33}
+.search::before{content:"⌕";position:absolute;left:14px;top:9px;font-size:19px;color:var(--dim)}
+.seg{display:flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--glass)}
+.seg button,.sort{border:0;background:transparent;color:var(--muted);font:600 13.5px inherit;font-family:inherit;padding:8px 12px;border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--ink);color:#0a0810}
+.sort{border:1px solid var(--line);height:44px;background:var(--bg2);color:var(--ink)}
+@media (max-width:640px){.tools{position:relative;top:auto}.search{flex-basis:100%}.seg{flex:1}.seg button{flex:1;padding:8px 4px;white-space:nowrap;font-size:12.5px}.sort{flex:none;width:100px;font-size:12.5px}}
+.count{font-family:var(--mono);font-size:12px;color:var(--dim);margin:-8px 0 16px}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+@media (max-width:520px){.shelf{grid-template-columns:1fr 1fr;gap:10px}}
+.book{position:relative;border-radius:22px;padding:1px;background:linear-gradient(160deg,var(--line2),transparent 60%);transition:transform .15s ease-out,opacity .8s,translate .8s}
+.book>*{position:relative}
+.book .cover{border-radius:21px 21px 0 0;overflow:hidden;background:#fff;aspect-ratio:1;position:relative}
+.book .cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.book:hover .cover img{transform:scale(1.06)}
+.book .info{background:var(--bg2);border-radius:0 0 21px 21px;padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;min-height:120px}
+.book h3{margin:0;font-size:15.5px;line-height:1.35;font-weight:700}
+.why{margin:0;font-size:13px;color:var(--muted)}
+.row{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.price{font-size:12.5px;color:var(--muted)}.price b{color:var(--ink);font-size:15px}
+.go{flex:none;padding:7px 12px;border-radius:10px;background:var(--shopee);color:#fff;font-weight:800;font-size:13px;box-shadow:0 8px 24px -8px var(--shopee)}.go i{font-style:normal;display:inline-block;transition:transform .2s}.book:hover .go i{transform:translateX(3px)}
+.bdgs{position:absolute;left:10px;top:10px;display:flex;gap:6px}
+.bdg{font-size:11px;font-weight:800;padding:4px 9px;border-radius:999px;background:rgba(10,9,16,.82);color:#fff;backdrop-filter:blur(6px)}
+.bdg.hot{background:var(--shopee)}.bdg.new{background:var(--a3)}.bdg.en{font-family:var(--mono);background:rgba(10,9,16,.82)}
+.num{position:absolute;right:10px;bottom:8px;font:900 34px/1 "Be Vietnam Pro";color:rgba(255,255,255,.9);text-shadow:0 2px 14px rgba(0,0,0,.6);letter-spacing:-.04em}
+.book::after{content:"";position:absolute;inset:0;border-radius:22px;pointer-events:none;background:radial-gradient(300px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.12),transparent 50%);opacity:0;transition:opacity .3s}
+.book:hover::after{opacity:1}
+@media (max-width:520px){.book .info{padding:10px 12px 12px;min-height:0}.book h3{font-size:14px}.why{display:none}.row{flex-direction:column;align-items:stretch}.go{text-align:center}.num{font-size:26px}}
+.book.hide{display:none}
+.empty{text-align:center;padding:50px 16px;border:1px dashed var(--line2);border-radius:20px;color:var(--muted)}
+.more{position:relative;margin:34px 0 0;border-radius:28px;padding:clamp(34px,6vw,60px) 22px;text-align:center;overflow:hidden;border:1px solid var(--line2);isolation:isolate}
+.more::before{content:"";position:absolute;inset:-50%;z-index:-2;background:conic-gradient(from 0deg,#ee4d2d,#ffb547,#8b5cf6,#22d3ee,#ee4d2d);animation:spin 18s linear infinite;opacity:.35;filter:blur(60px)}
+.more::after{content:"";position:absolute;inset:1px;border-radius:27px;z-index:-1;background:rgba(10,9,16,.86)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.more h2{font-size:clamp(26px,4vw,42px);letter-spacing:-.03em;margin:8px 0 18px;font-weight:900}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:14px;font-weight:800;color:#0a0810;background:var(--grad);background-size:200% 100%;animation:flow 6s linear infinite}
+.note{margin:22px 0 0;font-size:13px;color:var(--dim);text-align:center}
+footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 0 34px;color:var(--dim);font-size:13px}footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}footer a:hover{color:var(--ink)}
+.ld{animation:up 1s cubic-bezier(.2,.7,.2,1) both}.ld.d1{animation-delay:.1s}.ld.d2{animation-delay:.2s}.ld.d3{animation-delay:.3s}
+@keyframes up{from{opacity:0;transform:translateY(30px)}}
+.rv{opacity:0;translate:0 30px;transition:opacity .8s,translate .8s}.book.rv{transition:transform .15s ease-out,opacity .8s,translate .8s}.rv.in{opacity:1;translate:0 0}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;translate:none}#fx,.cursor{display:none}}
+@media (hover:none){.cursor{display:none}}
 </style></head><body>
-<header><h1>📚 Sách Mỗi Ngày</h1><p>Tủ sách đã giới thiệu trên kênh – mỗi ngày một cuốn sách hay</p></header>
-<div class="note">Trang có chứa link tiếp thị liên kết Shopee. Khi bạn mua qua link, kênh nhận một khoản hoa hồng nhỏ, giá bạn trả không đổi. Cảm ơn bạn đã ủng hộ!</div>
-<div class="social"><a href="https://www.youtube.com/@hada.sachmoingay" target="_blank" rel="noopener">▶ YouTube</a><a href="https://www.tiktok.com/@hada.sachmoingay" target="_blank" rel="noopener">♪ TikTok</a><a href="https://www.facebook.com/hada.sachmoingay/" target="_blank" rel="noopener">f Facebook</a></div>
-<main>
-<a class="card" id="Dai-Duong-Xanh" href="https://s.shopee.vn/60TSU9mhBO" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/vn-11134207-81ztc-mpvxfu2dqm8ede" alt="Chiến Lược Đại Dương Xanh" loading="lazy">
-<div class="info"><h3>Chiến Lược Đại Dương Xanh</h3><p class="price">từ 203.150đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Leaders-Eat-Last" href="https://s.shopee.vn/6AmsgSm3qR" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/sg-11134201-7rdxy-lxmb7fd6seru64" alt="Leaders Eat Last – Simon Sinek (bản tiếng Anh)" loading="lazy">
-<div class="info"><h3>Leaders Eat Last – Simon Sinek (bản tiếng Anh)</h3><p class="price">từ 379.200đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Never-Split-The-Difference" href="https://s.shopee.vn/4VeehOsPE8" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mikc279c3wn666" alt="Never Split the Difference – Chris Voss (bản tiếng Anh)" loading="lazy">
-<div class="info"><h3>Never Split the Difference – Chris Voss (bản tiếng Anh)</h3><p class="price">từ 393.000đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Atomic-Habits" href="https://s.shopee.vn/7VIGFV8cvJ" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/sg-11134201-7rbl2-lqmv2tlkx8psa5" alt="Atomic Habits – Thay Đổi Tí Hon" loading="lazy">
-<div class="info"><h3>Atomic Habits – Thay Đổi Tí Hon</h3><p class="price">từ 164.430đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Babylon" href="https://s.shopee.vn/5VXBrpGEyr" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-metgg2u596v842" alt="Người Giàu Có Nhất Thành Babylon" loading="lazy">
-<div class="info"><h3>Người Giàu Có Nhất Thành Babylon</h3><p class="price">từ 72.000đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Cha-Giau-Cha-Ngheo" href="https://s.shopee.vn/7pv6e8OLXF" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/sg-11134201-825ac-mtt4b4i5zm6a82" alt="Dạy Con Làm Giàu – Cha Giàu Cha Nghèo" loading="lazy">
-<div class="info"><h3>Dạy Con Làm Giàu – Cha Giàu Cha Nghèo</h3><p class="price">từ 74.400đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Dac-Nhan-Tam" href="https://s.shopee.vn/5fqc48Fbdu" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/2348436015220c13807ac67446a17601" alt="Đắc Nhân Tâm" loading="lazy">
-<div class="info"><h3>Đắc Nhân Tâm</h3><p class="price">từ 84.800đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Dam-Bi-Ghet" href="https://s.shopee.vn/7Kyq3C9GGG" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/sg-11134201-820m3-mna6lu1zmtxe6b" alt="Dám Bị Ghét" loading="lazy">
-<div class="info"><h3>Dám Bị Ghét</h3><p class="price">từ 83.300đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Deep-Work" href="https://s.shopee.vn/7VIGFWPcDD" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/vn-11134207-81ztc-msnux55qrxfr78" alt="Deep Work – Làm Ra Làm, Chơi Ra Chơi" loading="lazy">
-<div class="info"><h3>Deep Work – Làm Ra Làm, Chơi Ra Chơi</h3><p class="price">từ 135.150đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Flow" href="https://s.shopee.vn/5qA2GREyIx" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/sg-11134201-825an-mtt6y6jvhhxf70" alt="Flow – Dòng Chảy" loading="lazy">
-<div class="info"><h3>Flow – Dòng Chảy</h3><p class="price">từ 182.400đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Four-Thousand-Weeks" href="https://s.shopee.vn/7Kyq3DQFYA" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpsxegox3c2a85" alt="Bốn Nghìn Tuần" loading="lazy">
-<div class="info"><h3>Bốn Nghìn Tuần</h3><p class="price">từ 79.000đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Grit" href="https://s.shopee.vn/7AfPquQstB" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/vn-11134207-81ztc-mprel3v4plak2d" alt="Grit – Sức Mạnh Của Đam Mê Và Kiên Trì" loading="lazy">
-<div class="info"><h3>Grit – Sức Mạnh Của Đam Mê Và Kiên Trì</h3><p class="price">từ 135.150đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Ikigai" href="https://s.shopee.vn/gRw6yfjpy" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/vn-11134207-81ztc-mu38c6w5i8e9fa" alt="Ikigai – Đi Tìm Lý Do Thức Dậy Mỗi Sáng" loading="lazy">
-<div class="info"><h3>Ikigai – Đi Tìm Lý Do Thức Dậy Mỗi Sáng</h3><p class="price">từ 77.430đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<a class="card" id="Quiet" href="https://s.shopee.vn/70LzebRWE8" target="_blank" rel="sponsored noopener">
-<img src="https://down-vn.img.susercontent.com/file/sg-11134201-22100-abcxq6hf43iv38" alt="Quiet – Sức Mạnh Của Người Hướng Nội (bản tiếng Anh)" loading="lazy">
-<div class="info"><h3>Quiet – Sức Mạnh Của Người Hướng Nội (bản tiếng Anh)</h3><p class="price">từ 376.000đ</p><span class="btn">Mua trên Shopee</span></div></a>
-<div class="more"><a href="https://s.shopee.vn/qlMJHf6V1" target="_blank" rel="sponsored noopener">Xem thêm sách phát triển bản thân trên Shopee →</a></div>
+<div class="progress" id="prog"></div><div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div><div class="grid-bg" aria-hidden="true"></div><canvas id="fx" aria-hidden="true"></canvas><div class="cursor" id="cur" aria-hidden="true"></div>
+<div class="wrap">
+<nav><div class="bar"><a class="logo" href="/"><b>H</b>HADA</a><div class="navl"><a class="hm" href="/">Trang chủ</a><a href="/#kenh">Các kênh</a><a href="/picks/">HaDa Picks</a></div></div></nav>
+<header class="hero">
+<span class="pill ld"><i></i>Shopee · cập nhật tự động mỗi ngày</span>
+<h1 class="ld d1">Tủ sách<br><span class="grad">Sách Mỗi Ngày</span></h1>
+<p class="lead ld d2">Những cuốn sách đã được giới thiệu trên kênh: phát triển bản thân, tài chính, kỹ năng. Chọn cuốn bạn thích và mua nhanh, giá tốt trên Shopee.</p>
+<div class="soc ld d3"><a href="https://www.youtube.com/@hada.sachmoingay" target="_blank" rel="noopener">▶ YouTube</a><a href="https://www.tiktok.com/@hada.sachmoingay" target="_blank" rel="noopener">♪ TikTok</a><a href="https://www.facebook.com/hada.sachmoingay/" target="_blank" rel="noopener">f Facebook</a></div>
+<div class="kpis ld d3"><div><b>14</b>cuốn sách</div><div><b>2/ngày</b>sách mới</div><div><b>&lt;60s</b>mỗi bài học</div></div>
+</header>
+<div class="tools" role="search">
+<label class="search"><input id="q" type="search" placeholder="Tìm sách: thói quen, tiền, giao tiếp…" aria-label="Tìm sách" autocomplete="off"></label>
+<div class="seg" role="group" aria-label="Ngôn ngữ"><button class="on" data-f="all">Tất cả</button><button data-f="vi">Tiếng Việt</button><button data-f="en">Tiếng Anh</button></div>
+<select class="sort" id="sort" aria-label="Sắp xếp"><option value="hot">Nổi bật</option><option value="low">Giá thấp → cao</option><option value="high">Giá cao → thấp</option></select>
+</div>
+<p class="count" id="count">14 cuốn</p>
+<main class="shelf" id="shelf">
+<a class="book rv" id="Dai-Duong-Xanh" data-l="vi" data-p="203150" data-q="chien luoc dai duong xanh dai duong xanh kinh doanh chien luoc khoi nghiep marketing" href="https://s.shopee.vn/60TSU9mhBO" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/vn-11134207-81ztc-mpvxfu2dqm8ede" alt="Chiến Lược Đại Dương Xanh" loading="lazy"><div class="bdgs"><span class="bdg new">✨ Mới</span></div><span class="num">01</span></div>
+<div class="info"><h3>Chiến Lược Đại Dương Xanh</h3><div class="row"><span class="price">từ <b>203.150đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Leaders-Eat-Last" data-l="en" data-p="379200" data-q="leaders eat last – simon sinek (ban tieng anh) leaders eat last lanh dao quan ly doi nhom" href="https://s.shopee.vn/6AmsgSm3qR" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/sg-11134201-7rdxy-lxmb7fd6seru64" alt="Leaders Eat Last – Simon Sinek (bản tiếng Anh)" loading="lazy"><div class="bdgs"><span class="bdg new">✨ Mới</span><span class="bdg en">EN</span></div><span class="num">02</span></div>
+<div class="info"><h3>Leaders Eat Last – Simon Sinek (bản tiếng Anh)</h3><div class="row"><span class="price">từ <b>379.200đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Never-Split-The-Difference" data-l="en" data-p="393000" data-q="never split the difference – chris voss (ban tieng anh) never split the difference dam phan giao tiep thuyet phuc" href="https://s.shopee.vn/4VeehOsPE8" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mikc279c3wn666" alt="Never Split the Difference – Chris Voss (bản tiếng Anh)" loading="lazy"><div class="bdgs"><span class="bdg new">✨ Mới</span><span class="bdg en">EN</span></div><span class="num">03</span></div>
+<div class="info"><h3>Never Split the Difference – Chris Voss (bản tiếng Anh)</h3><div class="row"><span class="price">từ <b>393.000đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Atomic-Habits" data-l="vi" data-p="164430" data-q="atomic habits – thay doi ti hon atomic habits thoi quen ky luat thay doi ban than" href="https://s.shopee.vn/7VIGFV8cvJ" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/sg-11134201-7rbl2-lqmv2tlkx8psa5" alt="Atomic Habits – Thay Đổi Tí Hon" loading="lazy"><div class="bdgs"></div><span class="num">04</span></div>
+<div class="info"><h3>Atomic Habits – Thay Đổi Tí Hon</h3><div class="row"><span class="price">từ <b>164.430đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Babylon" data-l="vi" data-p="72000" data-q="nguoi giau co nhat thanh babylon babylon tien tai chinh tiet kiem lam giau dau tu" href="https://s.shopee.vn/5VXBrpGEyr" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/vn-11134207-820l4-metgg2u596v842" alt="Người Giàu Có Nhất Thành Babylon" loading="lazy"><div class="bdgs"></div><span class="num">05</span></div>
+<div class="info"><h3>Người Giàu Có Nhất Thành Babylon</h3><div class="row"><span class="price">từ <b>72.000đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Cha-Giau-Cha-Ngheo" data-l="vi" data-p="74400" data-q="day con lam giau – cha giau cha ngheo cha giau cha ngheo tien tai chinh lam giau dau tu kinh doanh" href="https://s.shopee.vn/7pv6e8OLXF" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/sg-11134201-825ac-mtt4b4i5zm6a82" alt="Dạy Con Làm Giàu – Cha Giàu Cha Nghèo" loading="lazy"><div class="bdgs"></div><span class="num">06</span></div>
+<div class="info"><h3>Dạy Con Làm Giàu – Cha Giàu Cha Nghèo</h3><div class="row"><span class="price">từ <b>74.400đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Dac-Nhan-Tam" data-l="vi" data-p="84800" data-q="dac nhan tam dac nhan tam giao tiep ung xu quan he thuyet phuc" href="https://s.shopee.vn/5fqc48Fbdu" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/2348436015220c13807ac67446a17601" alt="Đắc Nhân Tâm" loading="lazy"><div class="bdgs"></div><span class="num">07</span></div>
+<div class="info"><h3>Đắc Nhân Tâm</h3><div class="row"><span class="price">từ <b>84.800đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Dam-Bi-Ghet" data-l="vi" data-p="83300" data-q="dam bi ghet dam bi ghet tam ly hanh phuc tu do ban than" href="https://s.shopee.vn/7Kyq3C9GGG" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/sg-11134201-820m3-mna6lu1zmtxe6b" alt="Dám Bị Ghét" loading="lazy"><div class="bdgs"></div><span class="num">08</span></div>
+<div class="info"><h3>Dám Bị Ghét</h3><div class="row"><span class="price">từ <b>83.300đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Deep-Work" data-l="vi" data-p="135150" data-q="deep work – lam ra lam, choi ra choi deep work tap trung nang suat lam viec ky luat" href="https://s.shopee.vn/7VIGFWPcDD" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/vn-11134207-81ztc-msnux55qrxfr78" alt="Deep Work – Làm Ra Làm, Chơi Ra Chơi" loading="lazy"><div class="bdgs"></div><span class="num">09</span></div>
+<div class="info"><h3>Deep Work – Làm Ra Làm, Chơi Ra Chơi</h3><div class="row"><span class="price">từ <b>135.150đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Flow" data-l="vi" data-p="182400" data-q="flow – dong chay flow tap trung hanh phuc tam ly nang suat" href="https://s.shopee.vn/5qA2GREyIx" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/sg-11134201-825an-mtt6y6jvhhxf70" alt="Flow – Dòng Chảy" loading="lazy"><div class="bdgs"></div><span class="num">10</span></div>
+<div class="info"><h3>Flow – Dòng Chảy</h3><div class="row"><span class="price">từ <b>182.400đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Four-Thousand-Weeks" data-l="vi" data-p="79000" data-q="bon nghin tuan four thousand weeks thoi gian quan ly thoi gian cuoc song nang suat" href="https://s.shopee.vn/7Kyq3DQFYA" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lpsxegox3c2a85" alt="Bốn Nghìn Tuần" loading="lazy"><div class="bdgs"></div><span class="num">11</span></div>
+<div class="info"><h3>Bốn Nghìn Tuần</h3><div class="row"><span class="price">từ <b>79.000đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Grit" data-l="vi" data-p="135150" data-q="grit – suc manh cua dam me va kien tri grit kien tri dam me thanh cong ky luat" href="https://s.shopee.vn/7AfPquQstB" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/vn-11134207-81ztc-mprel3v4plak2d" alt="Grit – Sức Mạnh Của Đam Mê Và Kiên Trì" loading="lazy"><div class="bdgs"></div><span class="num">12</span></div>
+<div class="info"><h3>Grit – Sức Mạnh Của Đam Mê Và Kiên Trì</h3><div class="row"><span class="price">từ <b>135.150đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Ikigai" data-l="vi" data-p="77430" data-q="ikigai – di tim ly do thuc day moi sang ikigai hanh phuc muc dich song cuoc song" href="https://s.shopee.vn/gRw6yfjpy" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/vn-11134207-81ztc-mu38c6w5i8e9fa" alt="Ikigai – Đi Tìm Lý Do Thức Dậy Mỗi Sáng" loading="lazy"><div class="bdgs"></div><span class="num">13</span></div>
+<div class="info"><h3>Ikigai – Đi Tìm Lý Do Thức Dậy Mỗi Sáng</h3><div class="row"><span class="price">từ <b>77.430đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
+<a class="book rv" id="Quiet" data-l="en" data-p="376000" data-q="quiet – suc manh cua nguoi huong noi (ban tieng anh) quiet huong noi tam ly tinh cach giao tiep" href="https://s.shopee.vn/70LzebRWE8" target="_blank" rel="sponsored noopener">
+<div class="cover"><img src="https://down-vn.img.susercontent.com/file/sg-11134201-22100-abcxq6hf43iv38" alt="Quiet – Sức Mạnh Của Người Hướng Nội (bản tiếng Anh)" loading="lazy"><div class="bdgs"><span class="bdg en">EN</span></div><span class="num">14</span></div>
+<div class="info"><h3>Quiet – Sức Mạnh Của Người Hướng Nội (bản tiếng Anh)</h3><div class="row"><span class="price">từ <b>376.000đ</b></span><span class="go">Mua <i>→</i></span></div></div></a>
 </main>
-<footer>© Sách Mỗi Ngày · Giá có thể thay đổi theo Shopee · cập nhật tự động mỗi ngày</footer>
+<div class="empty" id="empty" hidden>Không tìm thấy cuốn nào. Thử từ khoá khác nhé.</div>
+<section class="more rv"><span class="mono" style="color:var(--a1)">Chưa thấy cuốn bạn cần?</span><h2>Khám phá thêm sách<br><span class="grad">phát triển bản thân</span></h2><a class="btn" href="https://s.shopee.vn/qlMJHf6V1" target="_blank" rel="sponsored noopener">Xem thêm trên Shopee →</a></section>
+<p class="note">Trang có chứa link tiếp thị liên kết Shopee. Khi bạn mua qua link, kênh nhận một khoản hoa hồng nhỏ, giá bạn trả không đổi. Giá có thể thay đổi theo Shopee. Cảm ơn bạn đã ủng hộ!</p>
+</div>
+<footer><div class="wrap"><span>© <span id="y"></span> Sách Mỗi Ngày · một kênh của <a href="/">HADA</a></span><span><a href="/">hadavn.com</a> · <a href="/picks/">HaDa Picks</a> · <a href="#">Lên đầu ↑</a></span></div></footer>
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches,FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
+document.getElementById('y').textContent=new Date().getFullYear();
+var prog=document.getElementById('prog');addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
+var shelf=document.getElementById('shelf'),books=[].slice.call(shelf.children),orig=books.slice(),q=document.getElementById('q'),lang='all',sortv='hot';
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%4)*60+'ms';io.observe(el)})}else document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+function fold(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d')}
+function apply(){var t=fold(q.value.trim()),n=0,list=orig.slice();
+ if(sortv==='low')list.sort(function(a,b){return a.dataset.p-b.dataset.p});if(sortv==='high')list.sort(function(a,b){return b.dataset.p-a.dataset.p});
+ list.forEach(function(b){var ok=(lang==='all'||b.dataset.l===lang)&&(!t||t.split(/\s+/).every(function(w){return b.dataset.q.indexOf(w)>=0}));b.classList.toggle('hide',!ok);b.classList.add('in');if(ok)n++;shelf.appendChild(b)});
+ document.getElementById('count').textContent=n+' / '+orig.length+' cuốn';document.getElementById('empty').hidden=n>0}
+q.addEventListener('input',apply);document.getElementById('sort').addEventListener('change',function(e){sortv=e.target.value;apply()});
+document.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.seg button').forEach(function(x){x.classList.toggle('on',x===b)});lang=b.dataset.f;apply()}});
+books.forEach(function(el){el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;el.style.setProperty('--mx',x*100+'%');el.style.setProperty('--my',y*100+'%');if(FINE&&!RM)el.style.transform='perspective(800px) rotateY('+((x-.5)*10)+'deg) rotateX('+((.5-y)*10)+'deg) translateY(-4px)'});el.addEventListener('pointerleave',function(){el.style.transform=''})});
+var cur=document.getElementById('cur');if(FINE&&!RM){var cx=innerWidth/2,cy=innerHeight/3,tx=cx,ty=cy;addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY},{passive:true});(function l(){cx+=(tx-cx)*.12;cy+=(ty-cy)*.12;cur.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(l)})()}else cur.style.display='none';
+if(!RM){var c=document.getElementById('fx'),x=c.getContext('2d'),W,H,P=[],dpr=Math.min(2,devicePixelRatio||1);
+ function size(){W=c.width=innerWidth*dpr;H=c.height=innerHeight*dpr;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';var n=Math.round(Math.min(70,innerWidth*innerHeight/20000));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25*dpr,vy:(Math.random()-.5)*.25*dpr,r:(Math.random()*1.3+.4)*dpr})}
+ size();addEventListener('resize',size);var L=120*dpr;
+ (function draw(){requestAnimationFrame(draw);if(document.hidden)return;x.clearRect(0,0,W,H);x.fillStyle='rgba(255,255,255,.5)';
+  P.forEach(function(p){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill()});
+  x.lineWidth=dpr*.6;for(var i=0;i<P.length;i++)for(var j=i+1;j<P.length;j++){var a=P[i],b=P[j],dd=Math.hypot(a.x-b.x,a.y-b.y);if(dd<L){x.strokeStyle='rgba(255,190,150,'+((1-dd/L)*.16)+')';x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+ })()}
+})();
+</script>
 </body></html>
