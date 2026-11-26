@@ -2,158 +2,447 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>HADA – Lan toả lòng tốt mỗi ngày</title>
-<meta name="description" content="HADA (Đăng Vet) – nhà sáng tạo nội dung về lòng tốt, lòng dũng cảm và tri thức. Các kênh HaDa, HADA Hero, Mr HaDa, HADA Ơi, Sách Mỗi Ngày, HEROIC KINDNESS và tủ sách, sản phẩm gợi ý.">
+<meta name="description" content="HADA – nhà sáng tạo nội dung về lòng tốt, lòng dũng cảm và tri thức. Các kênh HaDa, HADA Hero, Mr HaDa, HADA Ơi, Sách Mỗi Ngày, HEROIC KINDNESS cùng tủ sách và sản phẩm gợi ý.">
+<meta name="theme-color" content="#07060b">
 <meta property="og:title" content="HADA – Lan toả lòng tốt mỗi ngày">
 <meta property="og:description" content="Hơn 400.000 người theo dõi trên YouTube, TikTok, Facebook. Câu chuyện tử tế, hài đời thường, sách hay mỗi ngày.">
 <meta property="og:image" content="https://yt3.ggpht.com/6JktpO5U6O8MXdSkRoeq6MyD5vlYg1AVVDfRSRYUhw_NdGtJN3uVSD7EwTT36ivg6glterz3=s800-c-k-c0x00ffffff-no-rj">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💛</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fffaf3;--bg2:#fff;--ink:#1f1a14;--muted:#6f6455;--line:#efe3d1;--accent:#f2a91e;--accent2:#e2552d;--chip:#fff3dc}
-@media (prefers-color-scheme:dark){:root{--bg:#15120e;--bg2:#1f1a15;--ink:#f6efe4;--muted:#b4a792;--line:#352d24;--chip:#2a2218}}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
-a{color:inherit}
-.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
-nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
-.logo{font-weight:800;font-size:20px;text-decoration:none;letter-spacing:.5px}.logo span{color:var(--accent)}
-nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;font-size:15px}nav ul a{text-decoration:none;color:var(--muted)}nav ul a:hover{color:var(--ink)}
-@media (max-width:640px){nav ul li.hide-m{display:none}nav ul{gap:12px;font-size:14px}}
-.hero{padding:56px 0 40px;display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center}
-@media (max-width:780px){.hero{grid-template-columns:1fr;padding-top:32px;text-align:center}}
-.eyebrow{display:inline-block;background:var(--chip);color:var(--accent2);font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px}
-h1{font-size:clamp(34px,6vw,56px);line-height:1.08;margin:14px 0 14px;font-weight:800}
-h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{font-size:18px;color:var(--muted);margin:0 0 24px}
-.cta{display:flex;gap:12px;flex-wrap:wrap}@media (max-width:780px){.cta{justify-content:center}}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:700;text-decoration:none;font-size:15px}
-.btn.primary{background:var(--accent2);color:#fff}.btn.ghost{border:1.5px solid var(--line);background:var(--bg2)}
-.avatar{justify-self:center;position:relative;width:min(320px,80vw);aspect-ratio:1}
-.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:6px solid var(--bg2);box-shadow:0 20px 50px rgba(0,0,0,.15)}
-.avatar .ring{position:absolute;inset:-14px;border-radius:50%;background:conic-gradient(var(--accent),var(--accent2),var(--accent));z-index:-1}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:8px auto 56px}
-@media (max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
-.stat{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center}
-.stat b{display:block;font-size:26px}.stat span{color:var(--muted);font-size:13px}
-section h2{font-size:30px;margin:0 0 6px}section .sub{color:var(--muted);margin:0 0 22px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px}
-.card .top{display:flex;align-items:center;gap:12px}.ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:24px;background:var(--chip)}
-.card h3{margin:0;font-size:19px}.card .tag{font-size:12.5px;color:var(--muted)}
-.card p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
-.links{display:flex;flex-wrap:wrap;gap:8px}
-.links a{font-size:13px;font-weight:700;text-decoration:none;padding:7px 12px;border-radius:999px;border:1px solid var(--line)}
-.links a.yt:hover{background:#ff0000;color:#fff;border-color:#ff0000}.links a.tt:hover{background:#111;color:#fff;border-color:#111}.links a.fb:hover{background:#1877f2;color:#fff;border-color:#1877f2}.links a.store{background:var(--accent2);color:#fff;border-color:var(--accent2)}
-.shopgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media (max-width:700px){.shopgrid{grid-template-columns:1fr}}
-.shop{border-radius:20px;padding:26px;text-decoration:none;color:#fff;display:flex;flex-direction:column;gap:8px;min-height:180px;justify-content:flex-end;transition:transform .15s}
-.shop:hover{transform:translateY(-3px)}
-.shop.s1{background:linear-gradient(135deg,#ee4d2d,#f59e0b)}.shop.s2{background:linear-gradient(135deg,#232f3e,#3d5a80)}
-.shop b{font-size:22px}.shop span{opacity:.9;font-size:14.5px}.shop i{font-style:normal;font-weight:700;margin-top:6px}
-.contact{background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:30px;text-align:center;margin:56px auto}
-.contact p{color:var(--muted);max-width:560px;margin:8px auto 18px}
-footer{color:var(--muted);font-size:13px;text-align:center;padding:10px 0 34px}
-.sp{height:56px}
-.about{display:grid;grid-template-columns:1fr 1.2fr;gap:28px;align-items:start}
-@media (max-width:780px){.about{grid-template-columns:1fr}}
-.story{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:24px}
-.story p{margin:0 0 12px;color:var(--muted)}.story p:last-child{margin:0}.story b{color:var(--ink)}
-.vals{display:grid;gap:12px}
-.val{display:flex;gap:14px;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:16px}
-.val .ico{flex:none}.val h3{margin:0 0 4px;font-size:17px}.val p{margin:0;color:var(--muted);font-size:14.5px}
-.promise{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
-.promise span{background:var(--chip);border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700}
+:root{
+ --bg:#07060b;--bg2:#0e0c16;--glass:rgba(255,255,255,.045);--glass2:rgba(255,255,255,.08);
+ --line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.16);
+ --ink:#f5f2ff;--muted:#a49fb8;--dim:#6d6882;
+ --a1:#ffb547;--a2:#ff4d6d;--a3:#8b5cf6;--a4:#22d3ee;
+ --grad:linear-gradient(100deg,var(--a1),var(--a2) 40%,var(--a3) 75%,var(--a4));
+ --mono:"JetBrains Mono",ui-monospace,monospace;
+ color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;overflow-x:clip}
+main{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro",-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--a2);color:#fff}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left))}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.grad{background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 8s linear infinite}
+@keyframes flow{to{background-position:200% 0}}
 
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none}
+.aurora{position:fixed;inset:-20%;z-index:0;pointer-events:none;filter:blur(90px);opacity:.55}
+.aurora i{position:absolute;border-radius:50%;mix-blend-mode:screen;animation:drift 22s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:46vw;height:46vw;left:8%;top:4%;background:#ff4d6d55;animation-duration:26s}
+.aurora i:nth-child(2){width:40vw;height:40vw;right:6%;top:18%;background:#8b5cf666;animation-duration:30s}
+.aurora i:nth-child(3){width:36vw;height:36vw;left:34%;top:46%;background:#22d3ee33;animation-duration:24s}
+@keyframes drift{to{transform:translate(6vw,-5vh) scale(1.15)}}
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%);opacity:.5}
+.noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.cursor{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,109,.13),rgba(139,92,246,.08) 40%,transparent 70%);pointer-events:none;z-index:1;will-change:transform}
+main,nav,footer{position:relative;z-index:2}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--grad);z-index:60}
+
+nav{position:fixed;top:14px;left:0;right:0;z-index:50}
+nav .bar{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px;padding:0 10px 0 20px;border:1px solid var(--line);border-radius:18px;background:rgba(14,12,22,.6);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);transition:background .3s,border-color .3s}
+nav.scrolled .bar{background:rgba(10,9,16,.82);border-color:var(--line2)}
+.logo{font-weight:900;font-size:21px;letter-spacing:.04em;display:flex;align-items:center;gap:9px}
+.logo b{width:28px;height:28px;border-radius:9px;background:var(--grad);display:grid;place-items:center;font-size:14px;color:#0a0810;box-shadow:0 0 24px #ff4d6d66}
+.menu{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.menu a{display:block;padding:8px 14px;border-radius:11px;font-size:14.5px;color:var(--muted);transition:.2s}
+.menu a:hover,.menu a.on{color:var(--ink);background:var(--glass2)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;font-weight:700;font-size:14px;background:var(--ink);color:#0a0810;white-space:nowrap}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:transparent;color:var(--ink);font-size:18px;cursor:pointer}
+@media (max-width:860px){
+ .menu{position:absolute;top:66px;left:0;right:0;flex-direction:column;padding:10px;border:1px solid var(--line2);border-radius:18px;background:rgba(10,9,16,.96);backdrop-filter:blur(18px);display:none}
+ nav.open .menu{display:flex}.menu a{padding:13px 14px;font-size:16px}
+ .burger{display:block}.nav-cta{display:none}
+}
+
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-top:110px;padding-bottom:60px}
+@media (max-width:900px){.hero{grid-template-columns:1fr;text-align:center;padding-top:104px;min-height:auto;gap:56px}}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border:1px solid var(--line2);border-radius:999px;background:var(--glass);font-size:13px;color:var(--muted)}
+.pill .live{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;background:#ff4d6d22;color:#ff8da1;font-weight:700;font-size:11px;letter-spacing:.08em}
+.live i{width:7px;height:7px;border-radius:50%;background:#ff4d6d;box-shadow:0 0 0 0 #ff4d6d;animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(42px,7.6vw,92px);line-height:1.02;letter-spacing:-.035em;font-weight:900;margin:22px 0 22px}
+h1 .caret{display:inline-block;width:.07em;height:.82em;background:var(--a2);margin-left:4px;vertical-align:-.04em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lead{font-size:clamp(16px,1.8vw,19px);color:var(--muted);max-width:560px;margin:0 0 32px}
+@media (max-width:900px){.lead{margin-left:auto;margin-right:auto}}
+.cta{display:flex;gap:12px;flex-wrap:wrap}@media (max-width:900px){.cta{justify-content:center}}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:14px;font-weight:700;font-size:15px;border:1px solid var(--line2);background:var(--glass);transition:transform .2s,border-color .2s;overflow:hidden}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{border:0;color:#0a0810;background:var(--grad);background-size:200% 100%;animation:flow 6s linear infinite;box-shadow:0 10px 40px -10px #ff4d6d99}
+.btn .arr{transition:transform .2s}.btn:hover .arr{transform:translateX(4px)}
+.hero-meta{display:flex;gap:28px;margin-top:40px;color:var(--dim);font-size:13px;flex-wrap:wrap}
+@media (max-width:900px){.hero-meta{justify-content:center}}
+.hero-meta b{display:block;color:var(--ink);font-size:22px;font-weight:800}
+
+.orb-wrap{position:relative;justify-self:center;width:min(440px,78vw);aspect-ratio:1;perspective:900px}
+.orb{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .2s ease-out}
+.ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--line2)}
+.ring.r2{inset:-9%;border-style:dashed;opacity:.5;animation:spin 60s linear infinite}
+.ring.r3{inset:9%;border-color:rgba(255,77,109,.35);animation:spin 30s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.halo{position:absolute;inset:16%;border-radius:50%;background:conic-gradient(from 0deg,var(--a1),var(--a2),var(--a3),var(--a4),var(--a1));filter:blur(28px);opacity:.75;animation:spin 12s linear infinite}
+.face{position:absolute;inset:19%;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.25);box-shadow:0 30px 80px -10px #000}
+.face img{width:100%;height:100%;object-fit:cover}
+.chip{position:absolute;display:flex;align-items:center;gap:8px;padding:9px 13px;border-radius:14px;border:1px solid var(--line2);background:rgba(14,12,22,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-size:12.5px;font-weight:600;white-space:nowrap;animation:float 6s ease-in-out infinite;box-shadow:0 10px 30px -10px #000}
+.chip span{font-size:17px}
+.chip.c1{top:6%;left:-4%}.chip.c2{top:18%;right:-2%;animation-delay:-2s}.chip.c3{bottom:16%;left:-10%;animation-delay:-4s}.chip.c4{bottom:4%;right:0;animation-delay:-1s}
+@keyframes float{50%{transform:translateY(-12px)}}
+@media (max-width:520px){.chip{font-size:11px;padding:7px 10px}.chip span{font-size:14px}.chip.c1{left:-4%;top:0}.chip.c2{right:-6%}.chip.c3{left:-6%}.chip.c4{right:-2%;bottom:0}}
+.scroll-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);color:var(--dim);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-hint i{width:22px;height:34px;border:1.5px solid var(--line2);border-radius:12px;position:relative}
+.scroll-hint i::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--ink);animation:wheel 1.6s infinite}
+@keyframes wheel{to{transform:translateY(10px);opacity:0}}
+@media (max-width:900px){.scroll-hint{display:none}}
+
+.marquee{position:relative;z-index:2;border-block:1px solid var(--line);background:rgba(255,255,255,.02);overflow:hidden;padding:18px 0;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.track{display:flex;gap:46px;width:max-content;animation:scroll 38s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.track span{font-size:clamp(20px,3vw,30px);font-weight:800;letter-spacing:-.01em;color:var(--dim);white-space:nowrap;display:flex;align-items:center;gap:46px}
+.track span::after{content:"✦";font-size:.6em;color:var(--a2)}
+.track span:nth-child(3n+1){color:var(--ink)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+section{padding:110px 0}
+@media (max-width:700px){section{padding:76px 0}}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+.head .mono{color:var(--a2);display:flex;align-items:center;gap:10px}
+.head .mono::before{content:"";width:28px;height:1px;background:var(--a2)}
+h2{font-size:clamp(32px,5vw,60px);line-height:1.08;letter-spacing:-.03em;font-weight:900;margin:12px 0 0}
+.head p{color:var(--muted);max-width:420px;margin:0}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--bg2);padding:30px 24px;position:relative}
+.stat b{display:block;font-size:clamp(34px,4.6vw,54px);font-weight:900;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted);font-size:14px;display:block;margin-top:10px}
+.stat .mono{position:absolute;top:16px;right:18px;color:var(--dim);font-size:10px;margin:0}
+
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.tile{position:relative;grid-column:span 2;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));padding:28px;overflow:hidden;isolation:isolate}
+.tile::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.09),transparent 45%);opacity:0;transition:opacity .3s}
+.tile:hover::before{opacity:1}
+.tile.big{grid-column:span 4;grid-row:span 2}
+.tile.wide{grid-column:span 3}
+@media (max-width:900px){.tile,.tile.big,.tile.wide{grid-column:span 6;grid-row:auto}}
+.tile h3{font-size:22px;margin:14px 0 8px;letter-spacing:-.01em}
+.tile p{color:var(--muted);margin:0;font-size:15px}
+.tile .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:var(--glass2);border:1px solid var(--line2)}
+.story{font-size:clamp(18px,2.1vw,24px)!important;line-height:1.5;margin:16px 0 0!important}
+.story b{color:var(--ink);font-weight:700}
+.story .hl{color:transparent;background:var(--grad);-webkit-background-clip:text;background-clip:text;font-weight:800}
+.sign{display:flex;align-items:center;gap:14px;margin-top:28px}
+.sign img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--line2)}
+.sign small{color:var(--dim);display:block}
+.promise{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.promise span{padding:8px 13px;border-radius:999px;border:1px solid var(--line2);font-size:13px;font-weight:600;background:var(--glass)}
+
+.filters{display:flex;gap:6px;padding:5px;border:1px solid var(--line);border-radius:14px;background:var(--glass)}
+.filters button{border:0;background:transparent;color:var(--muted);font-family:inherit;font-weight:600;font-size:14px;padding:9px 15px;border-radius:10px;cursor:pointer}
+.filters button.on{background:var(--ink);color:#0a0810}
+.chs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:980px){.chs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.chs{grid-template-columns:1fr}}
+.ch{position:relative;border-radius:24px;padding:1px;background:linear-gradient(160deg,var(--line2),transparent 60%);transition:transform .15s ease-out,opacity .9s cubic-bezier(.2,.7,.2,1)}
+.ch.hide{display:none}
+.ch .in{position:relative;height:100%;border-radius:23px;background:var(--bg2);padding:26px;display:flex;flex-direction:column;gap:12px;overflow:hidden;isolation:isolate}
+.ch .in::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--c) 22%,transparent),transparent 55%);opacity:0;transition:opacity .3s}
+.ch:hover .in::before{opacity:1}
+.ch .top{display:flex;justify-content:space-between;align-items:start}
+.ch .ico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:26px;background:color-mix(in srgb,var(--c) 18%,transparent);border:1px solid color-mix(in srgb,var(--c) 40%,transparent);box-shadow:0 0 30px -6px var(--c)}
+.ch .lang{font-family:var(--mono);font-size:11px;color:var(--dim);border:1px solid var(--line2);border-radius:8px;padding:4px 8px}
+.ch h3{margin:6px 0 0;font-size:23px;letter-spacing:-.01em}
+.ch .tag{font-size:13px;color:var(--c);font-weight:600}
+.ch p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.links a{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:8px 13px;border-radius:11px;border:1px solid var(--line2);transition:.2s}
+.links a:hover{transform:translateY(-2px)}
+.links a.yt:hover{background:#ff0033;border-color:#ff0033}.links a.tt:hover{background:#fff;color:#000;border-color:#fff}.links a.fb:hover{background:#1877f2;border-color:#1877f2}
+.links a.store{background:var(--grad);color:#0a0810;border:0}
+
+.shop{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:760px){.shop{grid-template-columns:1fr}}
+.card{position:relative;min-height:300px;border-radius:28px;padding:34px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;border:1px solid var(--line2);isolation:isolate}
+.card .bg{position:absolute;inset:0;z-index:-2;transition:transform .6s}
+.card:hover .bg{transform:scale(1.08)}
+.card.s1 .bg{background:radial-gradient(circle at 80% 10%,#ffb547,transparent 45%),radial-gradient(circle at 10% 90%,#ff4d6d,transparent 50%),#2a0d12}
+.card.s2 .bg{background:radial-gradient(circle at 85% 15%,#22d3ee,transparent 45%),radial-gradient(circle at 10% 90%,#8b5cf6,transparent 50%),#0d1024}
+.card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 15%,rgba(7,6,11,.88))}
+.card .big-ic{position:absolute;top:26px;right:30px;font-size:72px;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5));transition:transform .4s}
+.card:hover .big-ic{transform:rotate(-8deg) scale(1.1)}
+.card b{font-size:clamp(24px,3vw,32px);letter-spacing:-.02em}
+.card span{color:#e5e0f5;max-width:420px}
+.card i{font-style:normal;font-weight:700;margin-top:8px}
+.disc{color:var(--dim);font-size:13px;margin-top:16px}
+
+.contact{position:relative;border-radius:32px;padding:clamp(44px,7vw,90px) clamp(22px,5vw,60px);text-align:center;overflow:hidden;border:1px solid var(--line2);isolation:isolate}
+.contact::before{content:"";position:absolute;inset:-50%;z-index:-2;background:conic-gradient(from 0deg,#ff4d6d,#8b5cf6,#22d3ee,#ffb547,#ff4d6d);animation:spin 18s linear infinite;opacity:.35;filter:blur(60px)}
+.contact::after{content:"";position:absolute;inset:1px;border-radius:31px;z-index:-1;background:rgba(10,9,16,.86)}
+.contact h2{font-size:clamp(34px,6vw,72px)}
+.contact p{color:var(--muted);max-width:560px;margin:18px auto 32px}
+.contact .cta{justify-content:center}
+
+footer{border-top:1px solid var(--line);padding:30px 0 calc(30px + env(safe-area-inset-bottom));color:var(--dim);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a:hover{color:var(--ink)}
+
+.ld{animation:up 1s cubic-bezier(.2,.7,.2,1) both}.ld.d1{animation-delay:.1s}.ld.d2{animation-delay:.22s}.ld.d3{animation-delay:.34s}.ld.d4{animation-delay:.46s}
+@keyframes up{from{opacity:0;transform:translateY(34px)}}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.split .w>span{display:inline-block;transform:translateY(110%);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.split.in .w>span{transform:none}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.split .w>span{opacity:1!important;transform:none!important}.cursor,#fx{display:none}}
+@media (hover:none){.cursor{display:none}}
 </style>
 </head>
 <body>
-<nav><div class="wrap"><a class="logo" href="/">HADA<span>.</span></a>
-<ul><li><a href="#ve-hada">Về HADA</a></li><li><a href="#kenh">Kênh</a></li><li><a href="#san-pham">Sản phẩm</a></li><li class="hide-m"><a href="/sach/">Tủ sách</a></li><li><a href="#lien-he">Liên hệ</a></li></ul></div></nav>
+<div class="progress" id="prog"></div>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grid-bg" aria-hidden="true"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="noise" aria-hidden="true"></div>
+<div class="cursor" id="cur" aria-hidden="true"></div>
 
+<nav id="nav"><div class="wrap"><div class="bar">
+ <a class="logo" href="#top"><b>H</b>HADA</a>
+ <ul class="menu" id="menu">
+  <li><a href="#ve-hada">Về HADA</a></li>
+  <li><a href="#kenh">Kênh</a></li>
+  <li><a href="#san-pham">Sản phẩm</a></li>
+  <li><a href="/sach/">Tủ sách</a></li>
+  <li><a href="#lien-he">Liên hệ</a></li>
+ </ul>
+ <a class="nav-cta" href="#lien-he">Hợp tác ↗</a>
+ <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false">☰</button>
+</div></div></nav>
+
+<main id="top">
 <header class="wrap hero">
  <div>
-  <span class="eyebrow">💛 Nhà sáng tạo nội dung tử tế</span>
-  <h1>Xin chào, mình là <em>HADA</em></h1>
-  <p class="lead">Mình kể những câu chuyện về <b>lòng tốt, lòng dũng cảm</b> và những bài học đời thường, cùng những tiểu phẩm hài và một cuốn sách hay mỗi ngày. Mục tiêu: mỗi video làm ai đó mỉm cười, hoặc tử tế hơn một chút.</p>
-  <div class="cta"><a class="btn primary" href="#kenh">▶ Xem các kênh</a><a class="btn ghost" href="/sach/">📚 Tủ sách</a><a class="btn ghost" href="#lien-he">🤝 Hợp tác</a></div>
+  <span class="pill ld"><span class="live"><i></i>LIVE</span>Video mới mỗi ngày trên 6 kênh</span>
+  <h1 class="ld d1">Lan toả<br><span class="grad" id="rot">lòng tốt</span><span class="caret"></span><br>mỗi ngày.</h1>
+  <p class="lead ld d2">Xin chào, mình là <b style="color:var(--ink)">HADA</b>. Mình kể những câu chuyện về lòng tốt và lòng dũng cảm, làm tiểu phẩm hài đời thường và tóm tắt một cuốn sách hay mỗi ngày, để mỗi video làm ai đó mỉm cười hoặc tử tế hơn một chút.</p>
+  <div class="cta ld d3">
+   <a class="btn primary magnet" href="#kenh">▶ Khám phá các kênh <span class="arr">→</span></a>
+   <a class="btn magnet" href="/sach/">📚 Tủ sách</a>
+  </div>
+  <div class="hero-meta ld d4">
+   <div><b>400K+</b>người theo dõi</div>
+   <div><b>93M+</b>lượt xem</div>
+   <div><b>2</b>ngôn ngữ</div>
+  </div>
  </div>
- <div class="avatar"><div class="ring"></div><img src="https://yt3.ggpht.com/6JktpO5U6O8MXdSkRoeq6MyD5vlYg1AVVDfRSRYUhw_NdGtJN3uVSD7EwTT36ivg6glterz3=s800-c-k-c0x00ffffff-no-rj" alt="HADA"></div>
+ <div class="orb-wrap ld d2" id="orbWrap">
+  <div class="orb" id="orb">
+   <div class="ring r2"></div><div class="ring"></div><div class="ring r3"></div>
+   <div class="halo"></div>
+   <div class="face"><img src="https://yt3.ggpht.com/6JktpO5U6O8MXdSkRoeq6MyD5vlYg1AVVDfRSRYUhw_NdGtJN3uVSD7EwTT36ivg6glterz3=s800-c-k-c0x00ffffff-no-rj" alt="HADA"></div>
+  </div>
+  <div class="chip c1"><span>💛</span>Câu chuyện tử tế</div>
+  <div class="chip c2"><span>🦸</span>Người hùng đời thường</div>
+  <div class="chip c3"><span>😂</span>Hài lật kèo</div>
+  <div class="chip c4"><span>📚</span>Sách mỗi ngày</div>
+ </div>
+ <a class="scroll-hint mono" href="#ve-hada" aria-label="Cuộn xuống"><i></i>Cuộn</a>
 </header>
 
-<div class="wrap stats">
- <div class="stat"><b>400K+</b><span>người theo dõi</span></div>
- <div class="stat"><b>6</b><span>kênh nội dung</span></div>
- <div class="stat"><b>93M+</b><span>lượt xem YouTube HaDa</span></div>
- <div class="stat"><b>Mỗi ngày</b><span>video mới</span></div>
-</div>
+<div class="marquee" aria-hidden="true"><div class="track">
+ <span>Lòng tốt</span><span>Dũng cảm</span><span>Tiếng cười</span><span>Tri thức</span><span>Kindness</span><span>Everyday heroes</span><span>Sách hay</span><span>Tử tế</span>
+ <span>Lòng tốt</span><span>Dũng cảm</span><span>Tiếng cười</span><span>Tri thức</span><span>Kindness</span><span>Everyday heroes</span><span>Sách hay</span><span>Tử tế</span>
+</div></div>
 
-<section id="ve-hada" class="wrap">
- <h2>Về HADA</h2>
- <p class="sub">Người đứng sau các kênh, và lý do mình làm video mỗi ngày.</p>
- <div class="about">
-  <div class="story">
-   <p>Mình là <b>Nguyễn Hải Đăng</b>, mọi người hay gọi là <b>HADA</b> hoặc <b>Đăng Vet</b>. Mình bắt đầu làm video với một ý nghĩ đơn giản: <b>trên mạng đã có quá nhiều tin xấu, mình muốn góp thêm những câu chuyện tốt</b>.</p>
-   <p>Từ kênh HaDa đầu tiên, giờ HADA có <b>6 kênh</b> bằng tiếng Việt và tiếng Anh, với <b>hơn 400.000 người theo dõi</b> và <b>hơn 93 triệu lượt xem</b> riêng trên YouTube HaDa.</p>
-   <p>Mỗi ngày đội ngũ nhỏ của HADA viết kịch bản, quay, dựng và đăng video đều đặn: những câu chuyện tử tế, những tình huống hài đời thường và một cuốn sách hay để bạn học thêm một điều mới.</p>
+<section id="ve-hada">
+ <div class="wrap">
+  <div class="head">
+   <div><div class="mono">01 · Về HADA</div><h2 class="split">Người đứng sau các kênh</h2></div>
+   <p class="rv">Lý do mình làm video mỗi ngày, và điều mình cam kết với người xem.</p>
   </div>
-  <div>
-   <div class="vals">
-    <div class="val"><div class="ico">💛</div><div><h3>Tử tế là chính</h3><p>Mỗi video đều hướng tới một thông điệp tích cực: giúp đỡ, tôn trọng, biết ơn.</p></div></div>
-    <div class="val"><div class="ico">😄</div><div><h3>Nhẹ nhàng, vui vẻ</h3><p>Bài học hay nhất thường đến từ một tiếng cười, nên HADA kể chuyện ngắn gọn và dễ xem.</p></div></div>
-    <div class="val"><div class="ico">📖</div><div><h3>Mỗi ngày tốt hơn một chút</h3><p>Sách Mỗi Ngày chắt lọc kiến thức từ những cuốn sách hay, để ai cũng có thể đọc ít mà hiểu nhiều.</p></div></div>
+  <div class="stats rv" style="margin-bottom:14px">
+   <div class="stat"><span class="mono">01</span><b data-count="400" data-suf="K+">400K+</b><span>người theo dõi</span></div>
+   <div class="stat"><span class="mono">02</span><b data-count="6">6</b><span>kênh nội dung</span></div>
+   <div class="stat"><span class="mono">03</span><b data-count="93" data-suf="M+">93M+</b><span>lượt xem YouTube HaDa</span></div>
+   <div class="stat"><span class="mono">04</span><b data-count="365">365</b><span>ngày có video mới mỗi năm</span></div>
+  </div>
+  <div class="bento">
+   <div class="tile big rv">
+    <span class="mono" style="color:var(--dim)">Câu chuyện</span>
+    <p class="story">Mình là <b>Nguyễn Hải Đăng</b>, mọi người gọi là <b>HADA</b>. Mình bắt đầu làm video với một ý nghĩ đơn giản: <span class="hl">trên mạng đã có quá nhiều tin xấu, mình muốn góp thêm những câu chuyện tốt.</span></p>
+    <p style="margin-top:16px;font-size:clamp(15px,1.6vw,18px)">Từ kênh HaDa đầu tiên, giờ HADA có <b style="color:var(--ink)">6 kênh</b> bằng tiếng Việt và tiếng Anh. Mỗi ngày đội ngũ nhỏ của HADA viết kịch bản, quay, dựng và đăng video đều đặn.</p>
+    <div class="sign"><img src="https://yt3.ggpht.com/6JktpO5U6O8MXdSkRoeq6MyD5vlYg1AVVDfRSRYUhw_NdGtJN3uVSD7EwTT36ivg6glterz3=s200-c-k-c0x00ffffff-no-rj" alt=""><div><b>HADA</b><small>Nhà sáng tạo nội dung</small></div></div>
    </div>
-   <div class="promise"><span>✔ Nội dung phù hợp gia đình</span><span>✔ Minh bạch link tiếp thị</span><span>✔ Chỉ gợi ý sản phẩm thật sự hữu ích</span></div>
+   <div class="tile rv d1"><div class="ic">💛</div><h3>Tử tế là chính</h3><p>Mỗi video hướng tới một thông điệp tích cực: giúp đỡ, tôn trọng, biết ơn.</p></div>
+   <div class="tile rv d2"><div class="ic">😄</div><h3>Nhẹ nhàng, vui vẻ</h3><p>Bài học hay nhất thường đến từ một tiếng cười, nên HADA kể chuyện ngắn gọn, dễ xem.</p></div>
+   <div class="tile wide rv"><div class="ic">📖</div><h3>Mỗi ngày tốt hơn một chút</h3><p>Sách Mỗi Ngày chắt lọc kiến thức từ những cuốn sách hay, để ai cũng đọc ít mà hiểu nhiều.</p></div>
+   <div class="tile wide rv d1"><div class="ic">🛡️</div><h3>Cam kết với người xem</h3>
+    <div class="promise"><span>✔ Phù hợp gia đình</span><span>✔ Minh bạch link tiếp thị</span><span>✔ Chỉ gợi ý sản phẩm hữu ích</span></div></div>
   </div>
  </div>
 </section>
 
-<div class="sp"></div>
-<section id="kenh" class="wrap">
- <h2>Các kênh của HADA</h2>
- <p class="sub">Chọn thể loại bạn thích, bấm theo dõi để không bỏ lỡ video mới.</p>
- <div class="grid">
-  <div class="card"><div class="top"><div class="ico">💛</div><div><h3>HaDa</h3><div class="tag">Câu chuyện tử tế · Kindness</div></div></div>
-   <p>Những hành động nhỏ của lòng tốt: giúp người khó khăn, lan toả yêu thương và hy vọng.</p>
-   <div class="links"><a class="yt" href="https://www.youtube.com/@hada.official.1" target="_blank" rel="noopener">YouTube</a><a class="fb" href="https://www.facebook.com/863132256880383" target="_blank" rel="noopener">Facebook</a></div></div>
-  <div class="card"><div class="top"><div class="ico">🦸</div><div><h3>HADA Hero</h3><div class="tag">Dũng cảm · Công lý · Hành động</div></div></div>
-   <p>Những câu chuyện về lòng dũng cảm và làm điều đúng đắn, kể cả khi khó khăn.</p>
-   <div class="links"><a class="yt" href="https://www.youtube.com/@HADAHeroOfficial" target="_blank" rel="noopener">YouTube</a><a class="tt" href="https://www.tiktok.com/@hadahero" target="_blank" rel="noopener">TikTok</a><a class="fb" href="https://www.facebook.com/1307925895729160" target="_blank" rel="noopener">Facebook</a></div></div>
-  <div class="card"><div class="top"><div class="ico">🎩</div><div><h3>Mr HaDa</h3><div class="tag">Kindness · Respect · Everyday heroes</div></div></div>
-   <p>Short stories about kindness, respect and everyday heroes, with a touch of humour (English).</p>
-   <div class="links"><a class="yt" href="https://www.youtube.com/channel/UCkrx1zFFJx49zIVH-GjzU2A" target="_blank" rel="noopener">YouTube</a><a class="tt" href="https://www.tiktok.com/@hadahero" target="_blank" rel="noopener">TikTok</a></div></div>
-  <div class="card"><div class="top"><div class="ico">😂</div><div><h3>HADA Ơi</h3><div class="tag">Hài đời thường · Lầy lội mỗi ngày</div></div></div>
-   <p>Tiểu phẩm hài ngắn về những tình huống đời thường, cái kết luôn lật kèo.</p>
-   <div class="links"><a class="fb" href="https://www.facebook.com/hadatiengviet" target="_blank" rel="noopener">Facebook</a><a class="yt" href="https://www.youtube.com/@hadakind" target="_blank" rel="noopener">YouTube</a></div></div>
-  <div class="card"><div class="top"><div class="ico">📚</div><div><h3>Sách Mỗi Ngày</h3><div class="tag">Mỗi ngày một cuốn sách hay</div></div></div>
-   <p>Tóm tắt bài học đắt giá từ những cuốn sách phát triển bản thân, tài chính, kỹ năng trong chưa đến 60 giây.</p>
-   <div class="links"><a class="yt" href="https://www.youtube.com/@hada.sachmoingay" target="_blank" rel="noopener">YouTube</a><a class="tt" href="https://www.tiktok.com/@hada.sachmoingay" target="_blank" rel="noopener">TikTok</a><a class="fb" href="https://www.facebook.com/hada.sachmoingay/" target="_blank" rel="noopener">Facebook</a><a class="store" href="/sach/">📚 Tủ sách</a></div></div>
-  <div class="card"><div class="top"><div class="ico">🌍</div><div><h3>HEROIC KINDNESS</h3><div class="tag">Heartwarming stories · English</div></div></div>
-   <p>Heartwarming kindness, comedy and real-hero moments for an international audience.</p>
-   <div class="links"><a class="yt" href="https://www.youtube.com/@HEROIC.KINDNESS.OFFICIAL" target="_blank" rel="noopener">YouTube</a><a class="tt" href="https://www.tiktok.com/@heroickindness" target="_blank" rel="noopener">TikTok</a></div></div>
+<section id="kenh" style="padding-top:20px">
+ <div class="wrap">
+  <div class="head">
+   <div><div class="mono">02 · Hệ sinh thái</div><h2 class="split">Các kênh của HADA</h2></div>
+   <div class="filters rv" role="group" aria-label="Lọc kênh">
+    <button class="on" data-f="all">Tất cả</button><button data-f="vi">Tiếng Việt</button><button data-f="en">English</button>
+   </div>
+  </div>
+  <div class="chs" id="chs">
+   <div class="ch rv" data-l="vi" style="--c:#ffb547"><div class="in">
+    <div class="top"><div class="ico">💛</div><span class="lang">VI</span></div>
+    <div><h3>HaDa</h3><div class="tag">Câu chuyện tử tế · Kindness</div></div>
+    <p>Những hành động nhỏ của lòng tốt: giúp người khó khăn, lan toả yêu thương và hy vọng.</p>
+    <div class="links"><a class="yt" href="https://www.youtube.com/@hada.official.1" target="_blank" rel="noopener">▶ YouTube</a><a class="fb" href="https://www.facebook.com/863132256880383" target="_blank" rel="noopener">Facebook</a></div>
+   </div></div>
+   <div class="ch rv d1" data-l="vi" style="--c:#ff4d6d"><div class="in">
+    <div class="top"><div class="ico">🦸</div><span class="lang">VI</span></div>
+    <div><h3>HADA Hero</h3><div class="tag">Dũng cảm · Công lý · Hành động</div></div>
+    <p>Những câu chuyện về lòng dũng cảm và làm điều đúng đắn, kể cả khi khó khăn.</p>
+    <div class="links"><a class="yt" href="https://www.youtube.com/@HADAHeroOfficial" target="_blank" rel="noopener">▶ YouTube</a><a class="tt" href="https://www.tiktok.com/@hadahero" target="_blank" rel="noopener">TikTok</a><a class="fb" href="https://www.facebook.com/1307925895729160" target="_blank" rel="noopener">Facebook</a></div>
+   </div></div>
+   <div class="ch rv d2" data-l="en" style="--c:#8b5cf6"><div class="in">
+    <div class="top"><div class="ico">🎩</div><span class="lang">EN</span></div>
+    <div><h3>Mr HaDa</h3><div class="tag">Kindness · Respect · Everyday heroes</div></div>
+    <p>Short stories about kindness, respect and everyday heroes, with a touch of humour.</p>
+    <div class="links"><a class="yt" href="https://www.youtube.com/channel/UCkrx1zFFJx49zIVH-GjzU2A" target="_blank" rel="noopener">▶ YouTube</a><a class="tt" href="https://www.tiktok.com/@hadahero" target="_blank" rel="noopener">TikTok</a></div>
+   </div></div>
+   <div class="ch rv" data-l="vi" style="--c:#22d3ee"><div class="in">
+    <div class="top"><div class="ico">😂</div><span class="lang">VI</span></div>
+    <div><h3>HADA Ơi</h3><div class="tag">Hài đời thường · Lầy lội mỗi ngày</div></div>
+    <p>Tiểu phẩm hài ngắn về những tình huống đời thường, cái kết luôn lật kèo.</p>
+    <div class="links"><a class="fb" href="https://www.facebook.com/hadatiengviet" target="_blank" rel="noopener">Facebook</a><a class="yt" href="https://www.youtube.com/@hadakind" target="_blank" rel="noopener">▶ YouTube</a></div>
+   </div></div>
+   <div class="ch rv d1" data-l="vi" style="--c:#f59e0b"><div class="in">
+    <div class="top"><div class="ico">📚</div><span class="lang">VI</span></div>
+    <div><h3>Sách Mỗi Ngày</h3><div class="tag">Mỗi ngày một cuốn sách hay</div></div>
+    <p>Bài học đắt giá từ sách phát triển bản thân, tài chính, kỹ năng trong chưa đến 60 giây.</p>
+    <div class="links"><a class="yt" href="https://www.youtube.com/@hada.sachmoingay" target="_blank" rel="noopener">▶ YouTube</a><a class="tt" href="https://www.tiktok.com/@hada.sachmoingay" target="_blank" rel="noopener">TikTok</a><a class="fb" href="https://www.facebook.com/hada.sachmoingay/" target="_blank" rel="noopener">Facebook</a><a class="store" href="/sach/">📚 Tủ sách</a></div>
+   </div></div>
+   <div class="ch rv d2" data-l="en" style="--c:#10b981"><div class="in">
+    <div class="top"><div class="ico">🌍</div><span class="lang">EN</span></div>
+    <div><h3>HEROIC KINDNESS</h3><div class="tag">Heartwarming stories · Worldwide</div></div>
+    <p>Heartwarming kindness, comedy and real-hero moments for an international audience.</p>
+    <div class="links"><a class="yt" href="https://www.youtube.com/@HEROIC.KINDNESS.OFFICIAL" target="_blank" rel="noopener">▶ YouTube</a><a class="tt" href="https://www.tiktok.com/@heroickindness" target="_blank" rel="noopener">TikTok</a></div>
+   </div></div>
+  </div>
  </div>
 </section>
 
-<div class="sp"></div>
-<section id="san-pham" class="wrap">
- <h2>Sản phẩm HADA gợi ý</h2>
- <p class="sub">Những thứ mình đã giới thiệu trên kênh, gom lại một chỗ cho bạn dễ tìm.</p>
- <div class="shopgrid">
-  <a class="shop s1" href="/sach/"><b>📚 Tủ sách Sách Mỗi Ngày</b><span>Các cuốn sách đã giới thiệu trên kênh: Đắc Nhân Tâm, Atomic Habits, Ikigai… mua nhanh trên Shopee.</span><i>Vào tủ sách →</i></a>
-  <a class="shop s2" href="/picks/"><b>🛒 HaDa Picks</b><span>Sản phẩm HADA chọn lọc và gợi ý cho bạn (Amazon).</span><i>Xem gợi ý →</i></a>
+<section id="san-pham" style="padding-top:20px">
+ <div class="wrap">
+  <div class="head">
+   <div><div class="mono">03 · Gợi ý</div><h2 class="split">Sản phẩm HADA chọn</h2></div>
+   <p class="rv">Những thứ mình đã giới thiệu trên kênh, gom lại một chỗ cho bạn dễ tìm.</p>
+  </div>
+  <div class="shop">
+   <a class="card s1 rv" href="/sach/"><div class="bg"></div><div class="big-ic">📚</div><span class="mono" style="color:#ffd9a0">Shopee · Cập nhật mỗi ngày</span><b>Tủ sách Sách Mỗi Ngày</b><span>Các cuốn sách đã giới thiệu trên kênh: Đắc Nhân Tâm, Atomic Habits, Ikigai… mua nhanh trên Shopee.</span><i>Vào tủ sách →</i></a>
+   <a class="card s2 rv d1" href="/picks/"><div class="bg"></div><div class="big-ic">🛒</div><span class="mono" style="color:#a5f3fc">Amazon · Chọn lọc</span><b>HaDa Picks</b><span>Sản phẩm HADA chọn lọc và gợi ý cho bạn.</span><i>Xem gợi ý →</i></a>
+  </div>
+  <p class="disc">Một số link là link tiếp thị liên kết: bạn mua giá không đổi, HADA nhận một khoản hoa hồng nhỏ để duy trì video mỗi ngày.</p>
  </div>
- <p class="sub" style="margin-top:14px;font-size:13px">Một số link là link tiếp thị liên kết: bạn mua giá không đổi, HADA nhận một khoản hoa hồng nhỏ để duy trì video mỗi ngày.</p>
 </section>
 
-<section id="lien-he" class="wrap contact">
- <h2>Hợp tác cùng HADA</h2>
- <p>Nhãn hàng, nhà xuất bản, tổ chức thiện nguyện muốn hợp tác quảng bá, tài trợ video hoặc lan toả câu chuyện tử tế: nhắn cho HADA nhé.</p>
- <div class="cta" style="justify-content:center"><a class="btn primary" href="https://m.me/863132256880383" target="_blank" rel="noopener">💬 Nhắn tin qua Messenger</a><a class="btn ghost" href="https://www.facebook.com/863132256880383" target="_blank" rel="noopener">Trang Facebook HaDa</a></div>
+<section id="lien-he" style="padding-top:20px">
+ <div class="wrap">
+  <div class="contact rv">
+   <div class="mono" style="color:var(--a1)">04 · Hợp tác</div>
+   <h2>Cùng lan toả<br><span class="grad">điều tử tế.</span></h2>
+   <p>Nhãn hàng, nhà xuất bản, tổ chức thiện nguyện muốn hợp tác quảng bá, tài trợ video hoặc lan toả câu chuyện tử tế: nhắn cho HADA nhé.</p>
+   <div class="cta">
+    <a class="btn primary magnet" href="https://m.me/863132256880383" target="_blank" rel="noopener">💬 Nhắn tin qua Messenger <span class="arr">→</span></a>
+    <a class="btn magnet" href="https://www.facebook.com/863132256880383" target="_blank" rel="noopener">Trang Facebook HaDa</a>
+   </div>
+  </div>
+ </div>
 </section>
+</main>
 
-<footer>© <span id="y"></span> HADA · hadavn.com · Lan toả lòng tốt mỗi ngày</footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<footer><div class="wrap">
+ <span>© <span id="y"></span> HADA · hadavn.com · Lan toả lòng tốt mỗi ngày</span>
+ <span><a href="/sach/">Tủ sách</a> · <a href="/picks/">HaDa Picks</a> · <a href="#top">Lên đầu ↑</a></span>
+</div></footer>
+
+<script>
+(function(){
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
+document.getElementById('y').textContent=new Date().getFullYear();
+
+const nav=document.getElementById('nav'),prog=document.getElementById('prog'),burger=document.getElementById('burger');
+function closeMenu(){nav.classList.remove('open');burger.textContent='☰';burger.setAttribute('aria-expanded','false')}
+burger.onclick=()=>{const o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',String(o));burger.textContent=o?'✕':'☰'};
+document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',closeMenu));
+const secs=[...document.querySelectorAll('section[id]')],links=[...document.querySelectorAll('#menu a')];
+function onScroll(){const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+ prog.style.width=(h>0?y/h*100:0)+'%';nav.classList.toggle('scrolled',y>30);
+ let cur='';secs.forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*.4)cur=s.id});
+ links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+document.querySelectorAll('.split').forEach(el=>{el.innerHTML=el.textContent.split(' ').map((w,i)=>'<span class="w"><span style="transition-delay:'+(i*.06)+'s">'+w+'</span></span>').join(' ')});
+
+function count(root){root.querySelectorAll('[data-count]').forEach(el=>{const to=+el.dataset.count,suf=el.dataset.suf||'';
+ if(RM){el.textContent=to+suf;return}const t0=performance.now(),d=1600;el.textContent='0'+suf;
+ (function f(t){const p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,4);el.textContent=Math.round(to*e)+suf;if(p<1)requestAnimationFrame(f)})(t0)})}
+if('IntersectionObserver' in window){
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.querySelector('[data-count]'))count(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+ document.querySelectorAll('.rv,.split').forEach(el=>io.observe(el));
+}else document.querySelectorAll('.rv,.split').forEach(el=>el.classList.add('in'));
+
+const words=['lòng tốt','tiếng cười','sự dũng cảm','tri thức','điều tử tế'],rot=document.getElementById('rot');
+if(!RM){let wi=0,ci=words[0].length,del=true;
+ setTimeout(function tick(){
+  if(del){ci--;rot.textContent=words[wi].slice(0,ci);if(ci<=0){del=false;wi=(wi+1)%words.length}setTimeout(tick,45)}
+  else{const n=words[wi];ci++;rot.textContent=n.slice(0,ci);if(ci>=n.length){del=true;setTimeout(tick,2000)}else setTimeout(tick,85)}
+ },2200)}
+
+const cur=document.getElementById('cur');
+if(FINE&&!RM){let cx=innerWidth/2,cy=innerHeight/3,tx=cx,ty=cy;
+ addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY},{passive:true});
+ (function loop(){cx+=(tx-cx)*.12;cy+=(ty-cy)*.12;cur.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(loop)})()}
+else cur.style.display='none';
+
+document.querySelectorAll('.tile,.ch').forEach(el=>{const tgt=el.classList.contains('ch')?el.querySelector('.in'):el;
+ el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();tgt.style.setProperty('--mx',(e.clientX-r.left)+'px');tgt.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+
+if(FINE&&!RM){
+ document.querySelectorAll('.ch').forEach(el=>{
+  el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform='perspective(900px) rotateY('+(x*10)+'deg) rotateX('+(-y*10)+'deg) translateY(-4px)'});
+  el.addEventListener('pointerleave',()=>el.style.transform='')});
+ const ow=document.getElementById('orbWrap'),orb=document.getElementById('orb');
+ addEventListener('pointermove',e=>{const r=ow.getBoundingClientRect(),x=(e.clientX-(r.left+r.width/2))/innerWidth,y=(e.clientY-(r.top+r.height/2))/innerHeight;orb.style.transform='rotateY('+(x*22)+'deg) rotateX('+(-y*22)+'deg)'},{passive:true});
+ document.querySelectorAll('.magnet').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.3)+'px)'});b.addEventListener('pointerleave',()=>b.style.transform='')});
+}
+
+document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('on',x===b));
+ const f=b.dataset.f;document.querySelectorAll('#chs .ch').forEach(c=>{c.classList.toggle('hide',f!=='all'&&c.dataset.l!==f);c.classList.add('in')})});
+
+if(!RM){const c=document.getElementById('fx'),x=c.getContext('2d');let W,H,P=[];const dpr=Math.min(2,devicePixelRatio||1);let mx=-9999,my=-9999;
+ function size(){W=c.width=innerWidth*dpr;H=c.height=innerHeight*dpr;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';
+  const n=Math.round(Math.min(90,innerWidth*innerHeight/16000));P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25*dpr,vy:(Math.random()-.5)*.25*dpr,r:(Math.random()*1.4+.4)*dpr}))}
+ size();addEventListener('resize',size);addEventListener('pointermove',e=>{mx=e.clientX*dpr;my=e.clientY*dpr},{passive:true});
+ const L=130*dpr;let vis=true;document.addEventListener('visibilitychange',()=>{vis=!document.hidden});
+ (function draw(){requestAnimationFrame(draw);if(!vis)return;x.clearRect(0,0,W,H);
+  for(const p of P){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+   const dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy);if(d<160*dpr&&d>0){p.x+=dx/d*.6;p.y+=dy/d*.6}
+   x.fillStyle='rgba(255,255,255,.55)';x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill()}
+  x.lineWidth=dpr*.6;
+  for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){const a=P[i],b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+   if(d<L){x.strokeStyle='rgba(180,160,255,'+((1-d/L)*.18)+')';x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+ })()}
+})();
+</script>
 </body>
 </html>
