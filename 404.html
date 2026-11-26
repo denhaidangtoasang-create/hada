@@ -46,6 +46,6 @@ p{color:var(--muted);max-width:520px;margin:0 auto 26px}
  </div>
  <p class="hint">Bạn vừa mở: <code id="u"></code></p>
 </div></main>
-<script>document.getElementById('u').textContent=location.pathname.slice(0,80);</script>
+<script>(function(){var p=location.pathname;if(/^\/sach\/./i.test(p)){var l=p.toLowerCase();location.replace(l!==p?l:'/sach/')}})();document.getElementById('u').textContent=location.pathname.slice(0,80);</script>
 </body>
 </html>
