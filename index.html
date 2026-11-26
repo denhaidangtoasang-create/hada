@@ -173,7 +173,8 @@ h2{font-size:clamp(32px,5vw,60px);line-height:1.08;letter-spacing:-.03em;font-we
 .links a.yt:hover{background:#ff0033;border-color:#ff0033}.links a.tt:hover{background:#fff;color:#000;border-color:#fff}.links a.fb:hover{background:#1877f2;border-color:#1877f2}
 .links a.store{background:var(--grad);color:#0a0810;border:0}
 
-.shop{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:760px){.shop{grid-template-columns:1fr}}
+.shop{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media (max-width:980px){.shop{grid-template-columns:1fr 1fr}.card.s3{grid-column:1/-1}}@media (max-width:760px){.shop{grid-template-columns:1fr}}
+.card.s3 .bg{background:radial-gradient(circle at 80% 10%,#22d3ee,transparent 45%),radial-gradient(circle at 10% 90%,#10b981,transparent 50%),#061a1c}
 .card{position:relative;min-height:300px;border-radius:28px;padding:34px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;border:1px solid var(--line2);isolation:isolate}
 .card .bg{position:absolute;inset:0;z-index:-2;transition:transform .6s}
 .card:hover .bg{transform:scale(1.08)}
@@ -226,6 +227,7 @@ footer a:hover{color:var(--ink)}
   <li><a href="#kenh">Kênh</a></li>
   <li><a href="#san-pham">Sản phẩm</a></li>
   <li><a href="/sach/">Tủ sách</a></li>
+  <li><a href="/ai/">Dịch vụ AI</a></li>
   <li><a href="#lien-he">Liên hệ</a></li>
  </ul>
  <a class="nav-cta" href="#lien-he">Hợp tác ↗</a>
@@ -353,6 +355,7 @@ footer a:hover{color:var(--ink)}
   <div class="shop">
    <a class="card s1 rv" href="/sach/"><div class="bg"></div><div class="big-ic">📚</div><span class="mono" style="color:#ffd9a0">Shopee · Cập nhật mỗi ngày</span><b>Tủ sách Sách Mỗi Ngày</b><span>Các cuốn sách đã giới thiệu trên kênh: Đắc Nhân Tâm, Atomic Habits, Ikigai… mua nhanh trên Shopee.</span><i>Vào tủ sách →</i></a>
    <a class="card s2 rv d1" href="/picks/"><div class="bg"></div><div class="big-ic">🛒</div><span class="mono" style="color:#a5f3fc">Amazon · Chọn lọc</span><b>HaDa Picks</b><span>Sản phẩm HADA chọn lọc và gợi ý cho bạn.</span><i>Xem gợi ý →</i></a>
+   <a class="card s3 rv d2" href="/ai/"><div class="bg"></div><div class="big-ic">🤖</div><span class="mono" style="color:#99f6e4">Mới · Văn phòng AI</span><b>HADA AI Studio</b><span>Thuê đội ngũ AI làm thumbnail, bài đăng, mô tả, bình luận, đăng lịch, video AI. Bảng giá công khai + kho câu lệnh tặng miễn phí.</span><i>Xem dịch vụ &amp; bảng giá →</i></a>
   </div>
   <p class="disc">Một số link là link tiếp thị liên kết: bạn mua giá không đổi, HADA nhận một khoản hoa hồng nhỏ để duy trì video mỗi ngày.</p>
  </div>
@@ -375,7 +378,7 @@ footer a:hover{color:var(--ink)}
 
 <footer><div class="wrap">
  <span>© <span id="y"></span> HADA · hadavn.com · Lan toả lòng tốt mỗi ngày</span>
- <span><a href="/sach/">Tủ sách</a> · <a href="/picks/">HaDa Picks</a> · <a href="#top">Lên đầu ↑</a></span>
+ <span><a href="/sach/">Tủ sách</a> · <a href="/picks/">HaDa Picks</a> · <a href="/ai/">Dịch vụ AI</a> · <a href="#top">Lên đầu ↑</a></span>
 </div></footer>
 
 <script>
