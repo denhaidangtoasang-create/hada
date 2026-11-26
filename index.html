@@ -57,11 +57,21 @@ section h2{font-size:30px;margin:0 0 6px}section .sub{color:var(--muted);margin:
 .contact p{color:var(--muted);max-width:560px;margin:8px auto 18px}
 footer{color:var(--muted);font-size:13px;text-align:center;padding:10px 0 34px}
 .sp{height:56px}
+.about{display:grid;grid-template-columns:1fr 1.2fr;gap:28px;align-items:start}
+@media (max-width:780px){.about{grid-template-columns:1fr}}
+.story{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:24px}
+.story p{margin:0 0 12px;color:var(--muted)}.story p:last-child{margin:0}.story b{color:var(--ink)}
+.vals{display:grid;gap:12px}
+.val{display:flex;gap:14px;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:16px}
+.val .ico{flex:none}.val h3{margin:0 0 4px;font-size:17px}.val p{margin:0;color:var(--muted);font-size:14.5px}
+.promise{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.promise span{background:var(--chip);border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700}
+
 </style>
 </head>
 <body>
 <nav><div class="wrap"><a class="logo" href="/">HADA<span>.</span></a>
-<ul><li><a href="#kenh">Kênh</a></li><li><a href="#san-pham">Sản phẩm</a></li><li class="hide-m"><a href="/sach/">Tủ sách</a></li><li><a href="#lien-he">Liên hệ</a></li></ul></div></nav>
+<ul><li><a href="#ve-hada">Về HADA</a></li><li><a href="#kenh">Kênh</a></li><li><a href="#san-pham">Sản phẩm</a></li><li class="hide-m"><a href="/sach/">Tủ sách</a></li><li><a href="#lien-he">Liên hệ</a></li></ul></div></nav>
 
 <header class="wrap hero">
  <div>
@@ -80,6 +90,27 @@ footer{color:var(--muted);font-size:13px;text-align:center;padding:10px 0 34px}
  <div class="stat"><b>Mỗi ngày</b><span>video mới</span></div>
 </div>
 
+<section id="ve-hada" class="wrap">
+ <h2>Về HADA</h2>
+ <p class="sub">Người đứng sau các kênh, và lý do mình làm video mỗi ngày.</p>
+ <div class="about">
+  <div class="story">
+   <p>Mình là <b>Nguyễn Hải Đăng</b>, mọi người hay gọi là <b>HADA</b> hoặc <b>Đăng Vet</b>. Mình bắt đầu làm video với một ý nghĩ đơn giản: <b>trên mạng đã có quá nhiều tin xấu, mình muốn góp thêm những câu chuyện tốt</b>.</p>
+   <p>Từ kênh HaDa đầu tiên, giờ HADA có <b>6 kênh</b> bằng tiếng Việt và tiếng Anh, với <b>hơn 400.000 người theo dõi</b> và <b>hơn 93 triệu lượt xem</b> riêng trên YouTube HaDa.</p>
+   <p>Mỗi ngày đội ngũ nhỏ của HADA viết kịch bản, quay, dựng và đăng video đều đặn: những câu chuyện tử tế, những tình huống hài đời thường và một cuốn sách hay để bạn học thêm một điều mới.</p>
+  </div>
+  <div>
+   <div class="vals">
+    <div class="val"><div class="ico">💛</div><div><h3>Tử tế là chính</h3><p>Mỗi video đều hướng tới một thông điệp tích cực: giúp đỡ, tôn trọng, biết ơn.</p></div></div>
+    <div class="val"><div class="ico">😄</div><div><h3>Nhẹ nhàng, vui vẻ</h3><p>Bài học hay nhất thường đến từ một tiếng cười, nên HADA kể chuyện ngắn gọn và dễ xem.</p></div></div>
+    <div class="val"><div class="ico">📖</div><div><h3>Mỗi ngày tốt hơn một chút</h3><p>Sách Mỗi Ngày chắt lọc kiến thức từ những cuốn sách hay, để ai cũng có thể đọc ít mà hiểu nhiều.</p></div></div>
+   </div>
+   <div class="promise"><span>✔ Nội dung phù hợp gia đình</span><span>✔ Minh bạch link tiếp thị</span><span>✔ Chỉ gợi ý sản phẩm thật sự hữu ích</span></div>
+  </div>
+ </div>
+</section>
+
+<div class="sp"></div>
 <section id="kenh" class="wrap">
  <h2>Các kênh của HADA</h2>
  <p class="sub">Chọn thể loại bạn thích, bấm theo dõi để không bỏ lỡ video mới.</p>
