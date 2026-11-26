@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://hadavn.com/</loc><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://hadavn.com/sach/</loc><lastmod>2026-11-26</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://hadavn.com/</loc><xhtml:link rel="alternate" hreflang="en" href="https://hadavn.com/en/"/><xhtml:link rel="alternate" hreflang="vi" href="https://hadavn.com/"/><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://hadavn.com/ai/</loc><lastmod>2026-11-26</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://hadavn.com/sach/</loc><lastmod>2026-11-26</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://hadavn.com/picks/</loc><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://hadavn.com/en/</loc><xhtml:link rel="alternate" hreflang="vi" href="https://hadavn.com/"/><xhtml:link rel="alternate" hreflang="en" href="https://hadavn.com/en/"/><lastmod>2026-11-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://hadavn.com/ai/thumbnail/</loc><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://hadavn.com/ai/bai-dang/</loc><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://hadavn.com/ai/mo-ta-seo/</loc><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://hadavn.com/ai/binh-luan/</loc><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://hadavn.com/ai/dang-lich/</loc><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://hadavn.com/ai/kiem-duyet/</loc><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://hadavn.com/ai/video-ai/</loc><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://hadavn.com/ai/long-tieng/</loc><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://hadavn.com/ai/web/</loc><lastmod>2026-11-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>
