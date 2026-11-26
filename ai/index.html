@@ -1,1 +1,521 @@
-{object}
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HADA AI Studio – Văn phòng AI tự động cho nhà sáng tạo</title>
+<meta name="description" content="Đội ngũ nhân sự AI của HADA làm việc 24/7: thumbnail, ảnh bài đăng, mô tả & SEO, trả lời bình luận, đăng lịch tự động, kiểm duyệt trước đăng, video AI, lồng tiếng. Bảng giá minh bạch, mẫu thử trước khi trả tiền.">
+<meta name="theme-color" content="#07060b">
+<link rel="canonical" href="https://hadavn.com/ai/">
+<meta property="og:type" content="website"><meta property="og:url" content="https://hadavn.com/ai/"><meta property="og:site_name" content="HADA"><meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="HADA AI Studio – Văn phòng AI tự động cho nhà sáng tạo">
+<meta property="og:description" content="Thumbnail, bài đăng, mô tả, bình luận, đăng lịch, kiểm duyệt, video AI – một đội ngũ AI làm thay bạn. Giá rõ ràng, thử mẫu trước.">
+<meta property="og:image" content="https://yt3.ggpht.com/6JktpO5U6O8MXdSkRoeq6MyD5vlYg1AVVDfRSRYUhw_NdGtJN3uVSD7EwTT36ivg6glterz3=s800-c-k-c0x00ffffff-no-rj">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"HADA AI Studio","serviceType":"Tự động hoá sản xuất nội dung bằng AI cho nhà sáng tạo","url":"https://hadavn.com/ai/","areaServed":"VN","provider":{"@type":"Person","name":"HADA","url":"https://hadavn.com/"},"availableChannel":{"@type":"ServiceChannel","serviceUrl":"https://m.me/863132256880383"}}</script>
+<style>
+:root{--bg:#07060b;--bg2:#0e0c16;--glass:rgba(255,255,255,.045);--glass2:rgba(255,255,255,.08);--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.16);--ink:#f5f2ff;--muted:#a49fb8;--dim:#6d6882;--a1:#ffb547;--a2:#ff4d6d;--a3:#8b5cf6;--a4:#22d3ee;--ok:#10b981;--grad:linear-gradient(100deg,var(--a1),var(--a2) 40%,var(--a3) 75%,var(--a4));--mono:"JetBrains Mono",ui-monospace,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;overflow-x:clip;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro",-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--a4);outline-offset:2px}
+::selection{background:var(--a2);color:#fff}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left))}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.grad{background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 8s linear infinite}
+@keyframes flow{to{background-position:200% 0}}
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none}
+.aurora{position:fixed;inset:-20%;z-index:0;pointer-events:none;filter:blur(90px);opacity:.5}
+.aurora i{position:absolute;border-radius:50%;mix-blend-mode:screen;animation:drift 24s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:46vw;height:46vw;left:4%;top:0;background:#22d3ee44}
+.aurora i:nth-child(2){width:40vw;height:40vw;right:4%;top:18%;background:#8b5cf666;animation-duration:30s}
+.aurora i:nth-child(3){width:36vw;height:36vw;left:34%;top:50%;background:#ff4d6d44;animation-duration:26s}
+@keyframes drift{to{transform:translate(6vw,-5vh) scale(1.15)}}
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%);opacity:.5}
+main,nav,footer{position:relative;z-index:2}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--grad);z-index:60}
+
+nav{position:sticky;top:0;z-index:50;padding:12px 0}
+nav .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px;padding:0 10px;border:1px solid var(--line);border-radius:18px;background:rgba(14,12,22,.7);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%)}
+.homebtn{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;flex:none;border:1px solid var(--line2);background:var(--glass2);color:var(--ink);transition:background .2s,color .2s,transform .2s}.homebtn:hover{background:var(--ink);color:#0a0810;transform:translateY(-1px)}
+.brandrow{display:flex;align-items:center;gap:10px;min-width:0}
+.logo{font-weight:900;font-size:19px;letter-spacing:.03em;display:flex;align-items:center;gap:9px;white-space:nowrap}
+.logo b{width:28px;height:28px;border-radius:9px;background:var(--grad);display:grid;place-items:center;font-size:14px;color:#0a0810;box-shadow:0 0 24px #22d3ee55}
+.logo small{font-weight:600;color:var(--muted);font-size:13px}
+.navl{display:flex;gap:4px;align-items:center}
+.navl a{padding:8px 13px;border-radius:11px;font-size:14px;color:var(--muted)}.navl a:hover{color:var(--ink);background:var(--glass2)}
+.navl a.cta{background:var(--ink);color:#0a0810;font-weight:700}
+@media (max-width:760px){.navl a:not(.cta){display:none}.logo small{display:none}}
+
+.hero{padding:70px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media (max-width:900px){.hero{grid-template-columns:minmax(0,1fr);text-align:center;padding-top:40px}}
+.office,.hero>div{min-width:0}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border:1px solid var(--line2);border-radius:999px;background:var(--glass);font-size:13px;color:var(--muted)}
+.pill .live{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;background:#22d3ee22;color:#7eeaf7;font-weight:700;font-size:11px;letter-spacing:.08em}
+.live i{width:7px;height:7px;border-radius:50%;background:var(--a4);box-shadow:0 0 0 0 var(--a4);animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(38px,6.4vw,78px);line-height:1.04;letter-spacing:-.035em;font-weight:900;margin:20px 0 18px}
+.lead{font-size:clamp(16px,1.7vw,19px);color:var(--muted);max-width:580px;margin:0 0 28px}
+@media (max-width:900px){.lead{margin-inline:auto}}
+.cta{display:flex;gap:12px;flex-wrap:wrap}@media (max-width:900px){.cta{justify-content:center}}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:14px;font-weight:700;font-size:15px;border:1px solid var(--line2);background:var(--glass);transition:transform .2s,border-color .2s;cursor:pointer}
+.btn:hover{border-color:var(--ink);transform:translateY(-1px)}
+.btn.primary{border:0;color:#0a0810;background:var(--grad);background-size:200% 100%;animation:flow 6s linear infinite;box-shadow:0 10px 40px -10px #22d3ee99}
+.hero-meta{display:flex;gap:28px;margin-top:36px;color:var(--dim);font-size:13px;flex-wrap:wrap}
+@media (max-width:900px){.hero-meta{justify-content:center}}
+.hero-meta b{display:block;color:var(--ink);font-size:22px;font-weight:800}
+
+.office{position:relative;border:1px solid var(--line2);border-radius:28px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.015));padding:18px;box-shadow:0 40px 120px -40px #000;isolation:isolate}
+.office .hd{display:flex;justify-content:space-between;align-items:center;padding:4px 6px 14px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.office .hd b{font-size:14px}.office .hd span{font-family:var(--mono);font-size:11px;color:var(--ok)}
+.task{display:flex;align-items:center;gap:12px;padding:11px 10px;border-radius:14px;border:1px solid transparent;transition:.3s;opacity:.55}
+.task.on{border-color:var(--line2);background:var(--glass);opacity:1}
+.task .ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--glass2);border:1px solid var(--line2);font-size:18px;flex:none}
+.task .t{flex:1;min-width:0}.task .t b{display:block;font-size:14px}.task .t small{color:var(--muted);font-size:12px;display:block}
+@media (min-width:521px){.task .t small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+@media (max-width:520px){.office{padding:14px}.task{gap:10px;padding:9px 8px}.task .t b{font-size:13px}.task .t small{font-size:11.5px}.pill{text-align:left}}
+.task .st{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--dim);flex:none}
+.task.on .st{color:var(--ok)}
+.task.on .st::before{content:"● "}
+
+section{padding:84px 0}@media (max-width:700px){section{padding:60px 0}}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.head .mono{color:var(--a4);display:flex;align-items:center;gap:10px}.head .mono::before{content:"";width:28px;height:1px;background:var(--a4)}
+h2{font-size:clamp(30px,4.6vw,54px);line-height:1.08;letter-spacing:-.03em;font-weight:900;margin:12px 0 0}
+.head p{color:var(--muted);max-width:460px;margin:0}
+
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:980px){.team{grid-template-columns:repeat(2,1fr)}}@media (max-width:620px){.team{grid-template-columns:1fr}}
+.role{position:relative;border-radius:24px;padding:1px;background:linear-gradient(160deg,var(--line2),transparent 60%)}
+.role .in{height:100%;border-radius:23px;background:var(--bg2);padding:24px;display:flex;flex-direction:column;gap:10px;overflow:hidden;isolation:isolate;position:relative}
+.role .in::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(360px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--c) 22%,transparent),transparent 55%);opacity:0;transition:opacity .3s}
+.role:hover .in::before{opacity:1}
+.role .top{display:flex;justify-content:space-between;align-items:start;gap:10px}
+.role .ico{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:25px;background:color-mix(in srgb,var(--c) 18%,transparent);border:1px solid color-mix(in srgb,var(--c) 40%,transparent);box-shadow:0 0 30px -6px var(--c)}
+.role .num{font-family:var(--mono);font-size:11px;color:var(--dim)}
+.role h3{margin:6px 0 0;font-size:21px;letter-spacing:-.01em}
+.role .tag{font-size:13px;color:var(--c);font-weight:600}
+.role p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
+.role ul{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px;display:grid;gap:3px}
+.role .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:6px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--dim);flex-wrap:wrap}
+.role .foot b{color:var(--ink);font-size:14px}
+
+.toggle{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--glass)}
+.toggle button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:14px;padding:8px 14px;border-radius:9px;cursor:pointer}
+.toggle button.on{background:var(--ink);color:#0a0810}
+.ptable{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--bg2)}
+.prow{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.1fr;gap:12px;align-items:center;padding:16px 22px;border-top:1px solid var(--line)}
+.prow:first-child{border-top:0;background:var(--glass);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.prow .n b{display:block;font-size:15px}.prow .n small{color:var(--muted);font-size:12.5px;display:block}
+.prow .p{font-weight:800;font-variant-numeric:tabular-nums;font-size:16px}
+.prow .p small{display:block;font-weight:500;color:var(--dim);font-size:11.5px}
+.prow .u{color:var(--muted);font-size:13px}
+.prow .q{display:flex;align-items:center;gap:6px;justify-content:flex-end}
+.prow .q button{width:30px;height:30px;border-radius:9px;border:1px solid var(--line2);background:var(--glass);cursor:pointer;font-size:16px;line-height:1}
+.prow .q input{width:52px;height:32px;text-align:center;border-radius:9px;border:1px solid var(--line2);background:rgba(255,255,255,.04);font-variant-numeric:tabular-nums}
+.prow .q input::-webkit-outer-spin-button,.prow .q input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.prow.cat{background:rgba(255,255,255,.025);padding:10px 22px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--a4);display:block}
+@media (max-width:760px){.prow{grid-template-columns:1fr auto;grid-template-areas:"n q" "p u";padding:14px 16px}.prow .n{grid-area:n}.prow .q{grid-area:q}.prow .p{grid-area:p}.prow .u{grid-area:u;text-align:right}.prow:first-child{display:none}.prow.cat{padding:10px 16px}}
+.sum{position:sticky;bottom:12px;margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:16px 20px;border-radius:20px;border:1px solid var(--line2);background:rgba(14,12,22,.9);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 20px 60px -20px #000;z-index:5}
+.sum .tot b{font-size:clamp(22px,3vw,30px);font-weight:900;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.sum .tot small{display:block;color:var(--muted);font-size:12.5px}
+.sum .acts{display:flex;gap:8px;flex-wrap:wrap}
+.sum .btn{padding:11px 16px;font-size:14px}
+.note{color:var(--dim);font-size:13px;margin-top:14px;line-height:1.6}
+.note b{color:var(--muted)}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:s}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.step{border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));position:relative}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--mono);font-size:12px;color:var(--a4);letter-spacing:.12em}
+.step h3{margin:10px 0 6px;font-size:18px}.step p{margin:0;color:var(--muted);font-size:14px}
+
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.tools span{padding:9px 14px;border-radius:999px;border:1px solid var(--line2);font-size:13.5px;font-weight:600;background:var(--glass)}
+.tools span i{font-style:normal;color:var(--dim);font-weight:500;margin-left:6px;font-size:12px}
+
+.coop{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media (max-width:860px){.coop{grid-template-columns:1fr}}
+.cc{border:1px solid var(--line2);border-radius:26px;padding:28px;position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;gap:10px}
+.cc::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 85% 10%,var(--c),transparent 50%);opacity:.22}
+.cc .big{font-size:40px}.cc h3{margin:0;font-size:22px}.cc p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
+.cc .btn{align-self:flex-start;padding:11px 16px;font-size:14px}
+
+.api{border:1px solid var(--line2);border-radius:28px;padding:clamp(26px,4vw,44px);display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015))}
+@media (max-width:860px){.api{grid-template-columns:1fr}}
+.api h3{font-size:clamp(24px,3.4vw,38px);margin:8px 0 10px;letter-spacing:-.02em}
+.api p{color:var(--muted);margin:0 0 18px}
+.code{font-family:var(--mono);font-size:12.5px;line-height:1.7;border:1px solid var(--line2);border-radius:18px;background:#05040a;padding:18px 20px;overflow:auto;color:#cfc9e6}
+.code .k{color:var(--a4)}.code .s{color:var(--a1)}.code .c{color:var(--dim)}
+.soon{display:inline-flex;align-items:center;gap:8px;padding:5px 11px;border-radius:999px;background:#ffb54722;color:#ffd08a;font-weight:700;font-size:11px;letter-spacing:.08em;font-family:var(--mono)}
+
+.kbar{display:grid;gap:10px;margin-bottom:18px}
+.ksearch input{width:100%;height:50px;border-radius:16px;border:1px solid var(--line2);background:rgba(255,255,255,.04);padding:0 18px;font-size:15px}
+.ksearch input:focus{border-color:var(--a4);outline:none;box-shadow:0 0 0 3px rgba(34,211,238,.2)}
+.kchips{display:flex;gap:6px;flex-wrap:wrap}
+.kchips button{border:1px solid var(--line2);background:var(--glass);color:var(--muted);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:600;cursor:pointer;transition:.2s}
+.kchips button.on{background:var(--ink);color:#0a0810;border-color:var(--ink)}
+.klist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media (max-width:820px){.klist{grid-template-columns:1fr}}
+.kitem{border:1px solid var(--line);border-radius:20px;background:var(--bg2);padding:18px 20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.kitem .kt{display:flex;justify-content:space-between;gap:10px;align-items:start}
+.kitem h3{margin:0;font-size:16px;line-height:1.35;letter-spacing:-.01em}
+.kitem .km{display:flex;gap:6px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.kitem .km span{padding:3px 8px;border:1px solid var(--line);border-radius:7px}
+.kitem .km span.c{color:var(--a4);border-color:rgba(34,211,238,.35)}
+.kitem .kw{margin:0;color:var(--muted);font-size:13.5px}
+.kitem pre{margin:0;white-space:pre-wrap;word-break:break-word;font:13px/1.6 var(--mono);color:#d9d4ee;background:#05040a;border:1px solid var(--line);border-radius:14px;padding:14px;max-height:120px;overflow:hidden;position:relative;transition:max-height .3s}
+.kitem pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:50px;background:linear-gradient(transparent,#05040a)}
+.kitem.open pre{max-height:none;overflow:auto}.kitem.open pre::after{display:none}
+.kitem .ka{display:flex;gap:8px;flex-wrap:wrap}
+.kitem .ka button{border:1px solid var(--line2);background:var(--glass);border-radius:11px;padding:8px 13px;font-size:13px;font-weight:700;cursor:pointer}
+.kitem .ka button.cp{background:var(--ink);color:#0a0810;border-color:var(--ink)}
+.kempty{grid-column:1/-1;text-align:center;padding:40px;border:1px dashed var(--line2);border-radius:20px;color:var(--muted)}
+.kmore{grid-column:1/-1;justify-self:center}
+.faq{display:grid;gap:10px;max-width:860px}
+details{border:1px solid var(--line);border-radius:18px;background:var(--glass);padding:0 20px}
+summary{cursor:pointer;padding:16px 0;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--a4);font-size:20px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 16px;color:var(--muted);font-size:14.5px}
+
+.contact{position:relative;border-radius:32px;padding:clamp(40px,6vw,80px) clamp(22px,5vw,60px);text-align:center;overflow:hidden;border:1px solid var(--line2);isolation:isolate}
+.contact::before{content:"";position:absolute;inset:-50%;z-index:-2;background:conic-gradient(from 0deg,#22d3ee,#8b5cf6,#ff4d6d,#ffb547,#22d3ee);animation:spin 18s linear infinite;opacity:.35;filter:blur(60px)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.contact::after{content:"";position:absolute;inset:1px;border-radius:31px;z-index:-1;background:rgba(10,9,16,.86)}
+.contact p{color:var(--muted);max-width:560px;margin:16px auto 28px}
+.contact .cta{justify-content:center}
+
+footer{border-top:1px solid var(--line);padding:30px 0 calc(30px + env(safe-area-inset-bottom));color:var(--dim);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a:hover{color:var(--ink)}
+
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);opacity:0;padding:12px 18px;border-radius:14px;background:var(--ink);color:#0a0810;font-weight:700;font-size:14px;z-index:70;transition:.3s;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1!important;transform:none!important}#fx{display:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grid-bg" aria-hidden="true"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<nav><div class="wrap"><div class="bar">
+ <div class="brandrow"><a class="homebtn" href="/" aria-label="Về trang chủ hadavn.com" title="Trang chủ"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></a><a class="logo" href="#top"><b>H</b>HADA <small>AI Studio</small></a></div>
+ <div class="navl"><a href="#doi-ngu">Đội ngũ AI</a><a href="#bang-gia">Bảng giá</a><a href="#quy-trinh">Quy trình</a><a href="#api">API</a><a class="cta" href="https://m.me/863132256880383" target="_blank" rel="noopener">Nhận báo giá ↗</a></div>
+</div></div></nav>
+
+<main id="top">
+<header class="wrap hero">
+ <div>
+  <span class="pill"><span class="live"><i></i>ĐANG CHẠY</span>Hệ thống này đang vận hành 6 kênh của HADA mỗi ngày</span>
+  <h1>Văn phòng <span class="grad">AI</span><br>làm việc 24/7<br>cho kênh của bạn.</h1>
+  <p class="lead">Thumbnail, ảnh bài đăng, mô tả &amp; SEO, trả lời bình luận, đăng lịch tự động, kiểm duyệt trước khi đăng, video AI, lồng tiếng. Những việc HADA đã tự động hoá cho chính mình, giờ làm cho bạn: <b style="color:var(--ink)">giá công khai, thử mẫu trước, dừng bất cứ lúc nào.</b></p>
+  <div class="cta">
+   <a class="btn primary" href="#bang-gia">Xem bảng giá &amp; ước tính chi phí</a>
+   <a class="btn" href="https://m.me/863132256880383" target="_blank" rel="noopener">💬 Nhắn HADA</a>
+  </div>
+  <div class="hero-meta">
+   <div><b>6</b>kênh đang vận hành</div>
+   <div><b>13</b>kỹ năng tự động</div>
+   <div><b>76</b>câu lệnh đã tinh chỉnh</div>
+   <div><b>365</b>ngày có video mới</div>
+  </div>
+ </div>
+ <div class="office rv" aria-label="Mô phỏng một ngày làm việc của văn phòng AI">
+  <div class="hd"><b>Hôm nay · Văn phòng AI HADA</b><span id="clock">●</span></div>
+  <div class="task on" data-t="06:00"><div class="ic">📚</div><div class="t"><b>Thêm sách mới vào Tủ sách</b><small>links.json → dựng trang → đẩy GitHub</small></div><span class="st">XONG</span></div>
+  <div class="task" data-t="07:00"><div class="ic">🖼️</div><div class="t"><b>Đăng poster cộng đồng 3 kênh</b><small>Câu nói động lực · 1:1 · lên lịch sẵn</small></div><span class="st">07:00</span></div>
+  <div class="task" data-t="09:30"><div class="ic">🎬</div><div class="t"><b>Tiểu phẩm AI 15s mới</b><small>Kịch bản → Dreamina → phụ đề → 1080p</small></div><span class="st">09:30</span></div>
+  <div class="task" data-t="10:00"><div class="ic">🌐</div><div class="t"><b>Kỹ sư web khám sức khoẻ hadavn.com</b><small>Link, console, mobile, SEO</small></div><span class="st">10:00</span></div>
+  <div class="task" data-t="15:00"><div class="ic">📅</div><div class="t"><b>Lên lịch Shorts đa nền tảng</b><small>YouTube · Facebook · TikTok</small></div><span class="st">15:00</span></div>
+  <div class="task" data-t="20:00"><div class="ic">🎨</div><div class="t"><b>Thumbnail cho video ngày mai</b><small>Khoá mặt thật · QC từng chi tiết · set Studio</small></div><span class="st">20:00</span></div>
+  <div class="task" data-t="22:00"><div class="ic">💬</div><div class="t"><b>Trả lời bình luận &amp; gắn link sách</b><small>Theo giọng kênh · đúng ngữ cảnh</small></div><span class="st">22:00</span></div>
+ </div>
+</header>
+
+<section id="doi-ngu" style="padding-top:40px">
+ <div class="wrap">
+  <div class="head">
+   <div><div class="mono">01 · Đội ngũ nhân sự AI</div><h2>9 vị trí, một văn phòng không bao giờ nghỉ</h2></div>
+   <p>Mỗi vị trí là một quy trình HADA đã chạy thật trên kênh của mình, có kiểm tra chất lượng và nhật ký từng việc.</p>
+  </div>
+  <div class="team">
+   <div class="role rv" style="--c:#ffb547"><div class="in"><div class="top"><div class="ico">🎨</div><span class="num">01</span></div><div><h3>Nhân viên Thumbnail</h3><div class="tag">Shorts 9:16 · Video dài 16:9</div></div>
+    <p>Bắt khung hình đẹp nhất, giữ đúng khuôn mặt thật, chữ nghệ thuật hoà vào cảnh, soát kỹ từng cánh tay và bố cục, rồi đặt thẳng vào YouTube Studio.</p>
+    <ul><li>Phong cách riêng cho từng kênh</li><li>Bản A/B cho video dài</li><li>Tuân thủ chính sách YouTube</li></ul>
+    <div class="foot"><span>Từ <b>40.000đ</b>/ảnh</span><span>ChatGPT · Claude QC</span></div></div></div>
+   <div class="role rv d1" style="--c:#ff4d6d"><div class="in"><div class="top"><div class="ico">🖼️</div><span class="num">02</span></div><div><h3>Thiết kế bài đăng</h3><div class="tag">Poster 1:1 · Ảnh cộng đồng · Banner</div></div>
+    <p>Poster câu nói, ảnh thông báo, banner kênh với khuôn mặt thật của bạn, mỗi ảnh một phong cách, lên lịch đăng cộng đồng tự động hàng ngày.</p>
+    <ul><li>Song ngữ Việt – Anh</li><li>Lịch đăng 07:00 mỗi ngày</li><li>Không trùng mẫu</li></ul>
+    <div class="foot"><span>Từ <b>25.000đ</b>/ảnh</span><span>ChatGPT · JS pipeline</span></div></div></div>
+   <div class="role rv d2" style="--c:#8b5cf6"><div class="in"><div class="top"><div class="ico">✍️</div><span class="num">03</span></div><div><h3>Biên tập mô tả &amp; SEO</h3><div class="tag">Tiêu đề · Mô tả · Hashtag · Phụ đề</div></div>
+    <p>Viết tiêu đề gây tò mò nhưng không giật tít, mô tả chuẩn SEO, hashtag theo chủ đề, phụ đề và bản dịch tiếng Anh / Hindi khi cần.</p>
+    <ul><li>Giọng văn riêng của kênh</li><li>Đa ngôn ngữ</li><li>Kèm link sản phẩm đúng chỗ</li></ul>
+    <div class="foot"><span>Từ <b>20.000đ</b>/video</span><span>Claude · Whisper</span></div></div></div>
+   <div class="role rv" style="--c:#22d3ee"><div class="in"><div class="top"><div class="ico">💬</div><span class="num">04</span></div><div><h3>Chăm sóc bình luận</h3><div class="tag">YouTube · Facebook · TikTok</div></div>
+    <p>Đọc bình luận mới, trả lời theo giọng kênh, ghim câu hay, gắn link sách / sản phẩm đúng ngữ cảnh, bỏ qua spam, báo cáo những bình luận cần bạn tự trả lời.</p>
+    <ul><li>Không trả lời máy móc</li><li>Có danh sách từ cấm</li><li>Báo cáo hàng tuần</li></ul>
+    <div class="foot"><span>Từ <b>1.200.000đ</b>/tháng</span><span>Make · Claude</span></div></div></div>
+   <div class="role rv d1" style="--c:#10b981"><div class="in"><div class="top"><div class="ico">📅</div><span class="num">05</span></div><div><h3>Điều phối đăng lịch</h3><div class="tag">Tự động đăng đa nền tảng</div></div>
+    <p>Một video lên là tự động chia sẻ và lên lịch trên YouTube, Facebook, TikTok với tiêu đề, mô tả, thumbnail riêng từng nơi và khung giờ tốt nhất của kênh.</p>
+    <ul><li>Lịch cố định theo tuần</li><li>Không cần mật khẩu của bạn</li><li>Nhật ký từng lần đăng</li></ul>
+    <div class="foot"><span>Từ <b>900.000đ</b>/tháng</span><span>Make · YouTube Studio</span></div></div></div>
+   <div class="role rv d2" style="--c:#f59e0b"><div class="in"><div class="top"><div class="ico">🛡️</div><span class="num">06</span></div><div><h3>Kiểm duyệt trước đăng</h3><div class="tag">An toàn kênh · Bản quyền</div></div>
+    <p>Soát video, thumbnail và mô tả trước khi lên sóng: nội dung nhạy cảm với trẻ em, bạo lực, nhạc bản quyền, lỗi chính tả, link hỏng, thông tin sai.</p>
+    <ul><li>Theo chính sách YouTube mới nhất</li><li>Chấm điểm rủi ro + gợi ý sửa</li><li>Lưu hồ sơ kiểm duyệt</li></ul>
+    <div class="foot"><span>Từ <b>15.000đ</b>/video</span><span>Claude · Danh mục kiểm</span></div></div></div>
+   <div class="role rv" style="--c:#ff4d6d"><div class="in"><div class="top"><div class="ico">🎬</div><span class="num">07</span></div><div><h3>Đạo diễn video AI</h3><div class="tag">Tiểu phẩm · Quảng cáo · Minh hoạ</div></div>
+    <p>Từ một ý tưởng: viết kịch bản 3 cảnh, dựng video bằng Dreamina / Google Flow / Kling với khuôn mặt thật của bạn, phụ đề từ khoá, nâng 1080p, giao file sẵn đăng.</p>
+    <ul><li>Video dọc 15–60 giây</li><li>Giọng miền Nam / Bắc / Anh</li><li>Nhiều phiên bản để chọn</li></ul>
+    <div class="foot"><span>Từ <b>300.000đ</b>/video</span><span>Dreamina · Flow · ffmpeg</span></div></div></div>
+   <div class="role rv d1" style="--c:#8b5cf6"><div class="in"><div class="top"><div class="ico">🎙️</div><span class="num">08</span></div><div><h3>Lồng tiếng &amp; nhạc</h3><div class="tag">Voice clone · Dub đa ngữ · Nhạc nền</div></div>
+    <p>Nhân bản giọng của bạn để đọc kịch bản, lồng tiếng video sang tiếng Anh / Hindi với phụ đề karaoke, nhạc nền AI không lo bản quyền cho Shorts.</p>
+    <ul><li>Giữ cảm xúc, ngắt nghỉ tự nhiên</li><li>Nhiều giọng trong một video</li><li>File tách lớp tiếng / nhạc</li></ul>
+    <div class="foot"><span>Từ <b>60.000đ</b>/phút</span><span>ElevenLabs · Suno</span></div></div></div>
+   <div class="role rv d2" style="--c:#22d3ee"><div class="in"><div class="top"><div class="ico">🌐</div><span class="num">09</span></div><div><h3>Kỹ sư web &amp; dữ liệu</h3><div class="tag">Landing page · Tủ sách aff · Link-in-bio</div></div>
+    <p>Website cá nhân như hadavn.com, gian hàng tiếp thị liên kết tự cập nhật, trang link-in-bio, và một "kỹ sư trực" khám sức khoẻ trang mỗi ngày.</p>
+    <ul><li>Tên miền riêng, HTTPS, không quảng cáo</li><li>SEO cơ bản, chạy tốt điện thoại</li><li>Nhật ký thay đổi minh bạch</li></ul>
+    <div class="foot"><span>Từ <b>4.500.000đ</b>/trang</span><span>GitHub Pages · Make</span></div></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="bang-gia" style="padding-top:20px">
+ <div class="wrap">
+  <div class="head">
+   <div><div class="mono">02 · Bảng giá tham khảo</div><h2>Minh bạch, trả theo việc</h2></div>
+   <div class="toggle" role="group" aria-label="Chọn cách tính"><button class="on" data-m="le">Làm lẻ</button><button data-m="goi">Gói tháng (tiết kiệm)</button></div>
+  </div>
+  <div class="ptable" id="ptable">
+   <div class="prow"><span>Dịch vụ</span><span>Đơn giá</span><span>Đơn vị</span><span style="text-align:right">Số lượng</span></div>
+  </div>
+  <div class="sum rv" id="sum">
+   <div class="tot"><b id="total">0đ</b><small id="totnote">Chọn số lượng ở trên để ước tính. Giá tham khảo, chưa gồm VAT.</small></div>
+   <div class="acts"><button class="btn" id="copyq" type="button">📋 Sao chép ước tính</button><a class="btn primary" href="https://m.me/863132256880383" target="_blank" rel="noopener">Gửi cho HADA ↗</a></div>
+  </div>
+  <p class="note"><b>Cách tính giá.</b> Giá trên là <b>giá tham khảo</b> cập nhật 26/11/2026, bằng tiền Việt, chưa gồm VAT. Báo giá chính thức gửi sau khi HADA xem kênh của bạn (thường trong 1–2 ngày). <b>Luôn có mẫu thử</b> (1 thumbnail, 1 poster hoặc 1 mô tả) trước khi bạn trả tiền. Gói tháng thanh toán đầu kỳ, phần chưa dùng được hoàn theo đơn vị nếu bạn dừng giữa chừng. Chi phí tài khoản công cụ AI (nếu bạn muốn dùng tài khoản riêng) tính riêng theo hoá đơn thật.</p>
+ </div>
+</section>
+
+<section id="quy-trinh" style="padding-top:20px">
+ <div class="wrap">
+  <div class="head"><div><div class="mono">03 · Quy trình</div><h2>Bốn bước, không cần mật khẩu của bạn</h2></div><p>Mọi quyền truy cập đều là quyền cộng tác viên tối thiểu, bạn thu hồi được bất cứ lúc nào.</p></div>
+  <div class="steps">
+   <div class="step rv"><h3>Nhắn tin + gửi link kênh</h3><p>Nói bạn cần gì (ví dụ: 30 thumbnail/tháng, trả lời bình luận 2 kênh). Không cần biết thuật ngữ.</p></div>
+   <div class="step rv d1"><h3>Nhận báo giá &amp; mẫu thử</h3><p>HADA xem kênh, gửi báo giá đúng con số và làm miễn phí 1 mẫu để bạn thấy chất lượng thật.</p></div>
+   <div class="step rv d2"><h3>Duyệt mẫu, cấp quyền tối thiểu</h3><p>Bạn thêm HADA làm biên tập viên YouTube Studio / trang Facebook. Thoả thuận ghi rõ việc, giá, thời hạn.</p></div>
+   <div class="step rv"><h3>Vận hành &amp; báo cáo</h3><p>Hệ thống chạy theo lịch, có nhật ký từng việc; báo cáo tuần; dừng hoặc đổi gói bất cứ lúc nào.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="cong-cu" style="padding-top:20px">
+ <div class="wrap">
+  <div class="head"><div><div class="mono">04 · Công cụ</div><h2>Những công cụ HADA dùng mỗi ngày</h2></div><p>Chọn theo chất lượng thật trên kênh của HADA. Đây là công cụ đang dùng, không phải nhà tài trợ.</p></div>
+  <div class="tools rv">
+   <span>Claude<i>điều phối · viết · kiểm duyệt</i></span><span>ChatGPT<i>ảnh thumbnail · poster</i></span><span>Gemini<i>ý tưởng · phân tích</i></span>
+   <span>Dreamina Seedance<i>video AI</i></span><span>Google Flow · Veo<i>video AI</i></span><span>Kling<i>video AI</i></span>
+   <span>ElevenLabs<i>voice clone · lồng tiếng</i></span><span>Suno<i>nhạc nền</i></span><span>Whisper<i>nghe thoại · phụ đề</i></span><span>ffmpeg<i>dựng · nâng 1080p</i></span>
+   <span>Make<i>tự động đăng · bình luận</i></span><span>YouTube Studio<i>lên lịch · thumbnail</i></span><span>Shopee Affiliate<i>tủ sách</i></span><span>Amazon Associates<i>HaDa Picks</i></span><span>GitHub Pages<i>website</i></span>
+  </div>
+ </div>
+</section>
+
+<section id="hop-tac" style="padding-top:20px">
+ <div class="wrap">
+  <div class="head"><div><div class="mono">05 · Hợp tác</div><h2>Ba cách làm việc cùng HADA</h2></div></div>
+  <div class="coop">
+   <div class="cc rv" style="--c:#22d3ee"><div class="big">🧑‍💻</div><h3>Thuê dịch vụ</h3><p>Chọn vị trí AI bạn cần theo bảng giá, làm lẻ hoặc gói tháng. Phù hợp kênh cá nhân, shop, nhà xuất bản, công ty nhỏ.</p><a class="btn" href="#bang-gia">Xem bảng giá</a></div>
+   <div class="cc rv d1" style="--c:#8b5cf6"><div class="big">🤝</div><h3>Đồng hành kênh</h3><p>HADA vận hành trọn gói văn phòng AI cho kênh của bạn và nhận một phần doanh thu thay vì phí cố định. Thoả thuận riêng theo từng kênh, có thời gian thử 1 tháng.</p><a class="btn" href="https://m.me/863132256880383" target="_blank" rel="noopener">Trao đổi ↗</a></div>
+   <div class="cc rv d2" style="--c:#ffb547"><div class="big">🎓</div><h3>Đào tạo đội ngũ</h3><p>Chuyển giao bộ quy trình + câu lệnh + danh mục kiểm tra để nhân sự của bạn tự làm thumbnail, poster, mô tả bằng AI. Có bộ tài liệu và buổi hướng dẫn trực tuyến.</p><a class="btn" href="#bang-gia">Xem gói đào tạo</a></div>
+  </div>
+ </div>
+</section>
+
+<section id="api" style="padding-top:20px">
+ <div class="wrap">
+  <div class="api rv">
+   <div>
+    <span class="soon">ĐANG XÂY · BẢN THỬ NGHIỆM NỘI BỘ</span>
+    <h3>HADA Automation API</h3>
+    <p>Cho đội ngũ kỹ thuật muốn gắn văn phòng AI của HADA vào hệ thống riêng: gửi link video, nhận về thumbnail, tiêu đề, mô tả, điểm kiểm duyệt qua webhook. Giới hạn lượt theo ngày, khoá riêng từng khách, có nhật ký và nút tắt.</p>
+    <p style="margin:0 0 18px">Hiện API đang chạy thử trong nội bộ HADA. Để lại lời nhắn nếu bạn muốn dùng sớm; HADA sẽ báo khi mở.</p>
+    <a class="btn" href="https://m.me/863132256880383" target="_blank" rel="noopener">Đăng ký dùng sớm ↗</a>
+   </div>
+   <pre class="code" aria-label="Ví dụ gọi API (minh hoạ)"><span class="c"># minh hoạ – chưa mở công khai</span>
+<span class="k">POST</span> https://api.hadavn.com/v1/jobs
+{
+  <span class="s">"task"</span>: <span class="s">"thumbnail+description+review"</span>,
+  <span class="s">"video_url"</span>: <span class="s">"https://youtu.be/…"</span>,
+  <span class="s">"channel_style"</span>: <span class="s">"hada-hero"</span>,
+  <span class="s">"webhook"</span>: <span class="s">"https://your.site/hook"</span>
+}
+<span class="c"># → { "job_id": "…", "eta_minutes": 8 }</span></pre>
+  </div>
+ </div>
+</section>
+
+<section id="kho" style="padding-top:20px">
+ <div class="wrap">
+  <div class="head">
+   <div><div class="mono">07 · Tặng miễn phí</div><h2>Kho câu lệnh &amp; cách làm của HADA</h2></div>
+   <p>Những câu lệnh và quy trình HADA dùng thật để làm thumbnail, poster, video AI. Tặng bạn dùng tự do, <b style="color:var(--ink)">cập nhật mỗi ngày</b> bởi kỹ sư AI trực trang. <span id="khoinfo" class="mono" style="font-size:11px;color:var(--a4)"></span></p>
+  </div>
+  <div class="kbar">
+   <div class="ksearch"><input id="kq" type="search" placeholder="Tìm: thumbnail, Dreamina, sửa tay, poster, vòng lặp…" aria-label="Tìm câu lệnh" autocomplete="off"></div>
+   <div class="kchips" id="kcat" role="group" aria-label="Lọc theo nhóm"></div>
+   <div class="kchips" id="ktool" role="group" aria-label="Lọc theo công cụ"></div>
+  </div>
+  <div class="klist" id="klist"><div class="kempty">Đang tải kho câu lệnh…</div></div>
+  <p class="note"><b>Điều kiện tặng:</b> dùng cho kênh của bạn thoải mái, không bán lại nguyên bộ. Tên nhân vật riêng của HADA đã thay bằng <b>[NHÂN VẬT CHÍNH]</b> để bạn điền người của mình. Nếu bạn làm ra sản phẩm đẹp từ kho này, gửi HADA xem với nhé.</p>
+ </div>
+</section>
+
+<section id="hoi-dap" style="padding-top:20px">
+ <div class="wrap">
+  <div class="head"><div><div class="mono">06 · Hỏi đáp</div><h2>Câu hỏi thường gặp</h2></div></div>
+  <div class="faq">
+   <details><summary>Có cần đưa mật khẩu YouTube / Facebook không?</summary><p>Không. Bạn thêm HADA làm biên tập viên (YouTube Studio) hoặc người quản lý nội dung (Facebook) với quyền tối thiểu. Bạn thu hồi quyền bất cứ lúc nào.</p></details>
+   <details><summary>Nội dung có bị dùng để làm việc khác không?</summary><p>Không. Kịch bản, video, hình ảnh của bạn chỉ dùng cho đúng việc bạn đặt. Khuôn mặt thật chỉ dùng khi bạn cho phép bằng văn bản và chỉ trong dự án đó.</p></details>
+   <details><summary>Bao lâu nhận được kết quả?</summary><p>Thumbnail, poster, mô tả: trong ngày. Video AI: 1–2 ngày. Thiết lập tự động đăng / trả lời bình luận: 3–5 ngày kể cả thử nghiệm. Website: 1–2 tuần.</p></details>
+   <details><summary>Không hài lòng thì sao?</summary><p>Mỗi sản phẩm được sửa tối đa 2 lần miễn phí. Nếu vẫn không đạt theo mô tả đã thoả thuận, bạn không phải trả cho sản phẩm đó.</p></details>
+   <details><summary>Nhãn hàng, nhà xuất bản muốn quảng bá trên kênh HADA?</summary><p>Đó là hợp tác nội dung, xem mục <a href="/#lien-he" style="color:var(--a4)">Hợp tác</a> ở trang chủ hoặc nhắn trực tiếp cho HADA.</p></details>
+  </div>
+ </div>
+</section>
+
+<section id="lien-he" style="padding-top:20px">
+ <div class="wrap">
+  <div class="contact rv">
+   <div class="mono" style="color:var(--a4)">Bắt đầu</div>
+   <h2>Để AI làm việc,<br><span class="grad">bạn làm nội dung.</span></h2>
+   <p>Gửi link kênh và việc bạn muốn giao. HADA trả lời trong 24 giờ kèm mẫu thử miễn phí.</p>
+   <div class="cta">
+    <a class="btn primary" href="https://m.me/863132256880383" target="_blank" rel="noopener">💬 Nhắn tin qua Messenger</a>
+    <a class="btn" href="https://www.facebook.com/863132256880383" target="_blank" rel="noopener">Trang Facebook HaDa</a>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+ <span>© <span id="y"></span> HADA AI Studio · một phần của <a href="/">hadavn.com</a></span>
+ <span><a href="/">Trang chủ</a> · <a href="/sach/">Tủ sách</a> · <a href="/picks/">HaDa Picks</a> · <a href="#top">Lên đầu ↑</a></span>
+</div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.getElementById('y').textContent=new Date().getFullYear();
+const prog=document.getElementById('prog');
+addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?scrollY/h*100:0)+'%'},{passive:true});
+
+/* ---- bảng giá: dữ liệu công khai, chạy hoàn toàn trên trình duyệt ---- */
+const ITEMS=[
+ {g:'Hình ảnh'},
+ {id:'thumb916',n:'Thumbnail Shorts 9:16',d:'Khoá mặt thật, chữ nghệ thuật, QC, set vào Studio',u:'ảnh',le:40000,goi:{q:30,p:900000,note:'30 ảnh/tháng'}},
+ {id:'thumb169',n:'Thumbnail video dài 16:9',d:'Phong cách MrBeast, bản A/B theo yêu cầu',u:'ảnh',le:90000,goi:{q:10,p:750000,note:'10 ảnh/tháng'}},
+ {id:'poster',n:'Poster / ảnh bài đăng 1:1',d:'Câu nói, thông báo, mặt thật; lên lịch cộng đồng',u:'ảnh',le:25000,goi:{q:30,p:600000,note:'30 ảnh/tháng'}},
+ {g:'Chữ & chăm sóc kênh'},
+ {id:'desc',n:'Tiêu đề + mô tả + hashtag',d:'Chuẩn SEO, giọng kênh; thêm bản dịch +50%',u:'video',le:20000,goi:{q:60,p:900000,note:'60 video/tháng'}},
+ {id:'review',n:'Kiểm duyệt trước đăng',d:'Chính sách YouTube, bản quyền, chính tả, link',u:'video',le:15000,goi:{q:60,p:700000,note:'60 video/tháng'}},
+ {id:'comment',n:'Trả lời bình luận tự động',d:'1 kênh, 3 nền tảng, báo cáo tuần',u:'kênh/tháng',le:1200000,goi:{q:3,p:3000000,note:'3 kênh/tháng'}},
+ {id:'post',n:'Tự động đăng & lên lịch đa nền tảng',d:'1 kênh; thiết lập lần đầu 1.500.000đ tính riêng',u:'kênh/tháng',le:900000,goi:{q:3,p:2200000,note:'3 kênh/tháng'}},
+ {g:'Video & âm thanh'},
+ {id:'skit',n:'Video AI ngắn 15–30s',d:'Kịch bản, Dreamina/Flow, phụ đề, 1080p; mặt thật +100.000đ',u:'video',le:300000,goi:{q:10,p:2500000,note:'10 video/tháng'}},
+ {id:'dub',n:'Lồng tiếng đa ngữ + phụ đề karaoke',d:'Anh / Hindi / Việt, nhiều giọng',u:'phút',le:120000,goi:{q:30,p:3000000,note:'30 phút/tháng'}},
+ {id:'voice',n:'Voice clone đọc kịch bản',d:'Giọng của bạn, có cảm xúc, tách lớp tiếng',u:'phút',le:60000,goi:{q:60,p:2700000,note:'60 phút/tháng'}},
+ {id:'music',n:'Nhạc nền AI cho Shorts',d:'Không lo bản quyền, đúng nhịp video',u:'bản',le:80000,goi:{q:20,p:1200000,note:'20 bản/tháng'}},
+ {g:'Web & đào tạo'},
+ {id:'web',n:'Website cá nhân / gian hàng affiliate',d:'Tên miền riêng, tự cập nhật, SEO cơ bản; vận hành 300.000đ/tháng',u:'trang',le:4500000,goi:{q:1,p:4500000,note:'trọn gói 1 trang'}},
+ {id:'train',n:'Đào tạo đội ngũ dùng AI',d:'Bộ quy trình + câu lệnh + 1 buổi trực tuyến 2 giờ',u:'buổi',le:2500000,goi:{q:1,p:2500000,note:'1 buổi'}},
+ {id:'setup',n:'Thiết lập trọn bộ văn phòng AI',d:'Khảo sát, dựng 5 quy trình tự động, bàn giao + 1 tháng hỗ trợ',u:'gói',le:9000000,goi:{q:1,p:9000000,note:'trọn gói'}},
+];
+let mode='le';const qty={};
+const vnd=v=>v.toLocaleString('vi-VN')+'đ';
+const tbl=document.getElementById('ptable');
+function render(){
+ tbl.querySelectorAll('.prow:not(:first-child)').forEach(e=>e.remove());
+ ITEMS.forEach(it=>{
+  const row=document.createElement('div');row.className='prow'+(it.g?' cat':'');
+  if(it.g){row.textContent=it.g;tbl.appendChild(row);return}
+  const price=mode==='le'?it.le:it.goi.p, unit=mode==='le'?it.u:'gói · '+it.goi.note;
+  const per=mode==='goi'?'<small>≈ '+vnd(Math.round(it.goi.p/it.goi.q))+'/'+it.u+'</small>':'';
+  row.innerHTML='<div class="n"><b>'+it.n+'</b><small>'+it.d+'</small></div><div class="p">'+vnd(price)+per+'</div><div class="u">'+unit+'</div><div class="q"><button type="button" aria-label="Bớt">−</button><input type="number" min="0" max="999" inputmode="numeric" value="'+(qty[it.id]||0)+'" aria-label="Số lượng '+it.n+'"><button type="button" aria-label="Thêm">+</button></div>';
+  const inp=row.querySelector('input'),[bm,bp]=row.querySelectorAll('button');
+  const set=v=>{v=Math.max(0,Math.min(999,v|0));qty[it.id]=v;inp.value=v;total()};
+  bm.onclick=()=>set((qty[it.id]||0)-1);bp.onclick=()=>set((qty[it.id]||0)+1);inp.oninput=()=>set(+inp.value);
+  tbl.appendChild(row)});
+ total()}
+function lines(){return ITEMS.filter(it=>!it.g&&qty[it.id]).map(it=>{const p=mode==='le'?it.le:it.goi.p;return{n:it.n,q:qty[it.id],u:mode==='le'?it.u:'gói',s:p*qty[it.id]}})}
+function total(){const L=lines(),t=L.reduce((a,b)=>a+b.s,0);document.getElementById('total').textContent=vnd(t);
+ document.getElementById('totnote').textContent=L.length?L.length+' mục · '+(mode==='le'?'làm lẻ':'gói tháng')+' · giá tham khảo, chưa gồm VAT':'Chọn số lượng ở trên để ước tính. Giá tham khảo, chưa gồm VAT.'}
+document.querySelectorAll('.toggle button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.toggle button').forEach(x=>x.classList.toggle('on',x===b));mode=b.dataset.m;render()});
+render();
+const toast=document.getElementById('toast');function say(m){toast.textContent=m;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
+document.getElementById('copyq').onclick=async()=>{const L=lines();if(!L.length){say('Bạn chưa chọn mục nào');return}
+ const txt='Ước tính từ hadavn.com/ai ('+(mode==='le'?'làm lẻ':'gói tháng')+'):\n'+L.map(l=>'- '+l.n+' × '+l.q+' '+l.u+' = '+vnd(l.s)).join('\n')+'\nTổng tham khảo: '+vnd(L.reduce((a,b)=>a+b.s,0))+' (chưa VAT)\nKênh của mình: ';
+ try{await navigator.clipboard.writeText(txt);say('Đã sao chép, dán vào Messenger nhé')}catch(e){prompt('Sao chép nội dung này:',txt)}};
+
+/* ---- kho câu lệnh miễn phí: tải prompts.json, tìm không dấu, lọc, sao chép ---- */
+(function(){
+const fold=s=>(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d');
+const list=document.getElementById('klist'),kq=document.getElementById('kq'),kcat=document.getElementById('kcat'),ktool=document.getElementById('ktool'),info=document.getElementById('khoinfo');
+let DATA=[],cat='Tất cả',tool='Tất cả',shown=12;
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function chips(el,vals,cur,set){el.innerHTML='';vals.forEach(v=>{const b=document.createElement('button');b.type='button';b.textContent=v;b.classList.toggle('on',v===cur);b.onclick=()=>{set(v);shown=12;draw()};el.appendChild(b)})}
+function toolKey(t){return (t||'').split(/[\/(]/)[0].trim()||'Khác'}
+function draw(){
+ const q=fold(kq.value.trim());
+ const F=DATA.filter(it=>(cat==='Tất cả'||it.cat===cat)&&(tool==='Tất cả'||toolKey(it.tool)===tool)&&(!q||q.split(/\s+/).every(w=>it._f.includes(w))));
+ chips(kcat,['Tất cả',...new Set(DATA.map(i=>i.cat))],cat,v=>cat=v);
+ chips(ktool,['Tất cả',...new Set(DATA.map(i=>toolKey(i.tool)))],tool,v=>tool=v);
+ list.innerHTML='';
+ if(!F.length){list.innerHTML='<div class="kempty">Không có câu lệnh nào khớp. Thử từ khác, ví dụ "thumbnail", "Dreamina", "sửa tay".</div>';return}
+ F.slice(0,shown).forEach(it=>{const d=document.createElement('article');d.className='kitem';d.id='cl-'+it.id;
+  d.innerHTML='<div class="kt"><h3>'+esc(it.title)+'</h3></div><div class="km"><span class="c">'+esc(it.cat)+'</span>'+(it.tool?'<span>'+esc(it.tool)+'</span>':'')+'<span>'+it.text.length.toLocaleString('vi-VN')+' ký tự</span></div>'+(it.use_when?'<p class="kw">'+esc(it.use_when)+'</p>':'')+'<pre tabindex="0">'+esc(it.text)+'</pre><div class="ka"><button type="button" class="cp">📋 Sao chép</button><button type="button" class="ex">Xem đầy đủ</button><button type="button" class="ln">🔗 Link</button></div>';
+  const ex=d.querySelector('.ex');ex.onclick=()=>{const o=d.classList.toggle('open');ex.textContent=o?'Thu gọn':'Xem đầy đủ'};
+  d.querySelector('.cp').onclick=async()=>{try{await navigator.clipboard.writeText(it.text);say('Đã sao chép câu lệnh')}catch(e){prompt('Sao chép:',it.text)}};
+  d.querySelector('.ln').onclick=async()=>{const u=location.origin+location.pathname+'#cl-'+it.id;try{await navigator.clipboard.writeText(u);say('Đã sao chép link câu lệnh')}catch(e){prompt('Link:',u)}};
+  list.appendChild(d)});
+ if(F.length>shown){const m=document.createElement('button');m.className='btn kmore';m.type='button';m.textContent='Xem thêm '+(F.length-shown)+' câu lệnh';m.onclick=()=>{shown+=12;draw()};list.appendChild(m)}
+ info.textContent=F.length+'/'+DATA.length+' mục';
+}
+kq.addEventListener('input',()=>{shown=12;draw()});
+fetch('prompts.json',{cache:'no-cache'}).then(r=>r.json()).then(j=>{DATA=j.items.map(it=>({...it,_f:fold(it.title+' '+it.cat+' '+it.tool+' '+it.use_when+' '+it.text)}));
+ const sub=document.querySelector('#kho .head p');if(sub)info.textContent=j.count+' mục · cập nhật '+j.updated.split('-').reverse().join('/');
+ draw();
+ if(location.hash.startsWith('#cl-')){const id=location.hash.slice(4);const it=DATA.find(x=>x.id===id);if(it){kq.value=it.title;cat='Tất cả';tool='Tất cả';draw();const el=document.getElementById('cl-'+id);if(el){el.classList.add('open');el.querySelector('.ex').textContent='Thu gọn';el.scrollIntoView({block:'start'})}}}
+}).catch(()=>{list.innerHTML='<div class="kempty">Chưa tải được kho câu lệnh. Tải lại trang giúp HADA nhé.</div>'});
+})();
+
+/* ---- mô phỏng văn phòng: sáng dần theo giờ thật ---- */
+const tasks=[...document.querySelectorAll('.task')],clock=document.getElementById('clock');
+function tick(){const d=new Date(),hm=d.getHours()*60+d.getMinutes();clock.textContent='● '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+ tasks.forEach(t=>{const [h,m]=t.dataset.t.split(':').map(Number),on=hm>=h*60+m;t.classList.toggle('on',on);t.querySelector('.st').textContent=on?'XONG':t.dataset.t})}
+tick();setInterval(tick,30000);
+
+/* ---- hiện dần khi cuộn ---- */
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -30px 0px'});document.querySelectorAll('.rv').forEach(el=>io.observe(el))}else document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+document.querySelectorAll('.role').forEach(el=>{const t=el.querySelector('.in');el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();t.style.setProperty('--mx',(e.clientX-r.left)+'px');t.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+
+/* ---- hạt sáng ---- */
+const c=document.getElementById('fx');
+if(!RM&&c.getContext){const x=c.getContext('2d');let W,H,P=[];const N=innerWidth<700?36:80;
+ function rs(){W=c.width=innerWidth*devicePixelRatio;H=c.height=innerHeight*devicePixelRatio;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px'}
+ rs();addEventListener('resize',rs);
+ for(let i=0;i<N;i++)P.push({x:Math.random(),y:Math.random(),r:Math.random()*1.4+.4,v:Math.random()*.0004+.0001,a:Math.random()*Math.PI*2});
+ (function f(){x.clearRect(0,0,W,H);P.forEach(p=>{p.y-=p.v;p.a+=.01;if(p.y<0)p.y=1;const px=(p.x+Math.sin(p.a)*.004)*W,py=p.y*H;x.beginPath();x.arc(px,py,p.r*devicePixelRatio,0,7);x.fillStyle='rgba(180,220,255,'+(0.25+Math.sin(p.a)*.15)+')';x.fill()});requestAnimationFrame(f)})()}
+})();
+</script>
+</body>
+</html>
