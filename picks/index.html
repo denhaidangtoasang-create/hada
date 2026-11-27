@@ -455,6 +455,10 @@
   }
   function anyOn(o) { return Object.keys(o).some(function (k) { return o[k]; }); }
 
+  /* synonym-aware search, runs fully in the browser */
+  var SYN = [['clean','cleaning','mop','broom','sweep','wipe','dust','scrub','floor'],['prank','pranks','fake','joke','funny','gag','trick','toy'],['bug','bugs','spider','cockroach','roach','insect','fly','mosquito','pest'],['kitchen','cook','cooking','food','pan','fridge','breakfast'],['travel','trip','hotel','safety','safe','security','lock','theft'],['book','books','read','reading','author','paperback'],['light','lights','lamp','led','night','dark'],['tool','tools','repair','fix','tape','plumbing','diy','leak'],['kind','kindness','help','helping','elderly','grandma','grandpa','senior'],['sleep','alarm','wake','morning','clock'],['money','finance','wealth','invest','saving','rich'],['habit','habits','routine','discipline','self-improvement'],['leader','leadership','team','teamwork','ownership'],['phone','smartphone','iphone','strap','lanyard'],['reach','reacher','grabber','shelf','pickup'],['calm','philosophy','wisdom','stoic','mindset','psychology']];
+  function syn(w) { var o = [w]; SYN.forEach(function (g) { if (g.indexOf(w) >= 0) g.forEach(function (x) { if (o.indexOf(x) < 0) o.push(x); }); }); return o; }
+  function hasAny(h, w) { if (h.indexOf(w) >= 0) return true; var hp = " " + h.replace(/[^a-z0-9]+/g, " ") + " "; return syn(w).slice(1).some(function (x) { return hp.indexOf(" " + x + " ") >= 0; }); }
   function filtered() {
     var pq = parseQuery(state.q);
     var list = P.filter(function (p) {
@@ -463,7 +467,7 @@
       if (anyOn(state.fmts) && !state.fmts[p.fmt]) return false;
       if (state.savedOnly && !saved[p.id]) return false;
       var h = haystack(p);
-      for (var i = 0; i < pq.inc.length; i++) if (h.indexOf(pq.inc[i]) < 0) return false;
+      for (var i = 0; i < pq.inc.length; i++) if (!hasAny(h, pq.inc[i])) return false;
       for (var j = 0; j < pq.exc.length; j++) if (h.indexOf(pq.exc[j]) >= 0) return false;
       return true;
     });
