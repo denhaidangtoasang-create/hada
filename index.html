@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="HADA – Lan toả lòng tốt mỗi ngày"><meta name="twitter:description" content="Câu chuyện tử tế, hài đời thường, sách hay mỗi ngày trên 6 kênh YouTube, TikTok, Facebook."><meta name="twitter:image" content="https://yt3.ggpht.com/6JktpO5U6O8MXdSkRoeq6MyD5vlYg1AVVDfRSRYUhw_NdGtJN3uVSD7EwTT36ivg6glterz3=s800-c-k-c0x00ffffff-no-rj">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://hadavn.com/#website","url":"https://hadavn.com/","name":"HADA","inLanguage":"vi","publisher":{"@id":"https://hadavn.com/#person"}},{"@type":"Person","@id":"https://hadavn.com/#person","name":"HADA","alternateName":"Nguyễn Hải Đăng","url":"https://hadavn.com/","image":"https://yt3.ggpht.com/6JktpO5U6O8MXdSkRoeq6MyD5vlYg1AVVDfRSRYUhw_NdGtJN3uVSD7EwTT36ivg6glterz3=s800-c-k-c0x00ffffff-no-rj","jobTitle":"Nhà sáng tạo nội dung","sameAs":["https://www.youtube.com/@hada.official.1","https://www.tiktok.com/@hada.official.1","https://www.facebook.com/863132256880383","https://www.youtube.com/@HADAHeroOfficial","https://www.youtube.com/@hadakind","https://www.youtube.com/@hada.sachmoingay","https://www.youtube.com/@HEROIC.KINDNESS.OFFICIAL"]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
  --bg:#07060b;--bg2:#0e0c16;--glass:rgba(255,255,255,.045);--glass2:rgba(255,255,255,.08);
@@ -343,7 +343,7 @@ footer a:hover{color:var(--ink)}
   <div class="head">
    <div><div class="mono">02 · Hệ sinh thái</div><h2 class="split">Các kênh của HADA</h2></div>
    <div class="filters rv" role="group" aria-label="Lọc kênh">
-    <button class="on" data-f="all">Tất cả</button><button data-f="vi">Tiếng Việt</button><button data-f="en">English</button>
+    <button class="on" data-f="all" aria-pressed="true">Tất cả</button><button data-f="vi" aria-pressed="false">Tiếng Việt</button><button data-f="en" aria-pressed="false">English</button>
    </div>
   </div>
   <div class="chs" id="chs">
@@ -505,6 +505,12 @@ qdraw();
 /* tìm kiếm toàn trang */
 const so=document.getElementById('so'),sq=document.getElementById('sq'),sres=document.getElementById('sres'),sinfo=document.getElementById('sinfo');
 const fold=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d');
+/* từ đồng nghĩa – tìm kiếm thông minh chạy trên trình duyệt */
+const SYNR=[['tiền','tiền bạc','tài chính','làm giàu','đầu tư','tiết kiệm','giàu','thu nhập','money','finance','rich'],['tập trung','chú tâm','năng suất','hiệu suất','xao nhãng','deep work','focus','productivity'],['thói quen','kỷ luật','thay đổi bản thân','habit','habits','routine'],['giao tiếp','nói chuyện','đàm phán','thuyết phục','lắng nghe','ứng xử','thương lượng','communication','negotiation'],['hạnh phúc','vui','bình an','ý nghĩa','an nhiên','mục đích sống','happiness','happy'],['kinh doanh','khởi nghiệp','doanh nghiệp','startup','bán hàng','chiến lược','marketing','business'],['lãnh đạo','quản trị','đội nhóm','sếp','leader','leadership','management'],['thời gian','quản lý thời gian','sống chậm','time'],['tâm lý','tự tin','sợ hãi','lo lắng','nội tâm','psychology'],['hướng nội','trầm tính','ít nói','introvert','quiet'],['kiên trì','bền bỉ','nỗ lực','đam mê','grit'],['gia đình','vợ chồng','con cái','cha mẹ','nuôi dạy con','family'],['sách nói','audio','fonos','nghe sách'],['tiếng anh','english','bản tiếng anh'],['thumbnail','ảnh bìa','hình thu nhỏ','cover','ảnh đại diện video'],['video ai','dreamina','veo','kling','seedance','sora','tiểu phẩm'],['giá','bảng giá','báo giá','chi phí','bao nhiêu tiền','price'],['bài đăng','poster','banner','thiết kế','ảnh đăng'],['lồng tiếng','giọng đọc','voice','elevenlabs','giọng nói'],['bình luận','comment','trả lời bình luận'],['đăng lịch','lên lịch','đăng bài tự động','tự động đăng'],['mô tả','seo','tiêu đề','hashtag','từ khoá'],['liên hệ','hợp tác','messenger','tài trợ','booking','quảng cáo'],['câu lệnh','prompt','lệnh'],['sách','book','đọc','tủ sách'],['tử tế','lòng tốt','kindness','giúp người','nhân ái']],RAW={},SYN=SYNR.map(g=>g.map(x=>{const f=fold(x);RAW[f]=x;return f}));
+const syn=w=>{const o=[w];SYN.forEach(g=>{if(g.includes(w))g.forEach(x=>{if(!o.includes(x))o.push(x)})});return o};
+const alts=t=>{const o=syn(t).slice(1);t.split(/\s+/).forEach(w=>syn(w).slice(1).forEach(x=>{if(!o.includes(x)&&!t.includes(x))o.push(x)}));return o};
+const pad=f=>' '+f.replace(/[^a-z0-9]+/g,' ')+' ';
+const smatch=(f,t,ws)=>{if(ws.every(w=>f.includes(w)))return 1;const fp=pad(f),has=x=>fp.includes(' '+x+' ');return (syn(t).slice(1).some(has)||ws.every(w=>f.includes(w)||syn(w).slice(1).some(has)))?2:0};
 let IDX=null;
 const STATIC=[...Object.values(CH).map(c=>({t:c.n,d:c.d,u:c.yt,i:c.e,k:'Kênh'})),
  {t:'Tủ sách Sách Mỗi Ngày',d:'Sách đã giới thiệu trên kênh, mua trên Shopee',u:'/sach/',i:'📚',k:'Trang'},{t:'HaDa Picks',d:'Gear from HaDa videos, Amazon',u:'/picks/',i:'🛒',k:'Trang'},{t:'HADA AI Studio',d:'Văn phòng AI: thumbnail, bài đăng, mô tả, bình luận, đăng lịch, video AI',u:'/ai/',i:'🤖',k:'Trang'},{t:'Kho câu lệnh miễn phí',d:'Prompt thumbnail, Dreamina, Veo, poster…',u:'/ai/#kho',i:'🎁',k:'Trang'},{t:'Hợp tác với HADA',d:'Nhãn hàng, nhà xuất bản, tài trợ video',u:'#lien-he',i:'🤝',k:'Trang'},
@@ -514,10 +520,10 @@ function openS(){so.hidden=false;sq.value='';sres.innerHTML='<div class="e">Gõ 
   fetch('/ai/prompts.json').then(r=>r.json()).then(j=>{j.items.forEach(it=>IDX.push({t:it.title,d:it.cat+' · '+(it.tool||''),u:'/ai/#cl-'+it.id,i:'✨',k:'Câu lệnh',f:fold(it.title+' '+it.cat+' '+it.tool+' '+(it.use_when||''))}));sdraw()}).catch(()=>{})}}
 function closeS(){so.hidden=true;document.body.style.overflow=''}
 let sel=0;function sdraw(){if(so.hidden)return;const q=fold(sq.value.trim());if(!q){sres.innerHTML='<div class="e">Gõ để tìm trong kênh, Tủ sách, dịch vụ AI và kho câu lệnh.</div>';sinfo.textContent=(IDX||[]).length+' mục';return}
- const ws=q.split(/\s+/);const R=(IDX||[]).filter(x=>ws.every(w=>x.f.includes(w))).slice(0,30);sel=0;
+ const ws=q.split(/\s+/);let via=0;const R=(IDX||[]).filter(x=>{const m=smatch(x.f,q,ws);if(m===2)via++;return m>0}).slice(0,30);sel=0;
  if(!R.length){sres.innerHTML='<div class="e">Không thấy gì khớp. Thử từ ngắn hơn.</div>';sinfo.textContent='0 kết quả';return}
  let html='',last='';R.forEach((x,i)=>{if(x.k!==last){html+='<div class="h">'+x.k+'</div>';last=x.k}html+='<a href="'+x.u+'" '+(x.u.startsWith('http')?'target="_blank" rel="noopener"':'')+' data-i="'+i+'" class="'+(i===0?'sel':'')+'"><i>'+x.i+'</i><div><b>'+x.t+'</b><small>'+x.d+'</small></div><span class="k">'+x.k+'</span></a>'});
- sres.innerHTML=html;sinfo.textContent=R.length+' kết quả';}
+ sres.innerHTML=html;let inf=R.length+' kết quả';if(via){const ex=alts(q).map(x=>RAW[x]||x).slice(0,4);if(ex.length)inf+=' · hiểu thêm: '+ex.join(', ')}sinfo.textContent=inf;}
 document.getElementById('sbtn').onclick=openS;so.addEventListener('click',e=>{if(e.target===so)closeS()});sq.addEventListener('input',sdraw);
 document.addEventListener('keydown',e=>{if(e.key==='/'&&so.hidden&&!/input|textarea|select/i.test(document.activeElement.tagName)){e.preventDefault();openS()}
  if(so.hidden)return;const as=[...sres.querySelectorAll('a')];if(e.key==='Escape')closeS();else if(e.key==='ArrowDown'){e.preventDefault();sel=Math.min(as.length-1,sel+1)}else if(e.key==='ArrowUp'){e.preventDefault();sel=Math.max(0,sel-1)}else if(e.key==='Enter'&&as[sel]){as[sel].click();if(!as[sel].target)closeS();return}else return;
@@ -542,7 +548,7 @@ if(FINE&&!RM){
 }
 
 document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
- document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('on',x===b));
+ document.querySelectorAll('.filters button').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});
  const f=b.dataset.f;document.querySelectorAll('#chs .ch').forEach(c=>{c.classList.toggle('hide',f!=='all'&&c.dataset.l!==f);c.classList.add('in')})});
 
 if(!RM){const c=document.getElementById('fx'),x=c.getContext('2d');let W,H,P=[];const dpr=Math.min(2,devicePixelRatio||1);let mx=-9999,my=-9999;
