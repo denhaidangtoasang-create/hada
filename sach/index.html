@@ -14,8 +14,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#07060b;--bg2:#0e0c16;--glass:rgba(255,255,255,.045);--glass2:rgba(255,255,255,.08);--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.16);--ink:#f5f2ff;--muted:#a49fb8;--dim:#6d6882;--a1:#ffb547;--a2:#ff4d6d;--a3:#8b5cf6;--a4:#22d3ee;--shopee:#ee4d2d;--grad:linear-gradient(100deg,var(--a1),var(--a2) 40%,var(--a3) 75%,var(--a4));--mono:"JetBrains Mono",ui-monospace,monospace;color-scheme:dark}
-*{box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
+:root{--bg:#07060b;--bg2:#0e0c16;--glass:rgba(255,255,255,.045);--glass2:rgba(255,255,255,.08);--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.16);--ink:#f5f2ff;--muted:#a49fb8;--dim:#8d88a4;--a1:#ffb547;--a2:#ff4d6d;--a3:#8b5cf6;--a4:#22d3ee;--shopee:#ee4d2d;--grad:linear-gradient(100deg,var(--a1),var(--a2) 40%,var(--a3) 75%,var(--a4));--mono:"JetBrains Mono",ui-monospace,monospace;color-scheme:dark}
+*{box-sizing:border-box}:focus-visible{outline:2px solid var(--a1);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}}
+html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro",-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
 a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .wrap{max-width:1180px;margin:0 auto;padding:0 18px}
@@ -116,7 +118,7 @@ footer{border-top:1px solid var(--line);margin-top:60px;padding:26px 0 34px;colo
 <select class="sort" id="sort" aria-label="Sắp xếp"><option value="hot">Nổi bật</option><option value="low">Giá thấp → cao</option><option value="high">Giá cao → thấp</option></select>
 </div>
 <div class="goals" role="group" aria-label="Gợi ý theo mục tiêu"><span class="gl">Bạn muốn</span><button type="button" class="gc on" data-g="tat-ca" aria-pressed="true">Tất cả mục tiêu</button><button type="button" class="gc" data-g="thoi-quen" aria-pressed="false">Xây thói quen</button><button type="button" class="gc" data-g="tap-trung" aria-pressed="false">Tập trung &amp; năng suất</button><button type="button" class="gc" data-g="tien" aria-pressed="false">Tiền bạc</button><button type="button" class="gc" data-g="giao-tiep" aria-pressed="false">Giao tiếp &amp; thuyết phục</button><button type="button" class="gc" data-g="hanh-phuc" aria-pressed="false">Hạnh phúc &amp; bình an</button><button type="button" class="gc" data-g="kinh-doanh" aria-pressed="false">Kinh doanh &amp; lãnh đạo</button></div>
-<p class="count" id="count">17 cuốn</p>
+<p class="count" id="count" aria-live="polite">17 cuốn</p>
 <main class="shelf" id="shelf">
 <a class="book rv" id="Tam-Ly-Hoc-Ve-Tien" data-l="vi" data-g="tien thoi-quen" data-p="184030" data-q="tam ly hoc ve tien tam ly hoc ve tien tien bac tiet kiem dau tu lai kep tai chinh ca nhan tu do tai chinh giau hay ngheo it phu thuoc vao iq, ma phu thuoc vao cach ban cu xu voi tien moi ngay." href="/sach/tam-ly-hoc-ve-tien/" data-track="mở trang sách" data-detail="Tâm Lý Học Về Tiền">
 <div class="cover"><img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lsl078c7vtztf2" alt="Tâm Lý Học Về Tiền" loading="lazy"><div class="bdgs"><span class="bdg new">✨ Mới</span></div><span class="num">01</span></div>
