@@ -18,7 +18,7 @@
 <style>
   /* HaDa Picks – futuristic restyle (matches hadavn.com): dark glass, aurora, particles, tilt cards. The original stylesheet below is kept but disabled (media="not all"). */
   :root{
-    --paper:#07060b;--card:#0e0c16;--card2:#141120;--ink:#f5f2ff;--muted:#a49fb8;--dim:#6d6882;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.16);
+    --paper:#07060b;--card:#0e0c16;--card2:#141120;--ink:#f5f2ff;--muted:#a49fb8;--dim:#8d88a4;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.16);
     --glass:rgba(255,255,255,.045);--glass2:rgba(255,255,255,.08);
     --cape:#ff4d6d;--sky:#22d3ee;--a1:#ffb547;--a3:#8b5cf6;--amz:#ff9900;
     --grad:linear-gradient(100deg,#ffb547,#ff4d6d 40%,#8b5cf6 75%,#22d3ee);
@@ -32,6 +32,7 @@
   body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--body)}
   a{color:inherit}button,input,select{font:inherit;color:inherit}
   :focus-visible{outline:2px solid var(--a1);outline-offset:2px}
+  @media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}}
   ::selection{background:var(--cape);color:#fff}
   #fx{position:fixed;inset:0;z-index:0;pointer-events:none}
   .aurora{position:fixed;inset:-20%;z-index:0;pointer-events:none;filter:blur(90px);opacity:.5}
