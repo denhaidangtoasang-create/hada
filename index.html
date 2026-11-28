@@ -23,13 +23,15 @@
 :root{
  --bg:#07060b;--bg2:#0e0c16;--glass:rgba(255,255,255,.045);--glass2:rgba(255,255,255,.08);
  --line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.16);
- --ink:#f5f2ff;--muted:#a49fb8;--dim:#6d6882;
+ --ink:#f5f2ff;--muted:#a49fb8;--dim:#8d88a4;
  --a1:#ffb547;--a2:#ff4d6d;--a3:#8b5cf6;--a4:#22d3ee;
  --grad:linear-gradient(100deg,var(--a1),var(--a2) 40%,var(--a3) 75%,var(--a4));
  --mono:"JetBrains Mono",ui-monospace,monospace;
  color-scheme:dark;
 }
 *{box-sizing:border-box}
+:focus-visible{outline:2px solid var(--a1);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;overflow-x:clip}
 main{overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro",-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;overflow-x:hidden}
@@ -443,7 +445,7 @@ footer a:hover{color:var(--ink)}
 </section>
 </main>
 
-<div class="so" id="so" hidden role="dialog" aria-modal="true" aria-label="Tìm kiếm toàn trang"><div class="sp"><input id="sq" type="search" placeholder="Tìm kênh, sách, dịch vụ AI, câu lệnh… (không cần dấu)" autocomplete="off" aria-label="Tìm kiếm"><div class="sr" id="sres"><div class="e">Gõ để tìm trong kênh, Tủ sách, dịch vụ AI và kho câu lệnh.</div></div><div class="sf"><span>↑↓ chọn · Enter mở · Esc đóng</span><span id="sinfo"></span></div></div></div>
+<div class="so" id="so" hidden role="dialog" aria-modal="true" aria-label="Tìm kiếm toàn trang"><div class="sp"><input id="sq" type="search" placeholder="Tìm kênh, sách, dịch vụ AI, câu lệnh… (không cần dấu)" autocomplete="off" aria-label="Tìm kiếm"><div class="sr" id="sres"><div class="e">Gõ để tìm trong kênh, Tủ sách, dịch vụ AI và kho câu lệnh.</div></div><div class="sf"><span>↑↓ chọn · Enter mở · Esc đóng</span><span id="sinfo" aria-live="polite"></span></div></div></div>
 <footer><div class="wrap">
  <span>© <span id="y"></span> HADA · hadavn.com · Lan toả lòng tốt mỗi ngày</span>
  <span><a href="/sach/">Tủ sách</a> · <a href="/picks/">HaDa Picks</a> · <a href="/ai/">Dịch vụ AI</a> · <a href="#top">Lên đầu ↑</a></span>
